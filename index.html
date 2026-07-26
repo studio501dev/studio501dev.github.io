@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio501 — Logiciels Windows premium</title>
+  <meta name="description" content="Studio501 conçoit des logiciels Windows modernes, simples et respectueux de la vie privée. Découvrez nos applications.">
+  <style>
+    :root {
+      --bg: #080b12;
+      --panel: rgba(255,255,255,.055);
+      --border: rgba(255,255,255,.10);
+      --text: #f7f8fc;
+      --muted: #9da7bb;
+      --purple: #786cff;
+      --blue: #5ba9ff;
+      --green: #68d7aa;
+      --shadow: 0 30px 80px rgba(0,0,0,.35);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 5%, rgba(120,108,255,.17), transparent 32%),
+        radial-gradient(circle at 90% 18%, rgba(91,169,255,.12), transparent 30%),
+        var(--bg);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1180px, calc(100% - 40px)); margin: auto; }
+    nav {
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: blur(22px);
+      background: rgba(8,11,18,.78);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .nav-inner {
+      height: 74px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 13px;
+      font-weight: 800; letter-spacing: -.03em; font-size: 20px;
+    }
+    .brand-mark {
+      width: 38px; height: 38px; display: grid; place-items: center;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--purple), var(--blue));
+      box-shadow: 0 10px 35px rgba(120,108,255,.35);
+      font-weight: 900;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 26px;
+      color: var(--muted); font-size: 14px; font-weight: 600;
+    }
+    .nav-links a:hover { color: white; }
+    .hero { padding: 120px 0 90px; text-align: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 8px 13px; border-radius: 999px;
+      border: 1px solid rgba(166,158,255,.22);
+      background: rgba(120,108,255,.09);
+      color: #c9c4ff; font-size: 13px; font-weight: 700; margin-bottom: 27px;
+    }
+    .dot {
+      width: 7px; height: 7px; background: var(--green);
+      border-radius: 50%; box-shadow: 0 0 16px var(--green);
+    }
+    h1 {
+      max-width: 900px; margin: auto;
+      font-size: clamp(50px, 7vw, 88px);
+      line-height: .98; letter-spacing: -.065em;
+    }
+    .gradient-text {
+      background: linear-gradient(100deg, #fff, #aaa3ff 52%, #6db5ff);
+      -webkit-background-clip: text; color: transparent;
+    }
+    .hero p {
+      max-width: 720px; margin: 30px auto 0;
+      color: var(--muted); font-size: clamp(17px, 2vw, 21px);
+    }
+    .hero-actions {
+      display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 38px;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 14px 21px; border-radius: 13px; font-weight: 750; font-size: 15px;
+      border: 1px solid var(--border); transition: .2s ease;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--purple), #6256ea);
+      box-shadow: 0 14px 40px rgba(120,108,255,.25);
+    }
+    .btn-secondary { background: rgba(255,255,255,.05); }
+    .btn:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.22); }
+    .section { padding: 90px 0; }
+    .section-heading { max-width: 760px; margin-bottom: 44px; }
+    .label {
+      color: #aaa3ff; font-size: 13px; font-weight: 800;
+      letter-spacing: .12em; text-transform: uppercase;
+    }
+    h2 {
+      font-size: clamp(38px, 5vw, 58px);
+      margin: 12px 0 18px; letter-spacing: -.045em; line-height: 1.03;
+    }
+    .section-heading p { color: var(--muted); font-size: 17px; }
+    .products-grid {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px;
+    }
+    .product-card {
+      position: relative; overflow: hidden; display: flex; flex-direction: column;
+      min-height: 390px; padding: 34px;
+      border: 1px solid var(--border);
+      background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
+      border-radius: 28px; box-shadow: var(--shadow);
+    }
+    .product-card.featured {
+      grid-column: 1 / -1; min-height: 430px; padding: clamp(34px, 6vw, 58px);
+    }
+    .product-card::after {
+      content: ""; position: absolute; width: 430px; height: 430px;
+      right: -170px; top: -220px;
+      background: radial-gradient(circle, rgba(120,108,255,.22), transparent 67%);
+      pointer-events: none;
+    }
+    .product-top, .product-footer { position: relative; z-index: 1; }
+    .status {
+      display: inline-flex; align-items: center; gap: 8px; width: fit-content;
+      padding: 7px 10px; border-radius: 999px;
+      background: rgba(104,215,170,.08);
+      border: 1px solid rgba(104,215,170,.18);
+      color: #8ee7c2; font-size: 12px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .08em;
+    }
+    .product-card h3 {
+      margin: 18px 0 12px; font-size: clamp(29px, 4vw, 46px);
+      letter-spacing: -.04em; line-height: 1.05;
+    }
+    .product-card:not(.featured) h3 { font-size: 30px; }
+    .product-description { color: var(--muted); font-size: 17px; max-width: 760px; }
+    .badges { display: flex; gap: 9px; flex-wrap: wrap; margin-top: 24px; }
+    .badge {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.045);
+      color: #d7dbea; padding: 7px 11px; border-radius: 9px;
+      font-size: 13px; font-weight: 650;
+    }
+    .product-footer {
+      margin-top: auto; padding-top: 28px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; flex-wrap: wrap;
+    }
+    .product-note { color: #7f899e; font-size: 13px; }
+    .features {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+    }
+    .feature {
+      padding: 28px; min-height: 190px;
+      border-radius: 20px; border: 1px solid var(--border); background: var(--panel);
+    }
+    .feature-icon {
+      width: 45px; height: 45px; display: grid; place-items: center;
+      border-radius: 13px; margin-bottom: 21px;
+      background: rgba(120,108,255,.12); color: #b5afff; font-size: 21px;
+    }
+    .feature h3 { margin: 0 0 8px; font-size: 18px; }
+    .feature p { margin: 0; color: var(--muted); font-size: 15px; }
+    .about-box {
+      padding: 45px; border-radius: 25px;
+      background: linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
+      border: 1px solid var(--border);
+    }
+    .about-box p { color: var(--muted); max-width: 800px; font-size: 17px; }
+    .contact {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 30px; margin-top: 30px; padding-top: 27px; border-top: 1px solid var(--border);
+    }
+    .contact strong { display: block; }
+    .mail { color: #b6b0ff; font-weight: 700; }
+    footer {
+      border-top: 1px solid rgba(255,255,255,.07);
+      margin-top: 60px; padding: 36px 0 50px;
+      color: #778196; font-size: 13px;
+    }
+    .footer-row {
+      display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    }
+    @media (max-width: 850px) {
+      .nav-links { display: none; }
+      .products-grid, .features { grid-template-columns: 1fr; }
+      .product-card.featured { grid-column: auto; }
+      .contact { align-items: flex-start; flex-direction: column; }
+      .hero { padding-top: 90px; }
+    }
+  </style>
+</head>
+
+<body>
+<nav>
+  <div class="container nav-inner">
+    <a class="brand" href="#">
+      <span class="brand-mark">5</span>
+      Studio501
+    </a>
+    <div class="nav-links">
+      <a href="#software">Logiciels</a>
+      <a href="#about">Studio501</a>
+      <a href="#support">Support</a>
+      <a href="privacy.html">Confidentialité</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow">
+      <span class="dot"></span>
+      Studio indépendant de développement logiciel
+    </div>
+    <h1>
+      Des logiciels pensés pour être
+      <span class="gradient-text">simples et efficaces.</span>
+    </h1>
+    <p>
+      Studio501 conçoit des applications Windows modernes,
+      professionnelles et respectueuses de la vie privée,
+      sans complexité inutile.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#software">Découvrir nos logiciels</a>
+      <a class="btn btn-secondary" href="mailto:studio501.dev@gmail.com">Contacter Studio501</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="section" id="software">
+  <div class="container">
+    <div class="section-heading">
+      <div class="label">Logiciels Studio501</div>
+      <h2>Des outils utiles, sans complexité inutile.</h2>
+      <p>
+        Cette section évoluera avec Studio501. Chaque nouveau logiciel peut être
+        ajouté sans modifier la structure du site.
+      </p>
+    </div>
+    <div class="products-grid" id="productsGrid"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <div class="label">Notre approche</div>
+      <h2>Des applications conçues pour rester simples.</h2>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">◇</div>
+        <h3>Expérience soignée</h3>
+        <p>Des interfaces pensées pour être agréables et immédiatement compréhensibles.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">▣</div>
+        <h3>Respect des données</h3>
+        <p>Nous privilégions le fonctionnement local lorsque le produit le permet.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">∞</div>
+        <h3>Logiciels durables</h3>
+        <p>Des outils utiles, sans multiplier les comptes et services inutiles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-box">
+      <div class="label">À propos</div>
+      <h2>Studio501</h2>
+      <p>
+        Studio501 est un studio indépendant français spécialisé dans la conception
+        et le développement de logiciels. Notre objectif est de créer des applications
+        utiles, agréables à utiliser et respectueuses des données de leurs utilisateurs.
+      </p>
+      <p>Entreprise éditrice : <strong>Candela</strong> — France.</p>
+      <div class="contact" id="support">
+        <div>
+          <strong>Support</strong>
+          <span>Une question concernant un logiciel Studio501 ?</span>
+        </div>
+        <a class="mail" href="mailto:studio501.dev@gmail.com">studio501.dev@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <div class="label">English</div>
+      <h2>Software designed to stay simple.</h2>
+      <p>
+        Studio501 is an independent French software studio creating modern,
+        practical and privacy-conscious Windows applications.
+      </p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <span>© 2026 Studio501 — Candela</span>
+    <span>
+      France · <a href="privacy.html">Confidentialité / Privacy</a>
+      · <a href="mailto:studio501.dev@gmail.com">Support</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+/*
+==========================================================================
+   PRODUITS STUDIO501
+==========================================================================
+Pour ajouter un logiciel plus tard :
+1. Copiez un bloc {...} existant.
+2. Modifiez ses textes.
+3. Ajoutez une virgule entre les produits.
+C'est tout. La mise en page est créée automatiquement.
+
+featured: true  = grand produit principal
+featured: false = carte normale
+buttonUrl: ""    = aucun bouton si le produit n'est pas encore publié
+==========================================================================
+*/
+
+const PRODUCTS = [
+  {
+    name: "Decision Tree Studio",
+    status: "Prochainement sur Microsoft Store",
+    description:
+      "Concevez visuellement des arbres de décision, des procédures interactives et des guides de diagnostic. Créez vos parcours, présentez-les étape par étape et partagez-les facilement.",
+    badges: ["Windows", "Hors ligne", "Sans compte", "Sans abonnement", "FR / EN"],
+    note: "Premier logiciel commercial Studio501",
+    buttonText: "",
+    buttonUrl: "",
+    featured: true
+  }
+
+  /*
+  EXEMPLE POUR UN FUTUR PRODUIT :
+
+  ,{
+    name: "Nom du prochain logiciel",
+    status: "Disponible sur Microsoft Store",
+    description: "Description courte et professionnelle du logiciel.",
+    badges: ["Windows", "Hors ligne", "FR / EN"],
+    note: "Studio501",
+    buttonText: "Voir sur Microsoft Store",
+    buttonUrl: "https://apps.microsoft.com/...",
+    featured: false
+  }
+  */
+];
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function renderProducts() {
+  const grid = document.getElementById("productsGrid");
+
+  grid.innerHTML = PRODUCTS.map(product => {
+    const badges = product.badges
+      .map(badge => `<span class="badge">${escapeHtml(badge)}</span>`)
+      .join("");
+
+    const button = product.buttonUrl && product.buttonText
+      ? `<a class="btn btn-primary"
+             href="${escapeHtml(product.buttonUrl)}"
+             target="_blank"
+             rel="noopener noreferrer">
+           ${escapeHtml(product.buttonText)}
+         </a>`
+      : "";
+
+    return `
+      <article class="product-card ${product.featured ? "featured" : ""}">
+        <div class="product-top">
+          <div class="status">${escapeHtml(product.status)}</div>
+          <h3>${escapeHtml(product.name)}</h3>
+          <p class="product-description">${escapeHtml(product.description)}</p>
+          <div class="badges">${badges}</div>
+        </div>
+        <div class="product-footer">
+          <span class="product-note">${escapeHtml(product.note || "")}</span>
+          ${button}
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+renderProducts();
+</script>
+</body>
+</html>
