@@ -95,6 +95,14 @@
     }
     .btn-secondary { background: rgba(255,255,255,.05); }
     .btn:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.22); }
+    .store-icon {
+      display: inline-flex; width: 18px; height: 18px; margin-right: 8px;
+      flex: 0 0 18px;
+    }
+    .store-icon svg {
+      width: 100%; height: 100%; fill: none; stroke: currentColor;
+      stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+    }
     .section { padding: 90px 0; }
     .section-heading { max-width: 760px; margin-bottom: 44px; }
     .label {
@@ -342,13 +350,13 @@ buttonUrl: ""    = aucun bouton si le produit n'est pas encore publié
 const PRODUCTS = [
   {
     name: "Decision Tree Studio",
-    status: "Prochainement sur Microsoft Store",
+    status: "Disponible sur Microsoft Store",
     description:
-      "Concevez visuellement des arbres de décision, des procédures interactives et des guides de diagnostic. Créez vos parcours, présentez-les étape par étape et partagez-les facilement.",
-    badges: ["Windows", "Hors ligne", "Sans compte", "Sans abonnement", "FR / EN"],
-    note: "Premier logiciel commercial Studio501",
-    buttonText: "",
-    buttonUrl: "",
+      "Transformez vos procédures en guides interactifs clairs. Créez des arbres de décision, des parcours de diagnostic et des supports prêts à partager.",
+    badges: ["Windows", "Arbres de décision", "Export HTML", "FR / EN"],
+    note: "Studio501",
+    buttonText: "Voir sur Microsoft Store",
+    buttonUrl: "https://apps.microsoft.com/detail/9PGPZ8W0TW2D?hl=fr-fr&gl=FR",
     featured: true
   }
 
@@ -359,7 +367,7 @@ const PRODUCTS = [
     name: "Nom du prochain logiciel",
     status: "Disponible sur Microsoft Store",
     description: "Description courte et professionnelle du logiciel.",
-    badges: ["Windows", "Hors ligne", "FR / EN"],
+    badges: ["Windows", "Arbres de décision", "FR / EN"],
     note: "Studio501",
     buttonText: "Voir sur Microsoft Store",
     buttonUrl: "https://apps.microsoft.com/...",
@@ -389,7 +397,14 @@ function renderProducts() {
       ? `<a class="btn btn-primary"
              href="${escapeHtml(product.buttonUrl)}"
              target="_blank"
-             rel="noopener noreferrer">
+             rel="noopener noreferrer"
+             aria-label="Voir ${escapeHtml(product.name)} dans le Microsoft Store">
+           <span class="store-icon" aria-hidden="true">
+             <svg viewBox="0 0 24 24">
+               <path d="M5 8.5h14l-1 11H6l-1-11Z"></path>
+               <path d="M9 8.5V7a3 3 0 0 1 6 0v1.5"></path>
+             </svg>
+           </span>
            ${escapeHtml(product.buttonText)}
          </a>`
       : "";
