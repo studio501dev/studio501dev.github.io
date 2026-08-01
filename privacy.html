@@ -1,51 +1,104 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Confidentialité — Studio501</title>
-<style>
-body{margin:0;font-family:Segoe UI,system-ui,sans-serif;background:#080b12;color:#f7f8fc;line-height:1.7}
-a{color:#b9b3ff}.wrap{max-width:900px;margin:auto;padding:40px 22px}
-nav{border-bottom:1px solid #242938;background:#0b0f18}.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;max-width:900px;margin:auto}
-.card{background:#111624;border:1px solid #252c3d;border-radius:20px;padding:28px;margin:18px 0}
-h1{font-size:48px;line-height:1;margin:20px 0}.muted{color:#9da7bb}.en{margin-top:60px;padding-top:35px;border-top:1px solid #252c3d}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Confidentialité — Studio501</title>
+  <meta name="description" content="Politique de confidentialité de Decision Tree Studio et Universal Converter Studio.">
+  <style>
+    :root{color-scheme:dark;--bg:#080b12;--panel:#111624;--border:#252c3d;--text:#f7f8fc;--muted:#9da7bb;--purple:#b9b3ff;--green:#8ee7c2}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,"Segoe UI",system-ui,sans-serif;background:radial-gradient(circle at 15% 5%,rgba(120,108,255,.14),transparent 30%),var(--bg);color:var(--text);line-height:1.7}
+    a{color:var(--purple)}.wrap{max-width:960px;margin:auto;padding:42px 22px 70px}nav{border-bottom:1px solid var(--border);background:rgba(8,11,18,.86);position:sticky;top:0;backdrop-filter:blur(18px)}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;max-width:960px;margin:auto}.intro,.card{background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.025));border:1px solid var(--border);border-radius:20px;padding:28px;margin:18px 0}
+    h1{font-size:clamp(38px,7vw,58px);line-height:1.02;margin:26px 0 14px;letter-spacing:-.045em}h2{margin-top:0}h3{margin-bottom:6px}.muted{color:var(--muted)}.good{color:var(--green);font-weight:700}.en{margin-top:64px;padding-top:40px;border-top:1px solid var(--border)}ul{padding-left:22px}
+  </style>
 </head>
 <body>
-<nav><div class="nav"><strong>Studio501</strong><a href="index.html">← Retour au site</a></div></nav>
-<main class="wrap">
-<h1>Politique de confidentialité</h1>
-<p class="muted">Dernière mise à jour : 26 juillet 2026</p>
+  <nav><div class="nav"><strong>Studio501</strong><a href="index.html">← Retour au site</a></div></nav>
+  <main class="wrap">
+    <h1>Politique de confidentialité</h1>
+    <p class="muted">Dernière mise à jour : 1er août 2026</p>
+    <div class="intro">
+      <strong>En bref :</strong> les applications Studio501 décrites ci-dessous fonctionnent localement. Elles ne nécessitent aucun compte, n’affichent aucune publicité et n’envoient pas à Studio501 vos projets, médias ou données d’utilisation.
+    </div>
+    <div class="card">
+      <h2>Applications couvertes</h2>
+      <h3>Decision Tree Studio</h3>
+      <p>Les projets et arbres de décision restent sur votre appareil, sauf lorsque vous choisissez vous-même de les exporter ou de les partager.</p>
+      <h3>Universal Converter Studio</h3>
+      <p>L’application lit les fichiers sélectionnés et leurs informations techniques uniquement pour analyser et effectuer la conversion demandée. Les originaux, fichiers temporaires et résultats restent sur votre PC et dans les dossiers que vous choisissez.</p>
+    </div>
+    <div class="card">
+      <h2>Données conservées localement</h2>
+      <p>Selon l’application utilisée, le stockage local peut contenir vos préférences, projets, dossier de sortie, file de conversion récupérable, historique comprenant les chemins de fichiers et un journal de diagnostic limité nécessaire au dépannage.</p>
+      <p class="good">Ces données ne sont pas transmises à Studio501 ni à un serveur de conversion.</p>
+    </div>
+    <div class="card">
+      <h2>Contrôles et conservation</h2>
+      <ul>
+        <li>vous choisissez les fichiers, dossiers et emplacements de sortie ;</li>
+        <li>l’historique, la file et les diagnostics peuvent être effacés depuis l’application concernée ;</li>
+        <li>la désinstallation supprime les données privées de l’application selon le fonctionnement de Windows ;</li>
+        <li>les originaux et résultats placés dans vos dossiers personnels ne sont pas supprimés par ces commandes.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Services tiers, télémétrie et publicité</h2>
+      <p>Les applications ne contiennent ni publicité, ni profilage, ni outil d’analyse d’usage envoyé à Studio501. Universal Converter Studio inclut FFmpeg et ffprobe et les exécute localement ; aucun moteur de conversion n’est téléchargé pendant l’utilisation.</p>
+    </div>
+    <div class="card">
+      <h2>Support et éditeur</h2>
+      <p>Les informations que vous envoyez volontairement par e-mail sont utilisées uniquement pour répondre à votre demande de support.</p>
+      <p><a href="mailto:studio501.dev@gmail.com">studio501.dev@gmail.com</a></p>
+      <p>Éditeur : <strong>Candela — Studio501</strong>, France.</p>
+    </div>
+    <div class="card">
+      <h2>Enfants et modifications</h2>
+      <p>Les applications ne collectent pas sciemment de données personnelles d’enfants. Toute modification substantielle de cette politique sera publiée avec une nouvelle date.</p>
+    </div>
 
-<div class="card"><h2>Decision Tree Studio</h2><p>Decision Tree Studio est conçu pour fonctionner localement sur l’appareil de l’utilisateur. Les projets créés dans l’application restent sur l’appareil, sauf lorsque l’utilisateur choisit lui-même de les exporter ou de les partager.</p></div>
-
-<div class="card"><h2>Données personnelles</h2><p>Decision Tree Studio ne nécessite pas de compte utilisateur. Studio501 ne collecte pas les projets, arbres de décision, contenus ou fichiers créés dans l’application.</p></div>
-
-<div class="card"><h2>Télémétrie et publicité</h2><p>Decision Tree Studio n’intègre pas de publicité et n’est pas conçu pour transmettre à Studio501 des données d’utilisation ou de télémétrie personnalisée.</p></div>
-
-<div class="card"><h2>Stockage local et sauvegardes</h2><p>Les données et sauvegardes créées par l’application sont stockées localement sur l’appareil de l’utilisateur. L’utilisateur reste responsable de ses sauvegardes externes et exports.</p></div>
-
-<div class="card"><h2>Support</h2><p>Les informations envoyées volontairement par e-mail sont utilisées uniquement afin de répondre à la demande de support.</p><p><a href="mailto:studio501.dev@gmail.com">studio501.dev@gmail.com</a></p></div>
-
-<div class="card"><h2>Éditeur</h2><p>Studio501 — Entreprise éditrice : Candela, France.</p></div>
-
-<section class="en">
-<h1>Privacy Policy</h1>
-<p class="muted">Last updated: July 26, 2026</p>
-
-<div class="card"><h2>Decision Tree Studio</h2><p>Decision Tree Studio is designed to operate locally on the user’s device. Projects remain on the device unless the user explicitly chooses to export or share them.</p></div>
-
-<div class="card"><h2>Personal data</h2><p>Decision Tree Studio does not require a user account. Studio501 does not collect projects, decision trees, content or files created in the application.</p></div>
-
-<div class="card"><h2>Telemetry and advertising</h2><p>Decision Tree Studio contains no advertising and is not designed to send personalized usage or telemetry data to Studio501.</p></div>
-
-<div class="card"><h2>Local storage and backups</h2><p>Application data and backups are stored locally on the user’s device. Users remain responsible for their own external backups and exports.</p></div>
-
-<div class="card"><h2>Support</h2><p>Information voluntarily provided by email is used only to respond to the user’s support request.</p><p><a href="mailto:studio501.dev@gmail.com">studio501.dev@gmail.com</a></p></div>
-
-<div class="card"><h2>Publisher</h2><p>Studio501 — Publishing business: Candela, France.</p></div>
-</section>
-</main>
+    <section class="en" lang="en">
+      <h1>Privacy Policy</h1>
+      <p class="muted">Last updated: August 1, 2026</p>
+      <div class="intro">
+        <strong>In short:</strong> the Studio501 applications described below operate locally. They require no account, display no advertising, and do not send your projects, media, or usage data to Studio501.
+      </div>
+      <div class="card">
+        <h2>Covered applications</h2>
+        <h3>Decision Tree Studio</h3>
+        <p>Projects and decision trees remain on your device unless you explicitly choose to export or share them.</p>
+        <h3>Universal Converter Studio</h3>
+        <p>The app reads selected files and their technical information only to analyze and perform the requested conversion. Originals, temporary files, and results remain on your PC and in the folders you choose.</p>
+      </div>
+      <div class="card">
+        <h2>Data stored locally</h2>
+        <p>Depending on the app, local storage may contain preferences, projects, the output folder, recoverable conversion queue, history including file paths, and a limited diagnostic log needed for troubleshooting.</p>
+        <p class="good">This data is not transmitted to Studio501 or to a conversion server.</p>
+      </div>
+      <div class="card">
+        <h2>Controls and retention</h2>
+        <ul>
+          <li>you choose the files, folders, and output locations;</li>
+          <li>history, queue items, and diagnostics can be cleared from the relevant app;</li>
+          <li>uninstalling removes private app data according to Windows behavior;</li>
+          <li>originals and outputs stored in personal folders are not removed by these controls.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Third-party components, analytics and advertising</h2>
+        <p>The apps contain no advertising, profiling, or usage analytics sent to Studio501. Universal Converter Studio bundles FFmpeg and ffprobe and runs them locally; no conversion engine is downloaded during use.</p>
+      </div>
+      <div class="card">
+        <h2>Support and publisher</h2>
+        <p>Information voluntarily sent by email is used only to respond to the support request.</p>
+        <p><a href="mailto:studio501.dev@gmail.com">studio501.dev@gmail.com</a></p>
+        <p>Publisher: <strong>Candela — Studio501</strong>, France.</p>
+      </div>
+      <div class="card">
+        <h2>Children and changes</h2>
+        <p>The apps do not knowingly collect children’s personal data. Material changes to this policy will be published with a new date.</p>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
