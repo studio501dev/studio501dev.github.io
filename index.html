@@ -348,35 +348,29 @@ buttonUrl: ""    = aucun bouton si le produit n'est pas encore publié
 */
 
 const PRODUCTS = [
-  {
-    name: "Decision Tree Studio",
-    status: "Disponible sur Microsoft Store",
-    description:
-      "Transformez vos procédures en guides interactifs clairs. Créez des arbres de décision, des parcours de diagnostic et des supports prêts à partager.",
-    badges: ["Windows", "Arbres de décision", "Export HTML", "FR / EN"],
-    note: "Studio501",
-    buttonText: "Voir sur Microsoft Store",
-    buttonUrl: "https://apps.microsoft.com/detail/9PGPZ8W0TW2D?hl=fr-fr&gl=FR",
-    featured: true
-  }
+      {
+        name: "Decision Tree Studio",
+        status: "Disponible sur Microsoft Store",
+        description: "Transformez vos procédures en guides interactifs clairs. Créez des arbres de décision, des parcours de diagnostic et des supports prêts à partager.",
+        badges: ["Windows", "Arbres de décision", "Export HTML", "FR / EN"],
+        note: "Studio501",
+        buttonText: "Voir sur Microsoft Store",
+        buttonUrl: "https://apps.microsoft.com/detail/9PGPZ8W0TW2D?hl=fr-fr&gl=FR",
+        featured: true
+      },
+      {
+        name: "Universal Converter Studio",
+        status: "Bientôt disponible sur Microsoft Store",
+        description: "Convertissez vos vidéos, images et fichiers audio directement sur votre PC. Choisissez un format compatible, traitez un fichier, un dossier ou un lot, puis suivez chaque résultat dans une file d’attente claire.",
+        badges: ["Windows 10 / 11", "Vidéo · Image · Audio", "Conversion locale", "FR / EN"],
+        note: "Aucun compte · Aucun envoi vers un serveur",
+        buttonText: "Voir la fiche Microsoft Store",
+        buttonUrl: "https://apps.microsoft.com/detail/9NBR4F51XP7N",
+        featured: true
+      }
+    ];
 
-  /*
-  EXEMPLE POUR UN FUTUR PRODUIT :
-
-  ,{
-    name: "Nom du prochain logiciel",
-    status: "Disponible sur Microsoft Store",
-    description: "Description courte et professionnelle du logiciel.",
-    badges: ["Windows", "Arbres de décision", "FR / EN"],
-    note: "Studio501",
-    buttonText: "Voir sur Microsoft Store",
-    buttonUrl: "https://apps.microsoft.com/...",
-    featured: false
-  }
-  */
-];
-
-function escapeHtml(value) {
+    function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
