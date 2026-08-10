@@ -1,452 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Studio501 — Logiciels Windows premium</title>
-  <meta name="description" content="Studio501 conçoit des logiciels Windows modernes, simples et respectueux de la vie privée. Découvrez nos applications.">
-  <style>
-    :root {
-      --bg: #080b12;
-      --panel: rgba(255,255,255,.055);
-      --border: rgba(255,255,255,.10);
-      --text: #f7f8fc;
-      --muted: #9da7bb;
-      --purple: #786cff;
-      --blue: #5ba9ff;
-      --green: #68d7aa;
-      --shadow: 0 30px 80px rgba(0,0,0,.35);
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 15% 5%, rgba(120,108,255,.17), transparent 32%),
-        radial-gradient(circle at 90% 18%, rgba(91,169,255,.12), transparent 30%),
-        var(--bg);
-      line-height: 1.6;
-    }
-    a { color: inherit; text-decoration: none; }
-    .container { width: min(1180px, calc(100% - 40px)); margin: auto; }
-    nav {
-      position: sticky; top: 0; z-index: 20;
-      backdrop-filter: blur(22px);
-      background: rgba(8,11,18,.78);
-      border-bottom: 1px solid rgba(255,255,255,.07);
-    }
-    .nav-inner {
-      height: 74px; display: flex; align-items: center; justify-content: space-between;
-    }
-    .brand {
-      display: flex; align-items: center; gap: 13px;
-      font-weight: 800; letter-spacing: -.03em; font-size: 20px;
-    }
-    .brand-mark {
-      width: 38px; height: 38px; display: grid; place-items: center;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--purple), var(--blue));
-      box-shadow: 0 10px 35px rgba(120,108,255,.35);
-      font-weight: 900;
-    }
-    .nav-links {
-      display: flex; align-items: center; gap: 26px;
-      color: var(--muted); font-size: 14px; font-weight: 600;
-    }
-    .nav-links a:hover { color: white; }
-    .hero { padding: 120px 0 90px; text-align: center; }
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: 9px;
-      padding: 8px 13px; border-radius: 999px;
-      border: 1px solid rgba(166,158,255,.22);
-      background: rgba(120,108,255,.09);
-      color: #c9c4ff; font-size: 13px; font-weight: 700; margin-bottom: 27px;
-    }
-    .dot {
-      width: 7px; height: 7px; background: var(--green);
-      border-radius: 50%; box-shadow: 0 0 16px var(--green);
-    }
-    h1 {
-      max-width: 900px; margin: auto;
-      font-size: clamp(50px, 7vw, 88px);
-      line-height: .98; letter-spacing: -.065em;
-    }
-    .gradient-text {
-      background: linear-gradient(100deg, #fff, #aaa3ff 52%, #6db5ff);
-      -webkit-background-clip: text; color: transparent;
-    }
-    .hero p {
-      max-width: 720px; margin: 30px auto 0;
-      color: var(--muted); font-size: clamp(17px, 2vw, 21px);
-    }
-    .hero-actions {
-      display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 38px;
-    }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 14px 21px; border-radius: 13px; font-weight: 750; font-size: 15px;
-      border: 1px solid var(--border); transition: .2s ease;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--purple), #6256ea);
-      box-shadow: 0 14px 40px rgba(120,108,255,.25);
-    }
-    .btn-secondary { background: rgba(255,255,255,.05); }
-    .btn:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.22); }
-    .store-icon {
-      display: inline-flex; width: 18px; height: 18px; margin-right: 8px;
-      flex: 0 0 18px;
-    }
-    .store-icon svg {
-      width: 100%; height: 100%; fill: none; stroke: currentColor;
-      stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
-    }
-    .section { padding: 90px 0; }
-    .section-heading { max-width: 760px; margin-bottom: 44px; }
-    .label {
-      color: #aaa3ff; font-size: 13px; font-weight: 800;
-      letter-spacing: .12em; text-transform: uppercase;
-    }
-    h2 {
-      font-size: clamp(38px, 5vw, 58px);
-      margin: 12px 0 18px; letter-spacing: -.045em; line-height: 1.03;
-    }
-    .section-heading p { color: var(--muted); font-size: 17px; }
-    .products-grid {
-      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px;
-    }
-    .product-card {
-      position: relative; overflow: hidden; display: flex; flex-direction: column;
-      min-height: 390px; padding: 34px;
-      border: 1px solid var(--border);
-      background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
-      border-radius: 28px; box-shadow: var(--shadow);
-    }
-    .product-card.featured {
-      grid-column: 1 / -1; min-height: 430px; padding: clamp(34px, 6vw, 58px);
-    }
-    .product-card::after {
-      content: ""; position: absolute; width: 430px; height: 430px;
-      right: -170px; top: -220px;
-      background: radial-gradient(circle, rgba(120,108,255,.22), transparent 67%);
-      pointer-events: none;
-    }
-    .product-top, .product-footer { position: relative; z-index: 1; }
-    .status {
-      display: inline-flex; align-items: center; gap: 8px; width: fit-content;
-      padding: 7px 10px; border-radius: 999px;
-      background: rgba(104,215,170,.08);
-      border: 1px solid rgba(104,215,170,.18);
-      color: #8ee7c2; font-size: 12px; font-weight: 800;
-      text-transform: uppercase; letter-spacing: .08em;
-    }
-    .product-card h3 {
-      margin: 18px 0 12px; font-size: clamp(29px, 4vw, 46px);
-      letter-spacing: -.04em; line-height: 1.05;
-    }
-    .product-card:not(.featured) h3 { font-size: 30px; }
-    .product-description { color: var(--muted); font-size: 17px; max-width: 760px; }
-    .badges { display: flex; gap: 9px; flex-wrap: wrap; margin-top: 24px; }
-    .badge {
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.045);
-      color: #d7dbea; padding: 7px 11px; border-radius: 9px;
-      font-size: 13px; font-weight: 650;
-    }
-    .product-footer {
-      margin-top: auto; padding-top: 28px;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 20px; flex-wrap: wrap;
-    }
-    .product-note { color: #7f899e; font-size: 13px; }
-    .features {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
-    }
-    .feature {
-      padding: 28px; min-height: 190px;
-      border-radius: 20px; border: 1px solid var(--border); background: var(--panel);
-    }
-    .feature-icon {
-      width: 45px; height: 45px; display: grid; place-items: center;
-      border-radius: 13px; margin-bottom: 21px;
-      background: rgba(120,108,255,.12); color: #b5afff; font-size: 21px;
-    }
-    .feature h3 { margin: 0 0 8px; font-size: 18px; }
-    .feature p { margin: 0; color: var(--muted); font-size: 15px; }
-    .about-box {
-      padding: 45px; border-radius: 25px;
-      background: linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
-      border: 1px solid var(--border);
-    }
-    .about-box p { color: var(--muted); max-width: 800px; font-size: 17px; }
-    .contact {
-      display: flex; justify-content: space-between; align-items: center;
-      gap: 30px; margin-top: 30px; padding-top: 27px; border-top: 1px solid var(--border);
-    }
-    .contact strong { display: block; }
-    .mail { color: #b6b0ff; font-weight: 700; }
-    .privacy-chooser { padding: 24px 0 92px; }
-    .privacy-chooser-card {
-      padding: 36px;
-      border: 1px solid var(--border);
-      border-radius: 26px;
-      background: linear-gradient(145deg, rgba(120,108,255,.12), rgba(91,169,255,.06));
-      box-shadow: var(--shadow);
-      text-align: center;
-    }
-    .privacy-chooser-card h2 { margin: 0 0 8px; font-size: clamp(26px, 4vw, 40px); }
-    .privacy-chooser-card p { margin: 0 auto 24px; color: var(--muted); max-width: 620px; }
-    .privacy-buttons { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
-    .privacy-buttons .btn { min-width: 250px; }
-
-    footer {
-      border-top: 1px solid rgba(255,255,255,.07);
-      margin-top: 60px; padding: 36px 0 50px;
-      color: #778196; font-size: 13px;
-    }
-    .footer-row {
-      display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;
-    }
-    @media (max-width: 850px) {
-      .nav-links { display: none; }
-      .products-grid, .features { grid-template-columns: 1fr; }
-      .product-card.featured { grid-column: auto; }
-      .contact { align-items: flex-start; flex-direction: column; }
-      .hero { padding-top: 90px; }
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Studio501 — Applications Windows et Android</title>
+  <meta name="description" content="Studio501 développe des applications Windows et Android simples, utiles, premium et respectueuses des données.">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="color-scheme" content="dark light">
+  <link rel="canonical" href="https://studio501.fr/">
+  <link rel="alternate" hreflang="fr" href="https://studio501.fr/">
+  <link rel="alternate" hreflang="en" href="https://studio501.fr/en/">
+  <link rel="alternate" hreflang="x-default" href="https://studio501.fr/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Studio501">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:title" content="Studio501 — Applications Windows et Android">
+  <meta property="og:description" content="Studio501 développe des applications Windows et Android simples, utiles, premium et respectueuses des données.">
+  <meta property="og:url" content="https://studio501.fr/">
+  <meta property="og:image" content="https://studio501.fr/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Studio501 — Windows · Android">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Studio501 — Applications Windows et Android">
+  <meta name="twitter:description" content="Studio501 développe des applications Windows et Android simples, utiles, premium et respectueuses des données.">
+  <meta name="twitter:image" content="https://studio501.fr/assets/og.png">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Studio501","legalName":"Candela","url":"https://studio501.fr","email":"contact@studio501.fr","areaServed":"Worldwide","address":{"@type":"PostalAddress","addressCountry":"FR"}}</script>
 </head>
-
 <body>
-<nav>
-  <div class="container nav-inner">
-    <a class="brand" href="#">
-      <span class="brand-mark">5</span>
-      Studio501
-    </a>
-    <div class="nav-links">
-      <a href="#software">Logiciels</a>
-      <a href="#about">Studio501</a>
-      <a href="#support">Support</a>
-      <a href="#privacy">Confidentialité</a>
-    </div>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="container">
-    <div class="eyebrow">
-      <span class="dot"></span>
-      Studio indépendant de développement logiciel
-    </div>
-    <h1>
-      Des logiciels pensés pour être
-      <span class="gradient-text">simples et efficaces.</span>
-    </h1>
-    <p>
-      Studio501 conçoit des applications Windows modernes,
-      professionnelles et respectueuses de la vie privée,
-      sans complexité inutile.
-    </p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="#software">Découvrir nos logiciels</a>
-      <a class="btn btn-secondary" href="mailto:studio501.dev@gmail.com">Contacter Studio501</a>
-    </div>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="/" aria-label="Studio501 — Accueil"><span class="brand-mark" aria-hidden="true">5</span><span>Studio501</span></a>
+    <nav class="desktop-nav" aria-label="Menu"><a  href="/windows/">Windows</a><a  href="/android/">Android</a><a  href="/apps/">Applications</a><a  href="/privacy/">Confidentialité</a><a  href="/support/">Support</a><a  href="/about/">À propos</a><a class="lang-switch" href="/en/" lang="en">EN</a></nav>
+    <details class="mobile-nav">
+      <summary>Menu</summary>
+      <nav aria-label="Menu"><a  href="/windows/">Windows</a><a  href="/android/">Android</a><a  href="/apps/">Applications</a><a  href="/privacy/">Confidentialité</a><a  href="/support/">Support</a><a  href="/about/">À propos</a><a class="lang-switch" href="/en/" lang="en">EN</a></nav>
+    </details>
   </div>
 </header>
-
-<main>
-<section class="section" id="software">
-  <div class="container">
-    <div class="section-heading">
-      <div class="label">Logiciels Studio501</div>
-      <h2>Des outils utiles, sans complexité inutile.</h2>
-      <p>
-        Découvrez nos applications Windows : des outils clairs, locaux lorsque c’est possible, et conçus pour répondre à des besoins concrets.
-      </p>
-    </div>
-    <div class="products-grid" id="productsGrid"></div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-heading">
-      <div class="label">Notre approche</div>
-      <h2>Des applications conçues pour rester simples.</h2>
-    </div>
-    <div class="features">
-      <div class="feature">
-        <div class="feature-icon">◇</div>
-        <h3>Expérience soignée</h3>
-        <p>Des interfaces pensées pour être agréables et immédiatement compréhensibles.</p>
+<main id="main"><section class="home-hero">
+    <div class="shell hero-grid">
+      <div class="hero-copy" data-reveal>
+        <p class="eyebrow">Studio indépendant français · Windows + Android</p>
+        <h1>Des applications simples.<br> <span>Des outils utiles.</span></h1>
+        <p class="hero-lead">Studio501 conçoit des applications modernes, efficaces sans complexité inutile et pensées pour respecter vos données.</p>
+        <div class="hero-actions"><a class="button button--primary" href="/apps/">Découvrir les applications</a><a class="button button--secondary" href="/windows/">Windows</a><a class="button button--secondary" href="/android/">Android</a></div>
+        <div class="trust-line"><span>Sans publicité</span><span>Sans compte inutile</span><span>Local lorsque possible</span></div>
       </div>
-      <div class="feature">
-        <div class="feature-icon">▣</div>
-        <h3>Respect des données</h3>
-        <p>Nous privilégions le fonctionnement local lorsque le produit le permet.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">∞</div>
-        <h3>Logiciels durables</h3>
-        <p>Des outils utiles, sans multiplier les comptes et services inutiles.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="about">
-  <div class="container">
-    <div class="about-box">
-      <div class="label">À propos</div>
-      <h2>Studio501</h2>
-      <p>
-        Studio501 est un studio indépendant français spécialisé dans la conception
-        et le développement de logiciels. Notre objectif est de créer des applications
-        utiles, agréables à utiliser et respectueuses des données de leurs utilisateurs.
-      </p>
-      <p>Entreprise éditrice : <strong>Candela</strong> — France.</p>
-      <div class="contact" id="support">
-        <div>
-          <strong>Support</strong>
-          <span>Une question concernant un logiciel Studio501 ?</span>
-        </div>
-        <a class="mail" href="mailto:studio501.dev@gmail.com">studio501.dev@gmail.com</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-heading">
-      <div class="label">English</div>
-      <h2>Software designed to stay simple.</h2>
-      <p>
-        Studio501 is an independent French software studio creating modern,
-        practical and privacy-conscious Windows applications.
-      </p>
-    </div>
-  </div>
-</section>
-</main>
-
-  <section class="privacy-chooser" id="privacy" aria-labelledby="privacy-title">
-    <div class="container">
-      <div class="privacy-chooser-card">
-        <h2 id="privacy-title">Confidentialité</h2>
-        <p>Choisissez le logiciel pour consulter sa politique de confidentialité.</p>
-        <div class="privacy-buttons">
-          <a class="btn btn-secondary" href="privacy.html">Decision Tree Studio</a>
-          <a class="btn btn-primary" href="universal-converter-privacy.html">Universal Converter Studio</a>
-        </div>
+      <div class="hero-system" aria-label="Applications Studio501 pour Windows et Android" data-reveal>
+        <div class="system-glow"></div><div class="system-path"></div>
+        <div class="floating-app floating-app--one"><img class="floating-icon" src="/assets/apps/decision-tree/icon.png" width="112" height="112" alt="Icône Decision Tree Studio" loading="lazy"><span>Decision Tree<br>Studio</span></div>
+        <div class="floating-app floating-app--two"><img class="floating-icon" src="/assets/apps/shopping-list/icon.webp" width="112" height="112" alt="Icône Ma Liste de Courses" loading="lazy"><span>Ma Liste de<br>Courses</span></div>
+        <div class="floating-app floating-app--three"><img class="floating-icon" src="/assets/apps/myhomeassistant/icon.webp" width="112" height="112" alt="Icône MyHomeAssistant" loading="lazy"><span>MyHomeAssistant</span></div>
+        <div class="platform-chip platform-chip--windows">Windows</div><div class="platform-chip platform-chip--android">Android</div>
       </div>
     </div>
   </section>
-
-  <footer>
-  <div class="container footer-row">
-    <span>© 2026 Studio501 — Candela</span>
-    <span>
-      France · <a href="#privacy">Confidentialité / Privacy</a>
-      · <a href="mailto:studio501.dev@gmail.com">Support</a>
-    </span>
+  <section class="section"><div class="shell"><div class="section-heading"><div><p class="eyebrow">À découvrir</p><h2>Applications mises en avant</h2></div><a class="text-link" href="/apps/">Voir les 5 applications<span aria-hidden="true"> →</span></a></div><div class="app-grid"><article class="app-card app-card--violet" data-reveal>
+    <div class="app-card-top"><img class="app-icon" src="/assets/apps/decision-tree/icon.png" width="112" height="112" alt="Icône Decision Tree Studio" loading="lazy"><div><span class="platform-badge platform-badge--windows">Windows</span><span class="status status--published">Disponible sur Microsoft Store</span></div></div>
+    <h3><a href="/apps/decision-tree-studio/">Decision Tree Studio</a></h3>
+    <p>Transformez vos procédures en arbres de décision, guides de diagnostic et parcours interactifs clairs.</p>
+    <div class="card-actions"><a class="text-link" href="/apps/decision-tree-studio/">Découvrir<span aria-hidden="true"> →</span></a><a class="store-link" href="https://apps.microsoft.com/detail/9PGPZ8W0TW2D?hl=fr-fr&gl=FR" target="_blank" rel="noopener" aria-label="Voir sur Microsoft Store — Ouvre un site externe">Voir sur Microsoft Store</a></div>
+  </article><article class="app-card app-card--mint" data-reveal>
+    <div class="app-card-top"><img class="app-icon" src="/assets/apps/shopping-list/icon.webp" width="112" height="112" alt="Icône Ma Liste de Courses" loading="lazy"><div><span class="platform-badge platform-badge--android">Android</span><span class="status status--published">Disponible sur Google Play</span></div></div>
+    <h3><a href="/apps/ma-liste-de-courses/">Ma Liste de Courses</a></h3>
+    <p>Une liste de courses premium, rapide, claire et 100 % locale, sans publicité ni abonnement.</p>
+    <div class="card-actions"><a class="text-link" href="/apps/ma-liste-de-courses/">Découvrir<span aria-hidden="true"> →</span></a><a class="store-link" href="https://play.google.com/store/apps/details?id=com.nanouk.digitalshoppinglist" target="_blank" rel="noopener" aria-label="Disponible sur Google Play — Ouvre un site externe">Disponible sur Google Play</a></div>
+  </article><article class="app-card app-card--coral" data-reveal>
+    <div class="app-card-top"><img class="app-icon" src="/assets/apps/budget-assistant/icon.webp" width="112" height="112" alt="Icône Budget Assistant" loading="lazy"><div><span class="platform-badge platform-badge--android">Android</span><span class="status status--published">Disponible sur Google Play</span></div></div>
+    <h3><a href="/apps/budget-assistant/">Budget Assistant</a></h3>
+    <p>Suivez dépenses, budgets et charges fixes sans compte, publicité ni connexion bancaire.</p>
+    <div class="card-actions"><a class="text-link" href="/apps/budget-assistant/">Découvrir<span aria-hidden="true"> →</span></a><a class="store-link" href="https://play.google.com/store/apps/details?id=com.nanouk.widgetbudgetminute" target="_blank" rel="noopener" aria-label="Disponible sur Google Play — Ouvre un site externe">Disponible sur Google Play</a></div>
+  </article></div></div></section>
+  <section class="section section--tinted"><div class="shell"><div class="section-heading"><div><p class="eyebrow">Pourquoi Studio501</p><h2>Le logiciel, avec juste ce qu’il faut.</h2></div></div><div class="value-grid">
+    <article class="value-card" data-reveal><span class="value-number">01</span><h3>Expérience soignée</h3><p>Des interfaces claires, travaillées pour être agréables dès la première utilisation.</p></article><article class="value-card" data-reveal><span class="value-number">02</span><h3>Respect des données</h3><p>Le fonctionnement local est privilégié chaque fois que le produit le permet.</p></article><article class="value-card" data-reveal><span class="value-number">03</span><h3>Pas de complexité inutile</h3><p>Pas de compte imposé, de publicité ou de service en ligne sans raison.</p></article><article class="value-card" data-reveal><span class="value-number">04</span><h3>Pensées pour durer</h3><p>Des applications utiles, maintenables et simples à retrouver au quotidien.</p></article>
+  </div></div></section>
+  <section class="section platform-split"><div class="shell split-grid"><article class="platform-panel platform-panel--windows" data-reveal><p class="eyebrow">Windows</p><h2>Des outils complets pour le PC.</h2><p>Créez des procédures interactives avec Decision Tree Studio et préparez vos conversions locales avec Universal Converter Studio.</p><a class="button button--light" href="/windows/">Explorer Windows</a></article><article class="platform-panel platform-panel--android" data-reveal><p class="eyebrow">Android · Google Play</p><h2>Trois applications déjà publiées.</h2><p>Courses, budget et entretien de la maison : des outils premium, locaux et sans publicité.</p><a class="button button--light" href="/android/">Explorer Android</a></article></div></section></main>
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div><a class="brand brand--footer" href="/"><span class="brand-mark" aria-hidden="true">5</span><span>Studio501</span></a><p>Applications Windows et Android conçues en France.</p><p>Entreprise éditrice : Candela — France.</p></div>
+    <div><strong>Applications</strong><a href="/windows/">Windows</a><a href="/android/">Android</a><a href="/apps/">Applications</a></div>
+    <div><strong>Studio501</strong><a href="/privacy/">Confidentialité</a><a href="/support/">Support</a><a href="/about/">À propos</a></div>
+    <div><strong>Contact</strong><a href="mailto:contact@studio501.fr">contact@studio501.fr</a><span class="footer-note">Adresse de support conservée pour les fiches Store :<br>studio501.dev@gmail.com</span></div>
   </div>
+  <div class="shell footer-bottom"><span>© 2026 Studio501 — Candela</span><span>France · FR / EN</span></div>
 </footer>
-
-<script>
-/*
-==========================================================================
-   PRODUITS STUDIO501
-==========================================================================
-Pour ajouter un logiciel plus tard :
-1. Copiez un bloc {...} existant.
-2. Modifiez ses textes.
-3. Ajoutez une virgule entre les produits.
-C'est tout. La mise en page est créée automatiquement.
-
-featured: true  = grand produit principal
-featured: false = carte normale
-buttonUrl: ""    = aucun bouton si le produit n'est pas encore publié
-==========================================================================
-*/
-
-const PRODUCTS = [
-      {
-        name: "Decision Tree Studio",
-        status: "Disponible sur Microsoft Store",
-        description: "Transformez vos procédures en guides interactifs clairs. Créez des arbres de décision, des parcours de diagnostic et des supports prêts à partager.",
-        badges: ["Windows", "Arbres de décision", "Export HTML", "FR / EN"],
-        note: "Studio501",
-        buttonText: "Voir sur Microsoft Store",
-        buttonUrl: "https://apps.microsoft.com/detail/9PGPZ8W0TW2D?hl=fr-fr&gl=FR",
-        featured: true
-      },
-      {
-        name: "Universal Converter Studio",
-        status: "Bientôt disponible sur Microsoft Store",
-        description: "Convertissez vidéos, images, fichiers audio et CD audio directement sur votre PC. Traitez un fichier, un dossier ou un lot, puis importez les pistes de vos CD vers MP3, FLAC ou WAV.",
-        badges: ["Windows 10 / 11", "Vidéo · Image · Audio", "Conversion locale", "FR / EN"],
-        note: "Aucun compte · Aucun envoi vers un serveur",
-        buttonText: "",
-        buttonUrl: "",
-        featured: true
-      }
-    ];
-
-    function escapeHtml(value) {
-  return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
-
-function renderProducts() {
-  const grid = document.getElementById("productsGrid");
-
-  grid.innerHTML = PRODUCTS.map(product => {
-    const badges = product.badges
-      .map(badge => `<span class="badge">${escapeHtml(badge)}</span>`)
-      .join("");
-
-    const button = product.buttonUrl && product.buttonText
-      ? `<a class="btn btn-primary"
-             href="${escapeHtml(product.buttonUrl)}"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="Voir ${escapeHtml(product.name)} dans le Microsoft Store">
-           <span class="store-icon" aria-hidden="true">
-             <svg viewBox="0 0 24 24">
-               <path d="M5 8.5h14l-1 11H6l-1-11Z"></path>
-               <path d="M9 8.5V7a3 3 0 0 1 6 0v1.5"></path>
-             </svg>
-           </span>
-           ${escapeHtml(product.buttonText)}
-         </a>`
-      : "";
-
-    return `
-      <article class="product-card ${product.featured ? "featured" : ""}">
-        <div class="product-top">
-          <div class="status">${escapeHtml(product.status)}</div>
-          <h3>${escapeHtml(product.name)}</h3>
-          <p class="product-description">${escapeHtml(product.description)}</p>
-          <div class="badges">${badges}</div>
-        </div>
-        <div class="product-footer">
-          <span class="product-note">${escapeHtml(product.note || "")}</span>
-          ${button}
-        </div>
-      </article>
-    `;
-  }).join("");
-}
-
-renderProducts();
-</script>
+<script src="/assets/site.js" defer></script>
 </body>
 </html>

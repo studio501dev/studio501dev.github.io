@@ -1,0 +1,17 @@
+{
+  "name": "Studio501",
+  "short_name": "Studio501",
+  "description": "Applications Windows et Android",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1020",
+  "theme_color": "#0b1020",
+  "icons": [
+    {
+      "src": "/assets/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+[
+  {
+    "slug": "decision-tree-studio",
+    "name": "Decision Tree Studio",
+    "platform": "Windows",
+    "status": "published",
+    "icon": "/assets/apps/decision-tree/icon.png",
+    "summary": {
+      "fr": "Transformez vos procédures en arbres de décision, guides de diagnostic et parcours interactifs clairs.",
+      "en": "Turn procedures into clear decision trees, diagnostic guides and interactive journeys."
+    },
+    "features": {
+      "fr": [
+        "Éditeur visuel avec cartes et connexions",
+        "Questions, choix, résultats et cartes libres",
+        "Projets réunissant plusieurs arbres",
+        "Images, liens et fichiers intégrés",
+        "Mode Présentation guidé",
+        "Import et sauvegarde JSON",
+        "Export HTML responsive",
+        "Interface française et anglaise, réglable jusqu’aux écrans 4K"
+      ],
+      "en": [
+        "Visual editor with cards and connections",
+        "Questions, choices, results and free-form cards",
+        "Projects containing multiple trees",
+        "Embedded images, links and files",
+        "Guided Presentation mode",
+        "JSON import and backup",
+        "Responsive HTML export",
+        "French and English interface scalable for 4K displays"
+      ]
+    },
+    "screenshots": [
+      "/assets/apps/decision-tree/screen-1.jpg",
+      "/assets/apps/decision-tree/screen-2.jpg",
+      "/assets/apps/decision-tree/screen-3.jpg",
+      "/assets/apps/decision-tree/screen-4.jpg",
+      "/assets/apps/decision-tree/screen-5.jpg",
+      "/assets/apps/decision-tree/screen-6.jpg"
+    ],
+    "storeUrl": "https://apps.microsoft.com/detail/9PGPZ8W0TW2D?hl=fr-fr&gl=FR",
+    "privacyUrl": "https://studio501.fr/privacy/decision-tree-studio/"
+  },
+  {
+    "slug": "universal-converter",
+    "name": "Universal Converter Studio",
+    "platform": "Windows",
+    "status": "preparing",
+    "icon": null,
+    "summary": {
+      "fr": "Convertissez vidéos, images, fichiers audio et CD audio directement sur votre PC.",
+      "en": "Convert video, images, audio files and audio CDs directly on your PC."
+    },
+    "features": {
+      "fr": [
+        "Conversion vidéo, image et audio",
+        "Traitement d’un fichier, d’un dossier ou par lots",
+        "Import de CD audio",
+        "File d’attente et historique locaux",
+        "Moteur FFmpeg exécuté sur le PC",
+        "Aucun compte",
+        "Aucun abonnement",
+        "Aucun envoi des médias vers un serveur de conversion"
+      ],
+      "en": [
+        "Video, image and audio conversion",
+        "Single-file, folder and batch processing",
+        "Audio CD import",
+        "Local queue and history",
+        "FFmpeg engine running on the PC",
+        "No account",
+        "No subscription",
+        "No media upload to a conversion server"
+      ]
+    },
+    "screenshots": [],
+    "storeUrl": null,
+    "privacyUrl": "https://studio501.fr/privacy/universal-converter-studio/"
+  },
+  {
+    "slug": "ma-liste-de-courses",
+    "name": "Ma Liste de Courses",
+    "platform": "Android",
+    "status": "published",
+    "icon": "/assets/apps/shopping-list/icon.webp",
+    "summary": {
+      "fr": "Une liste de courses premium, rapide, claire et 100 % locale, sans publicité ni abonnement.",
+      "en": "A fast, clear and fully local premium shopping list with no ads or subscription."
+    },
+    "features": {
+      "fr": [
+        "Achat unique, sans abonnement",
+        "Aucune publicité et aucun compte obligatoire",
+        "Plusieurs listes et ajout rapide avec quantités",
+        "Plus de 1 400 produits et variantes reconnus",
+        "Classement par catégories et correction manuelle",
+        "Mémorisation des choix",
+        "Partage et import de listes",
+        "Sauvegarde et restauration complètes",
+        "Thèmes, français et anglais"
+      ],
+      "en": [
+        "One-time purchase, no subscription",
+        "No ads and no mandatory account",
+        "Multiple lists and quick entry with quantities",
+        "More than 1,400 recognised products and variants",
+        "Category sorting with manual correction",
+        "Choice memory",
+        "List sharing and import",
+        "Complete backup and restore",
+        "Themes, French and English"
+      ]
+    },
+    "screenshots": [
+      "/assets/apps/shopping-list/screen-1.webp",
+      "/assets/apps/shopping-list/screen-2.webp",
+      "/assets/apps/shopping-list/screen-3.webp",
+      "/assets/apps/shopping-list/screen-4.webp",
+      "/assets/apps/shopping-list/screen-5.webp",
+      "/assets/apps/shopping-list/screen-6.webp"
+    ],
+    "storeUrl": "https://play.google.com/store/apps/details?id=com.nanouk.digitalshoppinglist",
+    "privacyUrl": "https://studio501.fr/privacy/ma-liste-de-courses/"
+  },
+  {
+    "slug": "budget-assistant",
+    "name": "Budget Assistant",
+    "platform": "Android",
+    "status": "published",
+    "icon": "/assets/apps/budget-assistant/icon.webp",
+    "summary": {
+      "fr": "Suivez dépenses, budgets et charges fixes sans compte, publicité ni connexion bancaire.",
+      "en": "Track expenses, budgets and fixed costs with no account, ads or bank connection."
+    },
+    "features": {
+      "fr": [
+        "Suivi par jour, semaine et mois",
+        "Budget mensuel et calcul du restant",
+        "Dépenses, entrées positives et catégories",
+        "Charges fixes et dépenses récurrentes",
+        "Historique complet",
+        "Widget Android",
+        "Rapports PDF mensuels",
+        "Sauvegarde et restauration",
+        "Fonctionnement local, sans connexion bancaire"
+      ],
+      "en": [
+        "Daily, weekly and monthly tracking",
+        "Monthly budget and remaining balance",
+        "Expenses, positive entries and categories",
+        "Fixed and recurring costs",
+        "Complete history",
+        "Android widget",
+        "Monthly PDF reports",
+        "Backup and restore",
+        "Local operation with no bank connection"
+      ]
+    },
+    "screenshots": [
+      "/assets/apps/budget-assistant/screen-1.webp",
+      "/assets/apps/budget-assistant/screen-2.webp",
+      "/assets/apps/budget-assistant/screen-3.webp",
+      "/assets/apps/budget-assistant/screen-4.webp",
+      "/assets/apps/budget-assistant/screen-5.webp",
+      "/assets/apps/budget-assistant/screen-6.webp"
+    ],
+    "storeUrl": "https://play.google.com/store/apps/details?id=com.nanouk.widgetbudgetminute",
+    "privacyUrl": "https://studio501.fr/privacy/budget-assistant/"
+  },
+  {
+    "slug": "myhomeassistant",
+    "name": "MyHomeAssistant",
+    "platform": "Android",
+    "status": "published",
+    "icon": "/assets/apps/myhomeassistant/icon.webp",
+    "summary": {
+      "fr": "Organisez l’entretien de votre maison avec équipements, tâches, rappels locaux et widget.",
+      "en": "Organise home maintenance with equipment, tasks, local reminders and a widget."
+    },
+    "features": {
+      "fr": [
+        "Équipements personnalisés",
+        "Tâches périodiques et tâches uniques",
+        "Modèles préremplis et checklists modifiables",
+        "Priorités : en retard, sous 7 jours ou plus tard",
+        "Historique des actions",
+        "Rappels et notifications locales",
+        "Widget Android",
+        "Sauvegarde et restauration locales",
+        "Modes clair et sombre, français et anglais"
+      ],
+      "en": [
+        "Custom equipment",
+        "Recurring and one-off tasks",
+        "Ready-made templates and editable checklists",
+        "Overdue, next 7 days and later priorities",
+        "Action history",
+        "Local reminders and notifications",
+        "Android widget",
+        "Local backup and restore",
+        "Light and dark modes, French and English"
+      ]
+    },
+    "screenshots": [
+      "/assets/apps/myhomeassistant/screen-1.webp",
+      "/assets/apps/myhomeassistant/screen-2.webp",
+      "/assets/apps/myhomeassistant/screen-3.webp",
+      "/assets/apps/myhomeassistant/screen-4.webp",
+      "/assets/apps/myhomeassistant/screen-5.webp",
+      "/assets/apps/myhomeassistant/screen-6.webp"
+    ],
+    "storeUrl": "https://play.google.com/store/apps/details?id=com.nanouk.myhomeassistant",
+    "privacyUrl": "https://studio501.fr/privacy/myhomeassistant/"
+  }
+]
