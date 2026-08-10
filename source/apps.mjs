@@ -53,7 +53,7 @@ export const apps = [
     statusLabel: { fr: "Bientôt disponible", en: "Coming soon" },
     storeLabel: null,
     storeUrl: null,
-    icon: null,
+    icon: "/assets/apps/universal-converter/icon.png",
     screenshots: [],
     accent: "cyan",
     monogram: "UC",
