@@ -46,7 +46,7 @@
     "slug": "universal-converter",
     "name": "Universal Converter Studio",
     "platform": "Windows",
-    "status": "preparing",
+    "status": "published",
     "icon": "/assets/apps/universal-converter/icon.png",
     "summary": {
       "fr": "Convertissez vidéos, images, fichiers audio et CD audio directement sur votre PC.",
@@ -75,7 +75,7 @@
       ]
     },
     "screenshots": [],
-    "storeUrl": null,
+    "storeUrl": "https://apps.microsoft.com/detail/9NBR4F51XP7N?hl=fr-fr&gl=FR",
     "privacyUrl": "https://studio501.fr/privacy/universal-converter-studio/"
   },
   {
