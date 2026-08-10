@@ -127,7 +127,7 @@
     "slug": "budget-assistant",
     "name": "Budget Assistant",
     "platform": "Android",
-    "status": "published",
+    "status": "preparing",
     "icon": "/assets/apps/budget-assistant/icon.webp",
     "summary": {
       "fr": "Suivez dépenses, budgets et charges fixes sans compte, publicité ni connexion bancaire.",
@@ -165,14 +165,14 @@
       "/assets/apps/budget-assistant/screen-5.webp",
       "/assets/apps/budget-assistant/screen-6.webp"
     ],
-    "storeUrl": "https://play.google.com/store/apps/details?id=com.nanouk.widgetbudgetminute",
+    "storeUrl": null,
     "privacyUrl": "https://studio501.fr/privacy/budget-assistant/"
   },
   {
     "slug": "myhomeassistant",
     "name": "MyHomeAssistant",
     "platform": "Android",
-    "status": "published",
+    "status": "preparing",
     "icon": "/assets/apps/myhomeassistant/icon.webp",
     "summary": {
       "fr": "Organisez l’entretien de votre maison avec équipements, tâches, rappels locaux et widget.",
@@ -210,7 +210,7 @@
       "/assets/apps/myhomeassistant/screen-5.webp",
       "/assets/apps/myhomeassistant/screen-6.webp"
     ],
-    "storeUrl": "https://play.google.com/store/apps/details?id=com.nanouk.myhomeassistant",
+    "storeUrl": null,
     "privacyUrl": "https://studio501.fr/privacy/myhomeassistant/"
   }
 ]
