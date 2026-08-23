@@ -1,10 +1,33 @@
 export const site = {
   baseUrl: "https://studio501.fr",
   name: "Studio501",
-  publisher: "Candela",
+  publisher: "Nanouk Candela",
+  tradeName: "Studio501",
+  legalForm: "Entrepreneur individuel",
+  siren: "104 315 957",
+  siret: "104 315 957 00019",
+  register: "Registre national des entreprises (RNE)",
+  activityCode: "5829C",
+  activityLabel: "Édition de logiciels applicatifs",
+  address: {
+    street: "61 rue de Lyon",
+    postalCode: "75012",
+    city: "Paris",
+    country: "France",
+    countryCode: "FR",
+  },
   country: "France",
   primaryEmail: "contact@studio501.fr",
   storeEmail: "studio501.dev@gmail.com",
+  phone: null,
+  vatNumber: null,
+  mediator: null,
+  host: {
+    name: "GitHub Pages",
+    company: "GitHub, Inc.",
+    address: "88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis",
+    supportUrl: "https://support.github.com/",
+  },
 };
 
 export const apps = [
