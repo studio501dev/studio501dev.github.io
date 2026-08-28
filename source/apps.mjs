@@ -178,6 +178,46 @@ export const apps = [
     },
   },
   {
+    slug: "widget-pilulier",
+    name: "Widget Pilulier",
+    platform: "Android",
+    platformKey: "android",
+    status: "preparing",
+    statusLabel: { fr: "À venir", en: "Coming soon" },
+    storeLabel: null,
+    storeUrl: null,
+    packageName: "com.nanouk.widgetpilulier",
+    icon: "/assets/apps/widget-pilulier/icon.webp",
+    screenshots: {
+      fr: Array.from({ length: 6 }, (_, index) => `/assets/apps/widget-pilulier/fr/screen-${index + 1}.webp`),
+      en: Array.from({ length: 6 }, (_, index) => `/assets/apps/widget-pilulier/en/screen-${index + 1}.webp`),
+    },
+    screenshotAspect: "portrait",
+    accent: "gold",
+    summary: {
+      fr: "Planifiez vos prises et gardez-les visibles sur votre écran d’accueil.",
+      en: "Plan your doses and keep them visible on your home screen.",
+    },
+    description: {
+      fr: [
+        "Widget Pilulier vous aide à organiser vos médicaments, vitamines et compléments au quotidien. Planifiez les horaires de prise, recevez des rappels locaux et consultez les prises du jour depuis l’application ou le widget Android.",
+        "L’application fonctionne sans compte, sans publicité et sans serveur applicatif. Vos traitements, horaires, historiques et préférences restent sous votre contrôle, sur votre appareil.",
+      ],
+      en: [
+        "Widget Pilulier helps you organize medications, vitamins, and supplements day by day. Schedule dose times, receive local reminders, and view today’s intakes in the app or on the Android home screen widget.",
+        "The app works without an account, ads, or an app server. Your treatments, schedules, history, and preferences remain under your control, on your device.",
+      ],
+    },
+    features: {
+      fr: ["Achat unique, sans abonnement", "Prises du jour regroupées par moment", "Actions Pris, Ignorer et suivi des prises manquées", "Widget Android personnalisable en plusieurs tailles", "Action Pris directement depuis le widget", "Rappels locaux et rappel tardif configurable", "Horaires et fréquences flexibles", "Pause temporaire d’un traitement", "Historique et statistiques simples", "Sauvegarde et restauration JSON locales", "Thèmes clair et sombre, français et anglais"],
+      en: ["One-time purchase, no subscription", "Today’s intakes grouped by time of day", "Taken and Skip actions with missed-dose tracking", "Customizable Android widget in multiple sizes", "Mark a dose as Taken directly from the widget", "Local reminders and an optional late reminder", "Flexible times and frequencies", "Temporarily pause a treatment", "Local history and simple statistics", "Local JSON backup and restore", "Light and dark themes, English and French"],
+    },
+    privacyLead: {
+      fr: "Les traitements, horaires, historiques et préférences restent sur l’appareil. Aucun compte, publicité ni serveur applicatif.",
+      en: "Treatments, schedules, history and preferences remain on the device. No account, ads or app server.",
+    },
+  },
+  {
     slug: "myhomeassistant",
     name: "MyHomeAssistant",
     platform: "Android",

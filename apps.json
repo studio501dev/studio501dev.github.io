@@ -171,6 +171,65 @@
     "privacyUrl": "https://studio501.fr/privacy/budget-assistant/"
   },
   {
+    "slug": "widget-pilulier",
+    "name": "Widget Pilulier",
+    "platform": "Android",
+    "status": "preparing",
+    "icon": "/assets/apps/widget-pilulier/icon.webp",
+    "summary": {
+      "fr": "Planifiez vos prises et gardez-les visibles sur votre écran d’accueil.",
+      "en": "Plan your doses and keep them visible on your home screen."
+    },
+    "features": {
+      "fr": [
+        "Achat unique, sans abonnement",
+        "Prises du jour regroupées par moment",
+        "Actions Pris, Ignorer et suivi des prises manquées",
+        "Widget Android personnalisable en plusieurs tailles",
+        "Action Pris directement depuis le widget",
+        "Rappels locaux et rappel tardif configurable",
+        "Horaires et fréquences flexibles",
+        "Pause temporaire d’un traitement",
+        "Historique et statistiques simples",
+        "Sauvegarde et restauration JSON locales",
+        "Thèmes clair et sombre, français et anglais"
+      ],
+      "en": [
+        "One-time purchase, no subscription",
+        "Today’s intakes grouped by time of day",
+        "Taken and Skip actions with missed-dose tracking",
+        "Customizable Android widget in multiple sizes",
+        "Mark a dose as Taken directly from the widget",
+        "Local reminders and an optional late reminder",
+        "Flexible times and frequencies",
+        "Temporarily pause a treatment",
+        "Local history and simple statistics",
+        "Local JSON backup and restore",
+        "Light and dark themes, English and French"
+      ]
+    },
+    "screenshots": {
+      "fr": [
+        "/assets/apps/widget-pilulier/fr/screen-1.webp",
+        "/assets/apps/widget-pilulier/fr/screen-2.webp",
+        "/assets/apps/widget-pilulier/fr/screen-3.webp",
+        "/assets/apps/widget-pilulier/fr/screen-4.webp",
+        "/assets/apps/widget-pilulier/fr/screen-5.webp",
+        "/assets/apps/widget-pilulier/fr/screen-6.webp"
+      ],
+      "en": [
+        "/assets/apps/widget-pilulier/en/screen-1.webp",
+        "/assets/apps/widget-pilulier/en/screen-2.webp",
+        "/assets/apps/widget-pilulier/en/screen-3.webp",
+        "/assets/apps/widget-pilulier/en/screen-4.webp",
+        "/assets/apps/widget-pilulier/en/screen-5.webp",
+        "/assets/apps/widget-pilulier/en/screen-6.webp"
+      ]
+    },
+    "storeUrl": null,
+    "privacyUrl": "https://studio501.fr/privacy/widget-pilulier/"
+  },
+  {
     "slug": "myhomeassistant",
     "name": "MyHomeAssistant",
     "platform": "Android",

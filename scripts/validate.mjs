@@ -62,7 +62,9 @@ for (const file of htmlFiles) {
 for (const required of [
   "index.html", "windows/index.html", "android/index.html", "apps/index.html", "privacy/index.html", "confidentialite/index.html", "mentions-legales/index.html", "support/index.html", "about/index.html",
   "privacy.html", "universal-converter-privacy.html", "robots.txt", "sitemap.xml", "apps.json", "CNAME", ".nojekyll",
+  "apps/widget-pilulier/index.html", "privacy/widget-pilulier/index.html",
   "en/index.html", "en/windows/index.html", "en/android/index.html", "en/apps/index.html", "en/privacy/index.html", "en/confidentialite/index.html", "en/mentions-legales/index.html",
+  "en/apps/widget-pilulier/index.html", "en/privacy/widget-pilulier/index.html",
 ]) {
   if (!await exists(join(root, required))) errors.push(`fichier requis manquant: ${required}`);
 }
@@ -72,6 +74,8 @@ for (const expected of [
   "https://studio501.fr/", "https://studio501.fr/windows/", "https://studio501.fr/android/", "https://studio501.fr/privacy/",
   "https://studio501.fr/confidentialite/", "https://studio501.fr/mentions-legales/", "https://studio501.fr/en/confidentialite/", "https://studio501.fr/en/mentions-legales/",
   "https://studio501.fr/apps/ma-liste-de-courses/", "https://studio501.fr/privacy/budget-assistant/", "https://studio501.fr/en/privacy/myhomeassistant/",
+  "https://studio501.fr/apps/widget-pilulier/", "https://studio501.fr/privacy/widget-pilulier/",
+  "https://studio501.fr/en/apps/widget-pilulier/", "https://studio501.fr/en/privacy/widget-pilulier/",
 ]) if (!sitemap.includes(`<loc>${expected}</loc>`)) errors.push(`sitemap: URL manquante ${expected}`);
 
 const clientCode = await Promise.all(files.filter((file) => file.endsWith(".js")).map((file) => readFile(file, "utf8")));
