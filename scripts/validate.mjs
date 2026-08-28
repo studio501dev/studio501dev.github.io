@@ -72,6 +72,7 @@ for (const expected of [
   "https://studio501.fr/", "https://studio501.fr/windows/", "https://studio501.fr/android/", "https://studio501.fr/privacy/",
   "https://studio501.fr/confidentialite/", "https://studio501.fr/mentions-legales/", "https://studio501.fr/en/confidentialite/", "https://studio501.fr/en/mentions-legales/",
   "https://studio501.fr/apps/ma-liste-de-courses/", "https://studio501.fr/privacy/budget-assistant/", "https://studio501.fr/en/privacy/myhomeassistant/",
+  "https://studio501.fr/apps/memoa/", "https://studio501.fr/privacy/memoa/", "https://studio501.fr/en/apps/memoa/", "https://studio501.fr/en/privacy/memoa/",
 ]) if (!sitemap.includes(`<loc>${expected}</loc>`)) errors.push(`sitemap: URL manquante ${expected}`);
 
 const clientCode = await Promise.all(files.filter((file) => file.endsWith(".js")).map((file) => readFile(file, "utf8")));

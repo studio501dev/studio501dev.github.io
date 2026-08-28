@@ -212,5 +212,51 @@
     ],
     "storeUrl": "https://play.google.com/store/apps/details?id=com.nanouk.myhomeassistant",
     "privacyUrl": "https://studio501.fr/privacy/myhomeassistant/"
+  },
+  {
+    "slug": "memoa",
+    "name": "Memoa",
+    "platform": "Android",
+    "status": "preparing",
+    "icon": "/assets/apps/memoa/icon.png",
+    "summary": {
+      "fr": "Anniversaires et dates importantes, visibles sur votre écran d’accueil.",
+      "en": "Birthdays and important dates, right on your Android home screen."
+    },
+    "features": {
+      "fr": [
+        "Achat unique, sans abonnement ni achat intégré",
+        "Anniversaires et autres dates importantes",
+        "Récurrence annuelle ou événement ponctuel",
+        "Personnes et photos locales facultatives",
+        "Catégories intégrées ou personnalisées",
+        "Compte à rebours avant chaque événement",
+        "Vue calendrier mensuelle",
+        "Rappels locaux à l’heure choisie",
+        "Widget redimensionnable",
+        "Contenu et couleurs du widget personnalisables",
+        "Thèmes clair, sombre ou système",
+        "Export et import des données principales au format JSON",
+        "Français et anglais"
+      ],
+      "en": [
+        "One-time purchase with no subscription or in-app purchase",
+        "Birthdays and other important dates",
+        "Yearly recurrence or one-time events",
+        "People and optional locally stored photos",
+        "Built-in or custom categories",
+        "Days remaining before each event",
+        "Monthly calendar view",
+        "Local reminders at the chosen time",
+        "Resizable home-screen widget",
+        "Customisable widget content and colours",
+        "Light, dark or system theme",
+        "JSON export and import for main data",
+        "English and French"
+      ]
+    },
+    "screenshots": [],
+    "storeUrl": null,
+    "privacyUrl": "https://studio501.fr/privacy/memoa/"
   }
 ]
