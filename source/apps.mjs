@@ -222,10 +222,10 @@ export const apps = [
     name: "MyHomeAssistant",
     platform: "Android",
     platformKey: "android",
-    status: "preparing",
-    statusLabel: { fr: "À venir", en: "Coming soon" },
-    storeLabel: null,
-    storeUrl: null,
+    status: "published",
+    statusLabel: { fr: "Disponible sur Google Play", en: "Available on Google Play" },
+    storeLabel: { fr: "Disponible sur Google Play", en: "Get it on Google Play" },
+    storeUrl: "https://play.google.com/store/apps/details?id=com.nanouk.myhomeassistant",
     packageName: "com.nanouk.myhomeassistant",
     icon: "/assets/apps/myhomeassistant/icon.webp",
     screenshots: Array.from({ length: 6 }, (_, index) => `/assets/apps/myhomeassistant/screen-${index + 1}.webp`),
@@ -252,6 +252,42 @@ export const apps = [
     privacyLead: {
       fr: "Les équipements, tâches et préférences restent sur l’appareil, sauf export ou partage volontaire.",
       en: "Equipment, tasks and preferences remain on the device unless voluntarily exported or shared.",
+    },
+  },
+  {
+    slug: "memoa",
+    name: "Memoa",
+    platform: "Android",
+    platformKey: "android",
+    status: "preparing",
+    statusLabel: { fr: "Bientôt disponible", en: "Coming soon" },
+    storeLabel: null,
+    storeUrl: null,
+    packageName: "com.nanouk.widgetanniversairesdates",
+    icon: "/assets/apps/memoa/icon.png",
+    screenshots: [],
+    accent: "gold",
+    summary: {
+      fr: "Anniversaires et dates importantes, visibles sur votre écran d’accueil.",
+      en: "Birthdays and important dates, right on your Android home screen.",
+    },
+    description: {
+      fr: [
+        "Les belles attentions commencent par une date que l’on n’oublie pas.",
+        "Memoa réunit vos anniversaires, rendez-vous, échéances et événements personnels dans une application claire, pensée autour d’un widget Android élégant. Consultez ce qui arrive, organisez vos proches et gardez vos prochaines dates visibles depuis l’écran d’accueil.",
+      ],
+      en: [
+        "Thoughtful moments start with a date you remember.",
+        "Memoa brings birthdays, appointments, deadlines, and personal events together in a clear app built around an elegant Android widget. See what’s coming up, organize the people who matter, and keep your next dates visible from your home screen.",
+      ],
+    },
+    features: {
+      fr: ["Achat unique, sans abonnement ni achat intégré", "Anniversaires et autres dates importantes", "Récurrence annuelle ou événement ponctuel", "Personnes et photos locales facultatives", "Catégories intégrées ou personnalisées", "Compte à rebours avant chaque événement", "Vue calendrier mensuelle", "Rappels locaux à l’heure choisie", "Widget redimensionnable", "Contenu et couleurs du widget personnalisables", "Thèmes clair, sombre ou système", "Export et import des données principales au format JSON", "Français et anglais"],
+      en: ["One-time purchase with no subscription or in-app purchase", "Birthdays and other important dates", "Yearly recurrence or one-time events", "People and optional locally stored photos", "Built-in or custom categories", "Days remaining before each event", "Monthly calendar view", "Local reminders at the chosen time", "Resizable home-screen widget", "Customisable widget content and colours", "Light, dark or system theme", "JSON export and import for main data", "English and French"],
+    },
+    privacyLead: {
+      fr: "Les événements, personnes, notes et photos restent dans l’espace privé de l’application sur votre appareil.",
+      en: "Events, people, notes and photos remain in the app’s private storage on your device.",
     },
   },
 ];
