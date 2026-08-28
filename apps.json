@@ -172,7 +172,7 @@
     "slug": "myhomeassistant",
     "name": "MyHomeAssistant",
     "platform": "Android",
-    "status": "preparing",
+    "status": "published",
     "icon": "/assets/apps/myhomeassistant/icon.webp",
     "summary": {
       "fr": "Organisez l’entretien de votre maison avec équipements, tâches, rappels locaux et widget.",
@@ -210,7 +210,7 @@
       "/assets/apps/myhomeassistant/screen-5.webp",
       "/assets/apps/myhomeassistant/screen-6.webp"
     ],
-    "storeUrl": null,
+    "storeUrl": "https://play.google.com/store/apps/details?id=com.nanouk.myhomeassistant",
     "privacyUrl": "https://studio501.fr/privacy/myhomeassistant/"
   }
 ]
