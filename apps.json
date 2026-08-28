@@ -127,7 +127,7 @@
     "slug": "budget-assistant",
     "name": "Budget Assistant",
     "platform": "Android",
-    "status": "preparing",
+    "status": "published",
     "icon": "/assets/apps/budget-assistant/icon.webp",
     "summary": {
       "fr": "Suivez dépenses, budgets et charges fixes sans compte, publicité ni connexion bancaire.",
@@ -135,6 +135,7 @@
     },
     "features": {
       "fr": [
+        "Achat unique, sans abonnement",
         "Suivi par jour, semaine et mois",
         "Budget mensuel et calcul du restant",
         "Dépenses, entrées positives et catégories",
@@ -146,6 +147,7 @@
         "Fonctionnement local, sans connexion bancaire"
       ],
       "en": [
+        "One-time purchase, no subscription",
         "Daily, weekly and monthly tracking",
         "Monthly budget and remaining balance",
         "Expenses, positive entries and categories",
@@ -165,7 +167,7 @@
       "/assets/apps/budget-assistant/screen-5.webp",
       "/assets/apps/budget-assistant/screen-6.webp"
     ],
-    "storeUrl": null,
+    "storeUrl": "https://play.google.com/store/apps/details?id=com.nanouk.widgetbudgetminute",
     "privacyUrl": "https://studio501.fr/privacy/budget-assistant/"
   },
   {

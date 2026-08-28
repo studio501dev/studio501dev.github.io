@@ -115,6 +115,7 @@ export const apps = [
     packageName: "com.nanouk.digitalshoppinglist",
     icon: "/assets/apps/shopping-list/icon.webp",
     screenshots: Array.from({ length: 6 }, (_, index) => `/assets/apps/shopping-list/screen-${index + 1}.webp`),
+    screenshotAspect: "portrait",
     accent: "mint",
     summary: {
       fr: "Une liste de courses premium, rapide, claire et 100 % locale, sans publicité ni abonnement.",
@@ -144,13 +145,14 @@ export const apps = [
     name: "Budget Assistant",
     platform: "Android",
     platformKey: "android",
-    status: "preparing",
-    statusLabel: { fr: "À venir", en: "Coming soon" },
-    storeLabel: null,
-    storeUrl: null,
+    status: "published",
+    statusLabel: { fr: "Disponible sur Google Play", en: "Available on Google Play" },
+    storeLabel: { fr: "Disponible sur Google Play", en: "Get it on Google Play" },
+    storeUrl: "https://play.google.com/store/apps/details?id=com.nanouk.widgetbudgetminute",
     packageName: "com.nanouk.widgetbudgetminute",
     icon: "/assets/apps/budget-assistant/icon.webp",
     screenshots: Array.from({ length: 6 }, (_, index) => `/assets/apps/budget-assistant/screen-${index + 1}.webp`),
+    screenshotAspect: "portrait",
     accent: "coral",
     summary: {
       fr: "Suivez dépenses, budgets et charges fixes sans compte, publicité ni connexion bancaire.",
@@ -167,8 +169,8 @@ export const apps = [
       ],
     },
     features: {
-      fr: ["Suivi par jour, semaine et mois", "Budget mensuel et calcul du restant", "Dépenses, entrées positives et catégories", "Charges fixes et dépenses récurrentes", "Historique complet", "Widget Android", "Rapports PDF mensuels", "Sauvegarde et restauration", "Fonctionnement local, sans connexion bancaire"],
-      en: ["Daily, weekly and monthly tracking", "Monthly budget and remaining balance", "Expenses, positive entries and categories", "Fixed and recurring costs", "Complete history", "Android widget", "Monthly PDF reports", "Backup and restore", "Local operation with no bank connection"],
+      fr: ["Achat unique, sans abonnement", "Suivi par jour, semaine et mois", "Budget mensuel et calcul du restant", "Dépenses, entrées positives et catégories", "Charges fixes et dépenses récurrentes", "Historique complet", "Widget Android", "Rapports PDF mensuels", "Sauvegarde et restauration", "Fonctionnement local, sans connexion bancaire"],
+      en: ["One-time purchase, no subscription", "Daily, weekly and monthly tracking", "Monthly budget and remaining balance", "Expenses, positive entries and categories", "Fixed and recurring costs", "Complete history", "Android widget", "Monthly PDF reports", "Backup and restore", "Local operation with no bank connection"],
     },
     privacyLead: {
       fr: "Les données budgétaires sont stockées localement et ne sont pas envoyées à un serveur Studio501.",
@@ -187,6 +189,7 @@ export const apps = [
     packageName: "com.nanouk.myhomeassistant",
     icon: "/assets/apps/myhomeassistant/icon.webp",
     screenshots: Array.from({ length: 6 }, (_, index) => `/assets/apps/myhomeassistant/screen-${index + 1}.webp`),
+    screenshotAspect: "portrait",
     accent: "gold",
     summary: {
       fr: "Organisez l’entretien de votre maison avec équipements, tâches, rappels locaux et widget.",
