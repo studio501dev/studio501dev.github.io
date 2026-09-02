@@ -319,5 +319,39 @@
     "screenshots": [],
     "storeUrl": "https://play.google.com/store/apps/details?id=com.nanouk.widgetanniversairesdates",
     "privacyUrl": "https://studio501.fr/privacy/memoa/"
+  },
+  {
+    "slug": "arcade-501",
+    "name": "Arcade 501",
+    "platform": "Android",
+    "status": "preparing",
+    "summary": {
+      "fr": "Dix-huit jeux d’arcade et de réflexion entièrement hors ligne, sans publicité ni compte.",
+      "en": "Eighteen arcade and puzzle games that work fully offline, with no ads or account."
+    },
+    "features": {
+      "fr": [
+        "18 jeux jouables hors ligne",
+        "594 niveaux de campagne",
+        "Défis infinis et matchs locaux",
+        "Modes solo et deux joueurs selon les jeux",
+        "Mission 501",
+        "Six profils locaux aux records séparés",
+        "Français et anglais",
+        "Aucune publicité, aucun compte et aucune connexion requise"
+      ],
+      "en": [
+        "18 games playable offline",
+        "594 campaign levels",
+        "Endless challenges and local matches",
+        "Solo and two-player modes depending on the game",
+        "Mission 501",
+        "Six local profiles with separate records",
+        "English and French",
+        "No ads, account, or connection required"
+      ]
+    },
+    "screenshots": [],
+    "privacyUrl": "https://studio501.fr/privacy/arcade-501/"
   }
 ]

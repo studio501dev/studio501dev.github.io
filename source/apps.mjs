@@ -290,6 +290,41 @@ export const apps = [
       en: "Events, people, notes and photos remain in the app’s private storage on your device.",
     },
   },
+  {
+    slug: "arcade-501",
+    name: "Arcade 501",
+    platform: "Android",
+    platformKey: "android",
+    status: "preparing",
+    statusLabel: { fr: "Publication en préparation", en: "Preparing for release" },
+    packageName: "com.studio501.offlinearcade",
+    screenshots: [],
+    screenshotAspect: "portrait",
+    accent: "cyan",
+    monogram: "A5",
+    summary: {
+      fr: "Dix-huit jeux d’arcade et de réflexion entièrement hors ligne, sans publicité ni compte.",
+      en: "Eighteen arcade and puzzle games that work fully offline, with no ads or account.",
+    },
+    description: {
+      fr: [
+        "Arcade 501 réunit 18 jeux tactiles : campagnes, défis infinis, matchs locaux et Mission 501.",
+        "Les profils, scores, records et succès restent sur l’appareil. L’application fonctionne en mode avion, sans publicité ni connexion.",
+      ],
+      en: [
+        "Arcade 501 brings together 18 touch games: campaigns, endless challenges, local matches, and Mission 501.",
+        "Profiles, scores, records, and achievements remain on the device. The app works in airplane mode, with no ads or connection required.",
+      ],
+    },
+    features: {
+      fr: ["18 jeux jouables hors ligne", "594 niveaux de campagne", "Défis infinis et matchs locaux", "Modes solo et deux joueurs selon les jeux", "Mission 501", "Six profils locaux aux records séparés", "Français et anglais", "Aucune publicité, aucun compte et aucune connexion requise"],
+      en: ["18 games playable offline", "594 campaign levels", "Endless challenges and local matches", "Solo and two-player modes depending on the game", "Mission 501", "Six local profiles with separate records", "English and French", "No ads, account, or connection required"],
+    },
+    privacyLead: {
+      fr: "Les profils, scores, records et réglages restent sur l’appareil. Aucun compte, publicité ou transfert réseau.",
+      en: "Profiles, scores, records, and settings remain on the device. No account, ads, or network transfer.",
+    },
+  },
 ];
 
 export const findApp = (slug) => apps.find((app) => app.slug === slug || app.privacySlug === slug);

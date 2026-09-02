@@ -170,7 +170,7 @@ function platformPage(lang, platformKey) {
   const platformApps = apps.filter((app) => app.platformKey === platformKey);
   const publishedPlatformCount = platformApps.filter((app) => app.status === "published").length;
   const title = isWindows ? (fr ? "Applications Windows — Studio501" : "Windows applications — Studio501") : (fr ? "Applications Android — Studio501" : "Android applications — Studio501");
-  const description = isWindows ? (fr ? "Applications Studio501 pour Windows : Decision Tree Studio et Universal Converter Studio." : "Studio501 applications for Windows: Decision Tree Studio and Universal Converter Studio.") : (fr ? "Applications Android Studio501 : Ma Liste de Courses, Budget Assistant, Widget Pilulier, MyHomeAssistant et Memoa." : "Studio501 Android applications: Ma Liste de Courses, Budget Assistant, Widget Pilulier, MyHomeAssistant and Memoa.");
+  const description = isWindows ? (fr ? "Applications Studio501 pour Windows : Decision Tree Studio et Universal Converter Studio." : "Studio501 applications for Windows: Decision Tree Studio and Universal Converter Studio.") : (fr ? "Applications Android Studio501 : outils locaux et jeux hors ligne, sans publicité ni compte obligatoire." : "Studio501 Android applications: local tools and offline games, with no ads or mandatory account.");
   const intro = isWindows ? {
     kicker: "Studio501 · Windows", heading: fr ? "Des logiciels Windows qui restent clairs." : "Windows software that stays clear.", lead: fr ? "Des outils premium pour créer, organiser et convertir, avec un fonctionnement local au cœur de l’expérience." : "Premium tools for creating, organising and converting, with local operation at the core of the experience.",
   } : {
