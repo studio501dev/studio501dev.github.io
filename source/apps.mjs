@@ -321,8 +321,8 @@ export const apps = [
       en: ["18 games playable offline", "594 campaign levels", "Endless challenges and local matches", "Solo and two-player modes depending on the game", "Mission 501", "Six local profiles with separate records", "English and French", "No ads, account, or connection required"],
     },
     privacyLead: {
-      fr: "Les profils, scores, records et réglages restent sur l’appareil. Aucun compte, publicité ou transfert réseau.",
-      en: "Profiles, scores, records, and settings remain on the device. No account, ads, or network transfer.",
+      fr: "Les profils, scores, records et réglages restent sur l’appareil. Aucun compte, publicité ni transfert de données de jeu.",
+      en: "Profiles, scores, records, and settings remain on the device. No account, ads, or gameplay-data transfer.",
     },
   },
 ];
