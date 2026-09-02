@@ -174,7 +174,7 @@
     "slug": "widget-pilulier",
     "name": "Widget Pilulier",
     "platform": "Android",
-    "status": "preparing",
+    "status": "published",
     "icon": "/assets/apps/widget-pilulier/icon.webp",
     "summary": {
       "fr": "Planifiez vos prises et gardez-les visibles sur votre écran d’accueil.",
@@ -226,7 +226,7 @@
         "/assets/apps/widget-pilulier/en/screen-6.webp"
       ]
     },
-    "storeUrl": null,
+    "storeUrl": "https://play.google.com/store/apps/details?id=com.nanouk.widgetpilulier",
     "privacyUrl": "https://studio501.fr/privacy/widget-pilulier/"
   },
   {
@@ -278,7 +278,7 @@
     "slug": "memoa",
     "name": "Memoa",
     "platform": "Android",
-    "status": "preparing",
+    "status": "published",
     "icon": "/assets/apps/memoa/icon.png",
     "summary": {
       "fr": "Anniversaires et dates importantes, visibles sur votre écran d’accueil.",
@@ -317,7 +317,7 @@
       ]
     },
     "screenshots": [],
-    "storeUrl": null,
+    "storeUrl": "https://play.google.com/store/apps/details?id=com.nanouk.widgetanniversairesdates",
     "privacyUrl": "https://studio501.fr/privacy/memoa/"
   }
 ]
