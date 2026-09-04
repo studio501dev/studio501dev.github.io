@@ -2,6 +2,7 @@ import { mkdir, rm, writeFile } from "node:fs/promises";
 import { resolve, dirname, join } from "node:path";
 import { apps, site } from "../source/apps.mjs";
 import { policies } from "../source/privacy.mjs";
+import { appSupport } from "../source/launch-pages.mjs";
 
 const root = resolve(import.meta.dirname, "..");
 const languages = ["fr", "en"];
@@ -20,6 +21,7 @@ const langPath = (lang, path) => lang === "fr" ? path : path === "/" ? "/en/" : 
 const alternatePath = (lang, path) => langPath(lang === "fr" ? "en" : "fr", path);
 const absolute = (path) => `${site.baseUrl}${path}`;
 const policySlug = (app) => app.privacySlug || app.slug;
+const supportPath = (app) => appSupport[app.slug] ? `/support/${app.slug}/` : `/support/?app=${encodeURIComponent(app.slug)}`;
 const appBySlug = (slug) => apps.find((app) => app.slug === slug);
 const screenshotsFor = (app, lang) => Array.isArray(app.screenshots) ? app.screenshots : app.screenshots?.[lang] || [];
 
@@ -199,7 +201,7 @@ function applicationPage(lang, app) {
   const content = `<section class="product-hero product-hero--${app.accent}"><div class="shell product-hero-grid"><div class="product-identity" data-reveal>${iconMarkup(app, "product-icon")}<div><div class="product-meta"><span class="platform-badge platform-badge--${app.platformKey}">${app.platform}</span><span class="status status--${app.status}">${esc(app.statusLabel[lang])}</span></div><h1>${esc(app.name)}</h1><p class="lead">${esc(app.summary[lang])}</p><div class="hero-actions">${app.storeUrl ? `<a class="button button--primary" href="${app.storeUrl}" target="_blank" rel="noopener">${esc(app.storeLabel[lang])}</a>` : ""}<a class="button button--secondary" href="${langPath(lang, privacyPath)}">${t.privacyPolicy}</a></div></div></div><div class="product-copy" data-reveal>${app.description[lang].map((paragraph) => `<p>${esc(paragraph)}</p>`).join("")}</div></div></section>
   <section class="section"><div class="shell"><div class="section-heading"><div><p class="eyebrow">${t.features}</p><h2>${fr ? "Tout ce qu’il faut, clairement." : "Everything you need, clearly."}</h2></div></div><ul class="feature-grid">${app.features[lang].map((feature) => `<li data-reveal><span aria-hidden="true">✓</span>${esc(feature)}</li>`).join("")}</ul></div></section>
   <section class="section section--tinted"><div class="shell"><div class="section-heading"><div><p class="eyebrow">${t.screenshots}</p><h2>${fr ? "L’application en images" : "See the application"}</h2></div></div>${screenshots}</div></section>
-  <section class="section"><div class="shell product-bottom-grid"><article class="privacy-panel" data-reveal><p class="eyebrow">${t.local}</p><h2>${t.privacyPolicy}</h2><p>${esc(app.privacyLead[lang])}</p><a class="button button--primary" href="${langPath(lang, privacyPath)}">${t.privacyPolicy}</a></article><article class="support-panel" data-reveal><p class="eyebrow">Support</p><h2>${fr ? "Une question sur l’application ?" : "A question about the application?"}</h2><p>${fr ? "Écrivez à Studio501 en indiquant l’application, votre appareil et une description précise." : "Email Studio501 with the application name, your device and a precise description."}</p><a class="button button--secondary" href="${langPath(lang, `/support/?app=${encodeURIComponent(app.slug)}`)}">${t.support}</a></article></div><p class="back-link"><a href="${langPath(lang, "/apps/")}">← ${t.backApps}</a></p></section>`;
+  <section class="section"><div class="shell product-bottom-grid"><article class="privacy-panel" data-reveal><p class="eyebrow">${t.local}</p><h2>${t.privacyPolicy}</h2><p>${esc(app.privacyLead[lang])}</p><a class="button button--primary" href="${langPath(lang, privacyPath)}">${t.privacyPolicy}</a></article><article class="support-panel" data-reveal><p class="eyebrow">Support</p><h2>${fr ? "Une question sur l’application ?" : "A question about the application?"}</h2><p>${fr ? "Écrivez à Studio501 en indiquant l’application, votre appareil et une description précise." : "Email Studio501 with the application name, your device and a precise description."}</p><a class="button button--secondary" href="${langPath(lang, supportPath(app))}">${t.support}</a></article></div><p class="back-link"><a href="${langPath(lang, "/apps/")}">← ${t.backApps}</a></p></section>`;
   return layout({ lang, path, current: "apps", title: `${app.name} — Studio501`, description: app.summary[lang], content, structuredData });
 }
 
@@ -260,7 +262,7 @@ function policyPage(lang, app, { legacyPath = null } = {}) {
   const canonicalPath = `/privacy/${policySlug(app)}/`;
   const path = legacyPath || canonicalPath;
   const policy = policies[policySlug(app)];
-  const sections = policy.sections[lang].map((section, index) => `<section class="policy-section"><h2><span>${String(index + 1).padStart(2, "0")}</span>${esc(section.title)}</h2>${(section.paragraphs || []).map((paragraph) => `<p>${esc(paragraph)}</p>`).join("")}${section.bullets ? `<ul>${section.bullets.map((item) => `<li>${esc(item)}</li>`).join("")}</ul>` : ""}${(section.paragraphsAfter || []).map((paragraph) => `<p>${esc(paragraph)}</p>`).join("")}</section>`).join("");
+  const sections = policy.sections[lang].map((section, index) => `<section class="policy-section"><h2><span>${String(index + 1).padStart(2, "0")}</span>${esc(section.title)}</h2>${(section.paragraphs || []).map((paragraph) => `<p>${esc(paragraph)}</p>`).join("")}${section.bullets ? `<ul>${section.bullets.map((item) => `<li>${esc(item)}</li>`).join("")}</ul>` : ""}${(section.links || []).map((link) => `<p><a href="${esc(link.href)}" target="_blank" rel="noopener">${esc(link.label)}</a></p>`).join("")}${(section.paragraphsAfter || []).map((paragraph) => `<p>${esc(paragraph)}</p>`).join("")}</section>`).join("");
   const content = `<section class="policy-hero"><div class="shell policy-hero-grid"><div>${iconMarkup(app, "product-icon")}<p class="eyebrow">${app.platform} · Studio501</p><h1>${fr ? "Politique de confidentialité" : "Privacy policy"}<span>${esc(app.name)}</span></h1><p class="lead">${esc(policy.summary[lang])}</p><p class="updated"><strong>${labels[lang].updated} :</strong> ${esc(policy.lastUpdated[lang])}</p></div><aside class="policy-summary"><span class="status status--${app.status}">${esc(app.statusLabel[lang])}</span><p>${esc(app.privacyLead[lang])}</p>${app.storeUrl ? `<a class="text-link" href="${app.storeUrl}" target="_blank" rel="noopener">${esc(app.storeLabel[lang])} ↗</a>` : ""}</aside></div></section><div class="shell policy-layout"><nav class="policy-nav" aria-label="${fr ? "Sommaire" : "Contents"}"><a href="${langPath(lang, "/privacy/")}">← ${fr ? "Toutes les politiques" : "All policies"}</a><a href="${langPath(lang, `/apps/${app.slug}/`)}">${fr ? "Fiche de l’application" : "Application page"}</a><a href="mailto:${site.primaryEmail}">Contact Studio501</a></nav><article class="policy-content">${sections}<section class="policy-contact"><h2>${fr ? "Contact" : "Contact"}</h2><p>${fr ? "Pour toute question concernant cette politique, contactez Studio501 :" : "For any question about this policy, contact Studio501:"} <a href="mailto:${site.primaryEmail}">${site.primaryEmail}</a>.</p><p>${fr ? "L’adresse studio501.dev@gmail.com reste également disponible pour les fiches Store existantes." : "studio501.dev@gmail.com also remains available for existing Store listings."}</p></section></article></div>`;
   const html = layout({ lang, path: canonicalPath, current: "privacy", title: `${fr ? "Confidentialité" : "Privacy"} — ${app.name} — Studio501`, description: policy.summary[lang], content });
   if (!legacyPath) return html;
@@ -270,9 +272,17 @@ function policyPage(lang, app, { legacyPath = null } = {}) {
 function supportPage(lang) {
   const fr = lang === "fr";
   const path = "/support/";
-  const cards = apps.map((app) => `<article class="support-app" data-reveal>${iconMarkup(app)}<div><h2>${esc(app.name)}</h2><p>${esc(app.summary[lang])}</p><a class="button button--secondary" href="mailto:${site.primaryEmail}?subject=${encodeURIComponent(`Support ${app.name}`)}">${fr ? "Contacter le support" : "Contact support"}</a></div></article>`).join("");
+  const cards = apps.map((app) => `<article class="support-app" data-reveal>${iconMarkup(app)}<div><h2>${esc(app.name)}</h2><p>${esc(app.summary[lang])}</p><a class="button button--secondary" href="mailto:${site.primaryEmail}?subject=${encodeURIComponent(`Support ${app.name}`)}">${fr ? "Contacter le support" : "Contact support"}</a>${appSupport[app.slug] ? `<p><a href="${langPath(lang, supportPath(app))}">${fr ? "Consulter l’aide" : "Read the help guide"}</a></p>` : ""}</div></article>`).join("");
   const content = `${pageIntro("Studio501", "Support", fr ? "Choisissez l’application concernée et décrivez précisément votre question. Nous vous répondrons par e-mail." : "Choose the relevant application and describe your question precisely. We will reply by email.")}<section class="section"><div class="shell support-list">${cards}</div></section><section class="section section--compact"><div class="shell contact-grid"><article><p class="eyebrow">${fr ? "Contact principal" : "Primary contact"}</p><h2><a href="mailto:${site.primaryEmail}">${site.primaryEmail}</a></h2><p>${fr ? "Adresse officielle du site Studio501." : "Official Studio501 website address."}</p></article><article><p class="eyebrow">${fr ? "Fiches Store existantes" : "Existing Store listings"}</p><h2><a href="mailto:${site.storeEmail}">${site.storeEmail}</a></h2><p>${fr ? "Cette adresse reste active pour assurer la continuité des applications déjà publiées." : "This address remains active for continuity with already published applications."}</p></article></div></section>`;
   return layout({ lang, path, current: "support", title: "Support — Studio501", description: fr ? "Support centralisé pour les applications Windows et Android Studio501." : "Central support for Studio501 Windows and Android applications.", content });
+}
+
+function appSupportPage(lang, app) {
+  const fr = lang === "fr";
+  const path = `/support/${app.slug}/`;
+  const sections = appSupport[app.slug][lang].map((section, index) => `<section class="policy-section"><h2><span>${String(index + 1).padStart(2, "0")}</span>${esc(section.title)}</h2>${section.paragraphs.map((paragraph) => `<p>${esc(paragraph)}</p>`).join("")}</section>`).join("");
+  const content = `${pageIntro("Studio501 · Android", `Support — ${app.name}`, fr ? "Réponses aux questions fréquentes et contact de l’assistance." : "Answers to common questions and support contact.")}<div class="shell policy-layout"><nav class="policy-nav" aria-label="${fr ? "Liens utiles" : "Useful links"}"><a href="${langPath(lang, `/apps/${app.slug}/`)}">${fr ? "Fiche de l’application" : "Application page"}</a><a href="${langPath(lang, `/privacy/${policySlug(app)}/`)}">${labels[lang].privacyPolicy}</a><a href="${langPath(lang, "/support/")}">Support Studio501</a></nav><article class="policy-content">${sections}<section class="policy-contact"><h2>Contact Studio501</h2><p><a href="mailto:${site.primaryEmail}?subject=${encodeURIComponent(`Support ${app.name}`)}">${site.primaryEmail}</a></p><p>${fr ? "Indiquez votre appareil, la version de l’application et une description du problème. N’envoyez pas de document sensible ni de mot de passe." : "Include your device, app version and a description of the issue. Do not send sensitive documents or passwords."}</p><p>${fr ? "L’adresse de support des fiches Store reste également disponible :" : "The Store listing support address also remains available:"} <a href="mailto:${site.storeEmail}">${site.storeEmail}</a>.</p></section></article></div>`;
+  return layout({ lang, path, current: "support", title: `Support — ${app.name} — Studio501`, description: fr ? `Aide et assistance pour ${app.name} : données locales, rappels, sauvegardes et mises à jour.` : `Help and support for ${app.name}: local data, reminders, backups and updates.`, content });
 }
 
 function aboutPage(lang) {
@@ -310,6 +320,7 @@ async function build() {
     for (const app of apps) {
       await output(`${prefix}apps/${app.slug}/index.html`, applicationPage(lang, app));
       await output(`${prefix}privacy/${policySlug(app)}/index.html`, policyPage(lang, app));
+      if (appSupport[app.slug]) await output(`${prefix}support/${app.slug}/index.html`, appSupportPage(lang, app));
     }
   }
   await output("privacy.html", policyPage("fr", apps[0], { legacyPath: "/privacy.html" }));
@@ -318,7 +329,7 @@ async function build() {
   await output("en/404.html", notFoundPage("en"));
   const publicApps = apps.map((app) => ({ slug: app.slug, name: app.name, platform: app.platform, status: app.status, icon: app.icon, summary: app.summary, features: app.features, screenshots: app.screenshots, storeUrl: app.storeUrl, privacyUrl: `${site.baseUrl}/privacy/${policySlug(app)}/` }));
   await output("apps.json", JSON.stringify(publicApps, null, 2));
-  const canonicalPaths = ["/", "/windows/", "/android/", "/apps/", "/privacy/", "/confidentialite/", "/mentions-legales/", "/support/", "/about/", ...apps.flatMap((app) => [`/apps/${app.slug}/`, `/privacy/${policySlug(app)}/`])];
+  const canonicalPaths = ["/", "/windows/", "/android/", "/apps/", "/privacy/", "/confidentialite/", "/mentions-legales/", "/support/", "/about/", ...apps.flatMap((app) => [`/apps/${app.slug}/`, `/privacy/${policySlug(app)}/`, ...(appSupport[app.slug] ? [`/support/${app.slug}/`] : [])])];
   const sitemapUrls = canonicalPaths.flatMap((path) => [langPath("fr", path), langPath("en", path)]).map((path) => `  <url><loc>${absolute(path)}</loc></url>`).join("\n");
   await output("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls}\n</urlset>\n`);
   await output("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${site.baseUrl}/sitemap.xml\n`);

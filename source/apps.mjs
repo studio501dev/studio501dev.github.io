@@ -360,6 +360,64 @@ export const apps = [
       en: "Trips, documents, budgets and lists remain in private app storage unless the user chooses to export or share them.",
     },
   },
+  {
+    slug: "ma-voiture",
+    name: "Ma Voiture",
+    platform: "Android",
+    platformKey: "android",
+    status: "preparing",
+    statusLabel: { fr: "Publication en préparation", en: "Preparing for release" },
+    packageName: "com.studio501.mavoiture",
+    icon: "/assets/apps/ma-voiture/icon.png",
+    screenshots: ["garage", "maintenance", "fuel-charging", "documents"].map((name) => `/assets/apps/ma-voiture/${name}.png`),
+    screenshotAspect: "portrait",
+    accent: "cyan",
+    summary: {
+      fr: "Entretien, kilométrage, pleins, recharges, dépenses et documents dans un carnet privé pour vos véhicules.",
+      en: "Maintenance, mileage, fuel, charging, costs and documents in a private logbook for your vehicles.",
+    },
+    description: {
+      fr: ["Ma Voiture rassemble l’historique de vos véhicules dans un carnet utilisable hors connexion. Gérez votre garage, suivez les échéances et retrouvez vos documents sur votre appareil.", "Sans compte Studio501 ni publicité. Les mises à jour proposées à l’ouverture passent par Google Play ; les données du carnet restent locales.", "Les intervalles d’entretien sont des exemples modifiables : vérifiez les échéances auprès du constructeur ou d’un professionnel. Une copie numérique ne remplace pas nécessairement un document original."],
+      en: ["Ma Voiture (My Car) brings your vehicles’ history together in an offline logbook. Manage your garage, track due dates and keep documents on your device.", "No Studio501 account or ads. Update offers at launch use Google Play; logbook data remains local.", "Suggested maintenance intervals are editable examples: confirm deadlines with the manufacturer or a professional. A digital copy may not replace an original document."],
+    },
+    features: {
+      fr: ["Garage multi-véhicules, recherche et archives", "Photo du véhicule et galerie intégrée", "Entretiens, factures et historique du compteur", "Échéances par date et kilométrage", "Pleins, recharges et suivi de consommation", "Dépenses et totaux séparés par devise", "Documents et images dans un espace privé", "Suivi des pneus et rappels locaux", "Dossier de revente PDF et exports CSV", "Sauvegarde locale avec mot de passe facultatif", "Restauration par fusion ou remplacement", "Français et anglais, sans publicité"],
+      en: ["Multi-vehicle garage, search and archives", "Vehicle photo and built-in gallery", "Maintenance, invoices and odometer history", "Due dates based on time and mileage", "Fuel, charging and consumption tracking", "Costs and totals separated by currency", "Documents and images in private storage", "Tyre tracking and local reminders", "Resale PDF report and CSV exports", "Local backup with optional password protection", "Merge or replace restore", "French and English, no ads"],
+    },
+    privacyLead: {
+      fr: "Les véhicules, photos, documents et coûts restent sur l’appareil, sauf export ou partage choisi. Google Play gère séparément les mises à jour de l’application.",
+      en: "Vehicles, photos, documents and costs stay on the device unless you choose to export or share them. Google Play handles app updates separately.",
+    },
+  },
+  {
+    slug: "mes-abonnements",
+    name: "Mes Abonnements",
+    platform: "Android",
+    platformKey: "android",
+    status: "preparing",
+    statusLabel: { fr: "Publication en préparation", en: "Preparing for release" },
+    packageName: "com.studio501.mesabonnements",
+    icon: "/assets/apps/mes-abonnements/icon.png",
+    screenshots: ["home", "subscription-detail", "timeline", "analytics"].map((name) => `/assets/apps/mes-abonnements/${name}.png`),
+    screenshotAspect: "portrait",
+    accent: "violet",
+    summary: {
+      fr: "Suivez manuellement vos abonnements, budgets, échéances et essais dans un carnet local avec rappels.",
+      en: "Manually track subscriptions, budgets, due dates and trials in a local logbook with reminders.",
+    },
+    description: {
+      fr: ["Mes Abonnements réunit vos dépenses récurrentes, prochaines échéances et essais dans un tableau de bord clair. Les projections et analyses reposent sur les informations que vous saisissez.", "L’application ne se connecte ni à votre banque ni aux fournisseurs et ne résilie rien à votre place. Elle fonctionne sans compte ni publicité, avec des données locales et des mises à jour proposées via Google Play."],
+      en: ["Mes Abonnements (My Subscriptions) brings recurring costs, upcoming payments and trials into one clear dashboard. Projections and insights use the information you enter.", "The app does not connect to your bank or providers and does not cancel services for you. It works without an account or ads, with local data and update offers through Google Play."],
+    },
+    features: {
+      fr: ["Saisie manuelle des abonnements et budgets", "Échéances, calendrier et projection sur douze mois", "Récurrences flexibles et suivi des essais", "Historique des prix et répartition par catégorie", "Devises et taux de conversion manuels datés", "Rappels avant renouvellement ou résiliation", "Widget Android et masquage des montants", "Documents facultatifs conservés localement", "Exports CSV et synthèses PDF", "Sauvegarde protégée par mot de passe facultatif", "Restauration par fusion ou remplacement", "Français et anglais, sans publicité"],
+      en: ["Manual subscription and budget entry", "Due dates, calendar and twelve-month projection", "Flexible recurrence and trial tracking", "Price history and category breakdown", "Currencies and dated manual exchange rates", "Reminders before renewal or cancellation", "Android widget and hidden-amount privacy mode", "Optional documents stored locally", "CSV exports and PDF summaries", "Optional password-protected backup", "Merge or replace restore", "French and English, no ads"],
+    },
+    privacyLead: {
+      fr: "Les abonnements, montants et documents restent sur l’appareil, sauf export ou partage choisi. Google Play traite séparément les informations techniques des mises à jour.",
+      en: "Subscriptions, amounts and documents stay on the device unless you choose to export or share them. Google Play separately processes technical update information.",
+    },
+  },
 ];
 
 export const findApp = (slug) => apps.find((app) => app.slug === slug || app.privacySlug === slug);

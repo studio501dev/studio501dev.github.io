@@ -1,4 +1,7 @@
+import { launchPolicies } from "./launch-pages.mjs";
+
 export const policies = {
+  ...launchPolicies,
   "decision-tree-studio": {
     lastUpdated: { fr: "26 juillet 2026", en: "July 26, 2026" },
     summary: {
