@@ -298,10 +298,10 @@ export const apps = [
     status: "preparing",
     statusLabel: { fr: "Publication en préparation", en: "Preparing for release" },
     packageName: "com.studio501.offlinearcade",
+    icon: "/assets/apps/arcade-501/icon.png",
     screenshots: [],
     screenshotAspect: "portrait",
     accent: "cyan",
-    monogram: "A5",
     summary: {
       fr: "Dix-huit jeux d’arcade et de réflexion entièrement hors ligne, sans publicité ni compte.",
       en: "Eighteen arcade and puzzle games that work fully offline, with no ads or account.",
@@ -323,6 +323,41 @@ export const apps = [
     privacyLead: {
       fr: "Les profils, scores, records et réglages restent sur l’appareil. Aucun compte, publicité ni transfert de données de jeu.",
       en: "Profiles, scores, records, and settings remain on the device. No account, ads, or gameplay-data transfer.",
+    },
+  },
+  {
+    slug: "trip-pocket",
+    name: "Trip Pocket",
+    platform: "Android",
+    platformKey: "android",
+    status: "preparing",
+    statusLabel: { fr: "Publication en préparation", en: "Preparing for release" },
+    packageName: "com.studio501.trippocket",
+    icon: "/assets/apps/trip-pocket/icon.png",
+    screenshots: Array.from({ length: 6 }, (_, index) => `/assets/apps/trip-pocket/screen-${index + 1}.webp`),
+    screenshotAspect: "portrait",
+    accent: "coral",
+    summary: {
+      fr: "Planning, réservations, documents, valise et budget réunis dans un carnet de voyage privé, même hors connexion.",
+      en: "Itinerary, bookings, documents, packing and budget together in one private travel journal, even offline.",
+    },
+    description: {
+      fr: [
+        "Trip Pocket rassemble chaque étape utile dans un carnet de voyage privé et agréable à consulter.",
+        "Préparez plusieurs voyages, organisez les journées, gardez vos réservations à portée de main et suivez votre budget sans créer de compte.",
+      ],
+      en: [
+        "Trip Pocket brings every useful part of a trip together in a private travel journal designed to be easy to revisit.",
+        "Plan several trips, organise each day, keep bookings close at hand and follow your budget without creating an account.",
+      ],
+    },
+    features: {
+      fr: ["Planning quotidien clair", "Réservations et documents conservés sur l’appareil", "Listes de valise et préparation avant le départ", "Budget, catégories, devises et taux personnalisés", "Export PDF, CSV et calendrier ICS", "Sauvegardes chiffrables par mot de passe", "Rappels locaux", "Aucun compte, publicité ni suivi d’usage", "Fonctionnement hors connexion"],
+      en: ["Clear daily itinerary", "Bookings and documents kept on the device", "Packing lists and pre-departure preparation", "Budget, categories, currencies and custom rates", "PDF, CSV and ICS calendar exports", "Password-encryptable backups", "Local reminders", "No account, ads or usage tracking", "Offline operation"],
+    },
+    privacyLead: {
+      fr: "Les voyages, documents, budgets et listes restent dans le stockage privé de l’application, sauf export ou partage choisi par l’utilisateur.",
+      en: "Trips, documents, budgets and lists remain in private app storage unless the user chooses to export or share them.",
     },
   },
 ];

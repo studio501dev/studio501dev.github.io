@@ -325,6 +325,7 @@
     "name": "Arcade 501",
     "platform": "Android",
     "status": "preparing",
+    "icon": "/assets/apps/arcade-501/icon.png",
     "summary": {
       "fr": "Dix-huit jeux d’arcade et de réflexion entièrement hors ligne, sans publicité ni compte.",
       "en": "Eighteen arcade and puzzle games that work fully offline, with no ads or account."
@@ -353,5 +354,49 @@
     },
     "screenshots": [],
     "privacyUrl": "https://studio501.fr/privacy/arcade-501/"
+  },
+  {
+    "slug": "trip-pocket",
+    "name": "Trip Pocket",
+    "platform": "Android",
+    "status": "preparing",
+    "icon": "/assets/apps/trip-pocket/icon.png",
+    "summary": {
+      "fr": "Planning, réservations, documents, valise et budget réunis dans un carnet de voyage privé, même hors connexion.",
+      "en": "Itinerary, bookings, documents, packing and budget together in one private travel journal, even offline."
+    },
+    "features": {
+      "fr": [
+        "Planning quotidien clair",
+        "Réservations et documents conservés sur l’appareil",
+        "Listes de valise et préparation avant le départ",
+        "Budget, catégories, devises et taux personnalisés",
+        "Export PDF, CSV et calendrier ICS",
+        "Sauvegardes chiffrables par mot de passe",
+        "Rappels locaux",
+        "Aucun compte, publicité ni suivi d’usage",
+        "Fonctionnement hors connexion"
+      ],
+      "en": [
+        "Clear daily itinerary",
+        "Bookings and documents kept on the device",
+        "Packing lists and pre-departure preparation",
+        "Budget, categories, currencies and custom rates",
+        "PDF, CSV and ICS calendar exports",
+        "Password-encryptable backups",
+        "Local reminders",
+        "No account, ads or usage tracking",
+        "Offline operation"
+      ]
+    },
+    "screenshots": [
+      "/assets/apps/trip-pocket/screen-1.webp",
+      "/assets/apps/trip-pocket/screen-2.webp",
+      "/assets/apps/trip-pocket/screen-3.webp",
+      "/assets/apps/trip-pocket/screen-4.webp",
+      "/assets/apps/trip-pocket/screen-5.webp",
+      "/assets/apps/trip-pocket/screen-6.webp"
+    ],
+    "privacyUrl": "https://studio501.fr/privacy/trip-pocket/"
   }
 ]

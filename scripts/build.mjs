@@ -129,7 +129,7 @@ function homePage(lang) {
   const path = "/";
   const title = fr ? "Studio501 — Applications Windows et Android" : "Studio501 — Windows and Android applications";
   const description = fr ? "Studio501 développe des applications Windows et Android simples, utiles, premium et respectueuses des données." : "Studio501 develops simple, useful, premium and privacy-conscious Windows and Android applications.";
-  const featured = [appBySlug("decision-tree-studio"), appBySlug("ma-liste-de-courses"), appBySlug("budget-assistant")];
+  const featured = [appBySlug("decision-tree-studio"), appBySlug("ma-liste-de-courses"), appBySlug("budget-assistant"), appBySlug("trip-pocket")];
   const publishedAndroidCount = apps.filter((app) => app.platformKey === "android" && app.status === "published").length;
   const structuredData = [{ "@context": "https://schema.org", "@type": "Organization", name: site.name, legalName: site.publisher, url: site.baseUrl, email: site.primaryEmail, identifier: site.siren, areaServed: "Worldwide", address: { "@type": "PostalAddress", streetAddress: site.address.street, postalCode: site.address.postalCode, addressLocality: site.address.city, addressCountry: site.address.countryCode } }];
   const content = `<section class="home-hero">
