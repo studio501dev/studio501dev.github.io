@@ -422,7 +422,7 @@
         "Dossier de revente PDF et exports CSV",
         "Sauvegarde locale avec mot de passe facultatif",
         "Restauration par fusion ou remplacement",
-        "Français et anglais, sans publicité"
+        "Français et anglais"
       ],
       "en": [
         "Multi-vehicle garage, search and archives",
@@ -436,7 +436,7 @@
         "Resale PDF report and CSV exports",
         "Local backup with optional password protection",
         "Merge or replace restore",
-        "French and English, no ads"
+        "French and English"
       ]
     },
     "screenshots": [
