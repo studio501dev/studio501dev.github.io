@@ -41,8 +41,8 @@ export const launchPolicies = {
         {
           "title": "App updates",
           "paragraphs": [
-            "When you open the app, it may ask Google Play whether an update is available. Google Play handles this check, download and installation with your consent. Google documents that this service processes device metadata, the app version and installed modules to determine update availability and size. This information is encrypted and processed under Google Play policies. This feature does not transmit vehicles, documents, expenses or other logbook information.",
-            "You can postpone installation. The logbook remains usable offline and on devices without Google Play. .",
+            "When the app opens, it automatically checks with Google Play whether an update is available. If an update is offered, you choose to start its download and installation. Google documents that this service processes device metadata, the app version and installed modules to determine update availability and size. This information is encrypted in transit and processed under Google Play policies. This feature does not transmit vehicles, documents, expenses or other logbook information.",
+            "You can postpone installation. The logbook remains usable offline and on devices without Google Play.",
             "When you use Android’s file picker, Sharesheet, an external viewer, or a backup destination, you choose a third-party app or service. Data you send there is governed by that destination’s practices."
           ],
           "links": [
@@ -112,8 +112,8 @@ export const launchPolicies = {
         {
           "title": "Mises à jour de l’application",
           "paragraphs": [
-            "À l’ouverture, l’application peut demander à Google Play si une mise à jour est disponible. Google Play gère cette vérification, le téléchargement et l’installation après votre accord. Selon la documentation de Google, ce service traite des métadonnées de l’appareil, la version de l’application et les modules installés pour déterminer la mise à jour disponible et sa taille. Les informations sont chiffrées et traitées selon les règles de Google Play. Les véhicules, documents, dépenses et autres données du carnet ne sont pas transmis par cette fonctionnalité.",
-            "Vous pouvez remettre l’installation à plus tard. Le carnet reste utilisable hors connexion et sur un appareil sans Google Play. .",
+            "À l’ouverture, l’application vérifie automatiquement auprès de Google Play si une mise à jour est disponible. Si une mise à jour est proposée, vous choisissez de lancer son téléchargement et son installation. Selon la documentation de Google, ce service traite des métadonnées de l’appareil, la version de l’application et les modules installés pour déterminer la mise à jour disponible et sa taille. Les informations sont chiffrées pendant le transfert et traitées selon les règles de Google Play. Les véhicules, documents, dépenses et autres données du carnet ne sont pas transmis par cette fonctionnalité.",
+            "Vous pouvez remettre l’installation à plus tard. Le carnet reste utilisable hors connexion et sur un appareil sans Google Play.",
             "Quand vous utilisez le sélecteur de fichiers, la feuille de partage, un lecteur externe ou une destination de sauvegarde, vous choisissez une application ou un service tiers. Les données que vous lui confiez sont alors régies par ses propres pratiques."
           ],
           "links": [
