@@ -1,5 +1,5 @@
-import { mkdir, rm, writeFile } from "node:fs/promises";
-import { resolve, dirname, join } from "node:path";
+import { mkdir, rm, writeFile, lstat } from "node:fs/promises";
+import { resolve, dirname, join, sep } from "node:path";
 import { apps, site } from "../source/apps.mjs";
 import { policies } from "../source/privacy.mjs";
 import { appSupport } from "../source/launch-pages.mjs";
@@ -65,7 +65,7 @@ function head({ lang, path, title, description, structuredData = [] }) {
   <meta name="twitter:image" content="${absolute("/assets/og.png")}">
   <link rel="icon" type="image/png" href="/assets/favicon.png">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/site.css">${path === "/apps/aquarevane/" ? '\n  <link rel="stylesheet" href="/assets/aquarevane.css">' : ""}
 ${structuredData.map((data) => `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>`).join("\n")}
 </head>`;
 }
@@ -194,13 +194,16 @@ function applicationPage(lang, app) {
   const t = labels[lang];
   const path = `/apps/${app.slug}/`;
   const privacyPath = `/privacy/${policySlug(app)}/`;
-  const structuredData = [{ "@context": "https://schema.org", "@type": "SoftwareApplication", name: app.name, applicationCategory: app.platformKey === "windows" ? "BusinessApplication" : "LifestyleApplication", operatingSystem: app.platform, url: absolute(langPath(lang, path)), description: app.summary[lang], author: { "@type": "Organization", name: site.name, url: site.baseUrl }, ...(app.storeUrl ? { downloadUrl: app.storeUrl } : {}) }];
+  const structuredData = [{ "@context": "https://schema.org", "@type": "SoftwareApplication", name: app.name, applicationCategory: app.applicationCategory || (app.platformKey === "windows" ? "BusinessApplication" : "LifestyleApplication"), operatingSystem: app.platform, url: absolute(langPath(lang, path)), description: app.summary[lang], author: { "@type": "Organization", name: site.name, url: site.baseUrl }, ...(app.storeUrl ? { downloadUrl: app.storeUrl } : {}) }];
   const appScreenshots = screenshotsFor(app, lang);
   const portraitScreenshots = app.screenshotAspect === "portrait";
-  const screenshots = appScreenshots.length ? `<div class="screenshot-rail${portraitScreenshots ? " screenshot-rail--portrait" : ""}">${appScreenshots.map((source, index) => `<figure><img src="${source}" alt="${esc(app.name)} — ${fr ? "capture" : "screenshot"} ${index + 1}" loading="lazy" width="${portraitScreenshots ? "333" : "1052"}" height="592"><figcaption>${app.name} · ${index + 1}/${appScreenshots.length}</figcaption></figure>`).join("")}</div>` : `<div class="empty-visual">${iconMarkup(app)}<p>${t.noScreens}</p></div>`;
+  const showArtwork = !appScreenshots.length && Array.isArray(app.artworks) && app.artworks.length > 0;
+  const visualLabel = showArtwork ? (fr ? "L’univers du jeu" : "The game’s world") : t.screenshots;
+  const visualTitle = showArtwork ? (fr ? "Un carnet pour prendre le large." : "A journal for the journey.") : (fr ? "L’application en images" : "See the application");
+  const screenshots = appScreenshots.length ? `<div class="screenshot-rail${portraitScreenshots ? " screenshot-rail--portrait" : ""}">${appScreenshots.map((source, index) => `<figure><img src="${source}" alt="${esc(app.name)} — ${fr ? "capture" : "screenshot"} ${index + 1}" loading="lazy" width="${portraitScreenshots ? "333" : "1052"}" height="592"><figcaption>${app.name} · ${index + 1}/${appScreenshots.length}</figcaption></figure>`).join("")}</div>` : showArtwork ? `<div class="aquarevane-artwork-gallery">${app.artworks.map((art) => `<figure><img src="${esc(art.src)}" alt="${esc(art.alt[lang])}" loading="lazy"><figcaption>${esc(art.caption[lang])}</figcaption></figure>`).join("")}</div>` : `<div class="empty-visual">${iconMarkup(app)}<p>${t.noScreens}</p></div>`;
   const content = `<section class="product-hero product-hero--${app.accent}"><div class="shell product-hero-grid"><div class="product-identity" data-reveal>${iconMarkup(app, "product-icon")}<div><div class="product-meta"><span class="platform-badge platform-badge--${app.platformKey}">${app.platform}</span><span class="status status--${app.status}">${esc(app.statusLabel[lang])}</span></div><h1>${esc(app.name)}</h1><p class="lead">${esc(app.summary[lang])}</p><div class="hero-actions">${app.storeUrl ? `<a class="button button--primary" href="${app.storeUrl}" target="_blank" rel="noopener">${esc(app.storeLabel[lang])}</a>` : ""}<a class="button button--secondary" href="${langPath(lang, privacyPath)}">${t.privacyPolicy}</a></div></div></div><div class="product-copy" data-reveal>${app.description[lang].map((paragraph) => `<p>${esc(paragraph)}</p>`).join("")}</div></div></section>
   <section class="section"><div class="shell"><div class="section-heading"><div><p class="eyebrow">${t.features}</p><h2>${fr ? "Tout ce qu’il faut, clairement." : "Everything you need, clearly."}</h2></div></div><ul class="feature-grid">${app.features[lang].map((feature) => `<li data-reveal><span aria-hidden="true">✓</span>${esc(feature)}</li>`).join("")}</ul></div></section>
-  <section class="section section--tinted"><div class="shell"><div class="section-heading"><div><p class="eyebrow">${t.screenshots}</p><h2>${fr ? "L’application en images" : "See the application"}</h2></div></div>${screenshots}</div></section>
+  <section class="section section--tinted"><div class="shell"><div class="section-heading"><div><p class="eyebrow">${visualLabel}</p><h2>${visualTitle}</h2></div></div>${app.screenshotNote?.[lang] ? `<p class="aquarevane-capture-note">${esc(app.screenshotNote[lang])}</p>` : ""}${screenshots}</div></section>
   <section class="section"><div class="shell product-bottom-grid"><article class="privacy-panel" data-reveal><p class="eyebrow">${t.local}</p><h2>${t.privacyPolicy}</h2><p>${esc(app.privacyLead[lang])}</p><a class="button button--primary" href="${langPath(lang, privacyPath)}">${t.privacyPolicy}</a></article><article class="support-panel" data-reveal><p class="eyebrow">Support</p><h2>${fr ? "Une question sur l’application ?" : "A question about the application?"}</h2><p>${fr ? "Écrivez à Studio501 en indiquant l’application, votre appareil et une description précise." : "Email Studio501 with the application name, your device and a precise description."}</p><a class="button button--secondary" href="${langPath(lang, supportPath(app))}">${t.support}</a></article></div><p class="back-link"><a href="${langPath(lang, "/apps/")}">← ${t.backApps}</a></p></section>`;
   return layout({ lang, path, current: "apps", title: `${app.name} — Studio501`, description: app.summary[lang], content, structuredData });
 }
@@ -282,7 +285,7 @@ function appSupportPage(lang, app) {
   const path = `/support/${app.slug}/`;
   const sections = appSupport[app.slug][lang].map((section, index) => `<section class="policy-section"><h2><span>${String(index + 1).padStart(2, "0")}</span>${esc(section.title)}</h2>${section.paragraphs.map((paragraph) => `<p>${esc(paragraph)}</p>`).join("")}</section>`).join("");
   const content = `${pageIntro("Studio501 · Android", `Support — ${app.name}`, fr ? "Réponses aux questions fréquentes et contact de l’assistance." : "Answers to common questions and support contact.")}<div class="shell policy-layout"><nav class="policy-nav" aria-label="${fr ? "Liens utiles" : "Useful links"}"><a href="${langPath(lang, `/apps/${app.slug}/`)}">${fr ? "Fiche de l’application" : "Application page"}</a><a href="${langPath(lang, `/privacy/${policySlug(app)}/`)}">${labels[lang].privacyPolicy}</a><a href="${langPath(lang, "/support/")}">Support Studio501</a></nav><article class="policy-content">${sections}<section class="policy-contact"><h2>Contact Studio501</h2><p><a href="mailto:${site.primaryEmail}?subject=${encodeURIComponent(`Support ${app.name}`)}">${site.primaryEmail}</a></p><p>${fr ? "Indiquez votre appareil, la version de l’application et une description du problème. N’envoyez pas de document sensible ni de mot de passe." : "Include your device, app version and a description of the issue. Do not send sensitive documents or passwords."}</p><p>${fr ? "L’adresse de support des fiches Store reste également disponible :" : "The Store listing support address also remains available:"} <a href="mailto:${site.storeEmail}">${site.storeEmail}</a>.</p></section></article></div>`;
-  return layout({ lang, path, current: "support", title: `Support — ${app.name} — Studio501`, description: fr ? `Aide et assistance pour ${app.name} : données locales, rappels, sauvegardes et mises à jour.` : `Help and support for ${app.name}: local data, reminders, backups and updates.`, content });
+  return layout({ lang, path, current: "support", title: `Support — ${app.name} — Studio501`, description: app.supportDescription?.[lang] || (fr ? `Aide et assistance pour ${app.name} : données locales, rappels, sauvegardes et mises à jour.` : `Help and support for ${app.name}: local data, reminders, backups and updates.`), content });
 }
 
 function aboutPage(lang) {
@@ -305,7 +308,15 @@ async function output(path, content) {
 }
 
 async function build() {
-  for (const directory of ["windows", "android", "apps", "privacy", "confidentialite", "mentions-legales", "support", "about", "en"]) await rm(join(root, directory), { recursive: true, force: true });
+  const generatedDirectories = ["windows", "android", "apps", "privacy", "confidentialite", "mentions-legales", "support", "about", "en"];
+  // Resolve every generated destination before any recursive operation.
+  for (const directory of generatedDirectories) {
+    const target = resolve(root, directory);
+    if (!target.startsWith(root + sep)) throw new Error(`Generated destination escapes site root: ${target}`);
+    const existing = await lstat(target).catch((error) => { if (error.code === "ENOENT") return null; throw error; });
+    if (existing?.isSymbolicLink()) throw new Error(`Refusing to replace a linked directory: ${target}`);
+  }
+  for (const directory of generatedDirectories) await rm(resolve(root, directory), { recursive: true, force: true });
   for (const lang of languages) {
     const prefix = lang === "fr" ? "" : "en/";
     await output(`${prefix}index.html`, homePage(lang));

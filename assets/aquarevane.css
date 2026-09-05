@@ -1,0 +1,10 @@
+/* Aquarevane: original game artwork, explicitly presented as illustrations. */
+.product-hero--mint:has(h1){--aquarevane-paper:#f7f3e8}
+.aquarevane-artwork-gallery{display:grid;gap:28px;max-width:1100px;margin:0 auto}
+.aquarevane-artwork-gallery figure{margin:0;overflow:hidden;border:1px solid #d8dbc733;border-radius:22px;background:#f7f3e8;color:#284b43;box-shadow:0 16px 44px #070d1224}
+.aquarevane-artwork-gallery img{display:block;width:100%;height:auto;max-height:720px;object-fit:cover}
+.aquarevane-artwork-gallery figcaption{font-size:.93rem;line-height:1.7;padding:19px 24px;color:#34594e;text-wrap:pretty}
+.aquarevane-capture-note{font-size:1rem;line-height:1.6;color:var(--muted,#acb8c8);margin:0 0 22px}
+.screenshot-rail--portrait img{height:auto}
+@media(min-width:860px){.aquarevane-artwork-gallery{grid-template-columns:1.2fr 1fr;align-items:start}.aquarevane-artwork-gallery figure:first-child{margin-top:30px}}
+@media(max-width:520px){.aquarevane-artwork-gallery{gap:18px}.aquarevane-artwork-gallery figure{border-radius:16px}.aquarevane-artwork-gallery figcaption{font-size:.84rem;padding:16px 17px}}

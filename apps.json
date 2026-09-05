@@ -494,5 +494,61 @@
       "/assets/apps/mes-abonnements/analytics.png"
     ],
     "privacyUrl": "https://studio501.fr/privacy/mes-abonnements/"
+  },
+  {
+    "slug": "aquarevane",
+    "name": "Aquarevane",
+    "platform": "Android",
+    "status": "preparing",
+    "icon": "/assets/apps/aquarevane/icon-512.png",
+    "summary": {
+      "fr": "Dix-huit casse-tête illustrés, 60 voyages guidés et un carnet de souvenirs à emporter hors connexion.",
+      "en": "Eighteen illustrated puzzle games, 60 guided journeys and a keepsake journal to take offline."
+    },
+    "features": {
+      "fr": [
+        "18 jeux et 1 080 niveaux inclus",
+        "Achat unique : 1 €",
+        "Mode Voyage : 60 parcours de 18 défis",
+        "Jeu libre avec une sauvegarde distincte du Voyage",
+        "18 souvenirs et 6 cartes postales à collectionner",
+        "Recherche, catégories et favoris pour choisir un jeu",
+        "Illustrations, niveaux et progression disponibles hors connexion",
+        "Réglages du son, des vibrations, des animations et du texte",
+        "Mises à jour facultatives proposées par Google Play",
+        "Aucun compte, publicité, abonnement ni achat intégré"
+      ],
+      "en": [
+        "18 games and 1,080 included levels",
+        "One-time purchase: €1",
+        "Voyage mode: 60 journeys of 18 challenges",
+        "Free play saved separately from Voyage mode",
+        "18 keepsakes and 6 postcards to collect",
+        "Search, categories and favourites to choose a game",
+        "Artwork, levels and progress available offline",
+        "Sound, haptic, motion and text settings",
+        "Optional Google Play updates",
+        "No account, advertising, subscription or in-app purchases"
+      ]
+    },
+    "screenshots": {
+      "fr": [
+        "/assets/apps/aquarevane/01-accueil.png",
+        "/assets/apps/aquarevane/03-courants.png",
+        "/assets/apps/aquarevane/05-coffrets.png",
+        "/assets/apps/aquarevane/06-caravanes.png",
+        "/assets/apps/aquarevane/07-lucioles.png",
+        "/assets/apps/aquarevane/08-silhouettes.png"
+      ],
+      "en": [
+        "/assets/apps/aquarevane/01-accueil.png",
+        "/assets/apps/aquarevane/03-courants.png",
+        "/assets/apps/aquarevane/05-coffrets.png",
+        "/assets/apps/aquarevane/06-caravanes.png",
+        "/assets/apps/aquarevane/07-lucioles.png",
+        "/assets/apps/aquarevane/08-silhouettes.png"
+      ]
+    },
+    "privacyUrl": "https://studio501.fr/privacy/aquarevane/"
   }
 ]

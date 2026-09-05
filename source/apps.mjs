@@ -1,3 +1,4 @@
+import { aquarevaneApp } from "./aquarevane.mjs";
 export const site = {
   baseUrl: "https://studio501.fr",
   name: "Studio501",
@@ -418,6 +419,7 @@ export const apps = [
       en: "Subscriptions, amounts and documents stay on the device unless you choose to export or share them. Google Play separately processes technical update information.",
     },
   },
+  aquarevaneApp,
 ];
 
 export const findApp = (slug) => apps.find((app) => app.slug === slug || app.privacySlug === slug);
