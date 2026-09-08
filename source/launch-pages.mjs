@@ -318,6 +318,96 @@ export const launchPolicies = {
 
 export const appSupport = {
   aquarevane: aquarevaneSupport,
+  memoa: {
+    en: [
+      {
+        title: "Where is my data stored?",
+        paragraphs: [
+          "Events, people, notes, photos, categories, settings, reminders, and widget preferences are stored in Memoa’s private local space. No Studio501 account is required, and entered content is not sent to a Studio501 server."
+        ]
+      },
+      {
+        title: "How do I add the widget?",
+        paragraphs: [
+          "Long-press an empty area of your Android home screen, open Widgets, find Memoa, then drag the widget into place. You can resize it and choose which dates and colors it displays from Memoa’s widget settings."
+        ]
+      },
+      {
+        title: "Why did a reminder not arrive?",
+        paragraphs: [
+          "Check that notification permission is enabled for Memoa, that the reminder is active, and that Android battery restrictions are not blocking the app. Android may occasionally delay local notifications."
+        ]
+      },
+      {
+        title: "What does JSON export include?",
+        paragraphs: [
+          "The export can include your main events, people, notes, reminders, categories, settings, and widget configurations. Photo files are not included. Keep exported files private because they may contain personal information."
+        ]
+      },
+      {
+        title: "What happens when I import a file?",
+        paragraphs: [
+          "Import replaces the data currently stored in Memoa and removes current local person photos. Memoa shows a summary and asks for confirmation first. Export your current data and keep photos separately before importing if you may need them later."
+        ]
+      },
+      {
+        title: "How do I install an update?",
+        paragraphs: [
+          "For Memoa installed through Google Play, an update may be offered when the app opens. Follow Google Play’s displayed flow, or update Memoa from the Play Store as usual."
+        ]
+      },
+      {
+        title: "How do I ask for help?",
+        paragraphs: [
+          "Contact contact@studio501.fr and include your phone model, Android version, Memoa version, and a precise description of the issue. Do not send personal dates, photos, or exported files unless they are strictly necessary."
+        ]
+      }
+    ],
+    fr: [
+      {
+        title: "Où mes données sont-elles enregistrées ?",
+        paragraphs: [
+          "Les événements, personnes, notes, photos, catégories, réglages, rappels et préférences du widget sont enregistrés dans l’espace local privé de Memoa. Aucun compte Studio501 n’est requis et le contenu saisi n’est pas envoyé à un serveur Studio501."
+        ]
+      },
+      {
+        title: "Comment ajouter le widget ?",
+        paragraphs: [
+          "Maintenez un appui sur une zone vide de l’écran d’accueil Android, ouvrez Widgets, recherchez Memoa, puis faites glisser le widget à l’emplacement souhaité. Vous pouvez le redimensionner et choisir les dates et couleurs affichées dans les réglages du widget de Memoa."
+        ]
+      },
+      {
+        title: "Pourquoi un rappel n’est-il pas arrivé ?",
+        paragraphs: [
+          "Vérifiez que l’autorisation de notification est accordée à Memoa, que le rappel est actif et que les restrictions de batterie Android ne bloquent pas l’application. Android peut parfois retarder une notification locale."
+        ]
+      },
+      {
+        title: "Que contient l’export JSON ?",
+        paragraphs: [
+          "L’export peut contenir vos événements, personnes, notes, rappels, catégories, réglages et configurations de widget. Les fichiers photo ne sont pas inclus. Conservez le fichier avec précaution, car il peut contenir des informations personnelles."
+        ]
+      },
+      {
+        title: "Que se passe-t-il lors d’un import ?",
+        paragraphs: [
+          "L’import remplace les données actuellement enregistrées dans Memoa et supprime les photos locales actuelles des personnes. Memoa affiche d’abord un récapitulatif et demande une confirmation. Exportez vos données et conservez vos photos séparément avant l’import si vous souhaitez pouvoir les récupérer."
+        ]
+      },
+      {
+        title: "Comment installer une mise à jour ?",
+        paragraphs: [
+          "Pour Memoa installée depuis Google Play, une mise à jour peut être proposée à l’ouverture. Suivez le parcours Google Play affiché ou mettez Memoa à jour depuis le Play Store comme d’habitude."
+        ]
+      },
+      {
+        title: "Comment demander de l’aide ?",
+        paragraphs: [
+          "Écrivez à contact@studio501.fr en indiquant le modèle du téléphone, la version d’Android, la version de Memoa et une description précise du problème. N’envoyez pas de dates personnelles, de photos ni de fichier exporté sauf nécessité stricte."
+        ]
+      }
+    ]
+  },
   "ma-voiture": {
     "en": [
       {

@@ -266,7 +266,11 @@ export const apps = [
     storeUrl: "https://play.google.com/store/apps/details?id=com.nanouk.widgetanniversairesdates",
     packageName: "com.nanouk.widgetanniversairesdates",
     icon: "/assets/apps/memoa/icon.png",
-    screenshots: [],
+    screenshots: {
+      fr: Array.from({ length: 8 }, (_, index) => `/assets/apps/memoa/fr/screen-${index + 1}.webp`),
+      en: Array.from({ length: 8 }, (_, index) => `/assets/apps/memoa/en/screen-${index + 1}.webp`),
+    },
+    screenshotAspect: "portrait",
     accent: "gold",
     summary: {
       fr: "Anniversaires et dates importantes, visibles sur votre écran d’accueil.",
@@ -283,12 +287,12 @@ export const apps = [
       ],
     },
     features: {
-      fr: ["Achat unique, sans abonnement ni achat intégré", "Anniversaires et autres dates importantes", "Récurrence annuelle ou événement ponctuel", "Personnes et photos locales facultatives", "Catégories intégrées ou personnalisées", "Compte à rebours avant chaque événement", "Vue calendrier mensuelle", "Rappels locaux à l’heure choisie", "Widget redimensionnable", "Contenu et couleurs du widget personnalisables", "Thèmes clair, sombre ou système", "Export et import des données principales au format JSON", "Français et anglais"],
-      en: ["One-time purchase with no subscription or in-app purchase", "Birthdays and other important dates", "Yearly recurrence or one-time events", "People and optional locally stored photos", "Built-in or custom categories", "Days remaining before each event", "Monthly calendar view", "Local reminders at the chosen time", "Resizable home-screen widget", "Customisable widget content and colours", "Light, dark or system theme", "JSON export and import for main data", "English and French"],
+      fr: ["Achat unique, sans abonnement ni achat intégré", "Anniversaires et autres dates importantes", "Événements ponctuels et récurrences annuelles, mensuelles ou personnalisées", "Personnes et photos locales facultatives", "Catégories intégrées ou personnalisées", "Compte à rebours avant chaque événement", "Vue calendrier mensuelle", "Rappels locaux à l’heure choisie", "Widget redimensionnable", "Contenu et couleurs du widget personnalisables", "Thèmes clair, sombre ou système", "Export et import des données principales au format JSON", "Français et anglais"],
+      en: ["One-time purchase with no subscription or in-app purchase", "Birthdays and other important dates", "One-time events and yearly, monthly, or custom recurrence", "People and optional locally stored photos", "Built-in or custom categories", "Days remaining before each event", "Monthly calendar view", "Local reminders at the chosen time", "Resizable home-screen widget", "Customisable widget content and colours", "Light, dark or system theme", "JSON export and import for main data", "English and French"],
     },
     privacyLead: {
-      fr: "Les événements, personnes, notes et photos restent dans l’espace privé de l’application sur votre appareil.",
-      en: "Events, people, notes and photos remain in the app’s private storage on your device.",
+      fr: "Les données restent dans l’espace privé de l’application, sauf les données principales que vous choisissez d’exporter en JSON ; les photos ne sont pas incluses.",
+      en: "Data stays in the app’s private storage, except for the main data you choose to export as JSON; photos are not included.",
     },
   },
   {

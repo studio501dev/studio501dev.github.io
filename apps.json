@@ -288,7 +288,7 @@
       "fr": [
         "Achat unique, sans abonnement ni achat intégré",
         "Anniversaires et autres dates importantes",
-        "Récurrence annuelle ou événement ponctuel",
+        "Événements ponctuels et récurrences annuelles, mensuelles ou personnalisées",
         "Personnes et photos locales facultatives",
         "Catégories intégrées ou personnalisées",
         "Compte à rebours avant chaque événement",
@@ -303,7 +303,7 @@
       "en": [
         "One-time purchase with no subscription or in-app purchase",
         "Birthdays and other important dates",
-        "Yearly recurrence or one-time events",
+        "One-time events and yearly, monthly, or custom recurrence",
         "People and optional locally stored photos",
         "Built-in or custom categories",
         "Days remaining before each event",
@@ -316,7 +316,28 @@
         "English and French"
       ]
     },
-    "screenshots": [],
+    "screenshots": {
+      "fr": [
+        "/assets/apps/memoa/fr/screen-1.webp",
+        "/assets/apps/memoa/fr/screen-2.webp",
+        "/assets/apps/memoa/fr/screen-3.webp",
+        "/assets/apps/memoa/fr/screen-4.webp",
+        "/assets/apps/memoa/fr/screen-5.webp",
+        "/assets/apps/memoa/fr/screen-6.webp",
+        "/assets/apps/memoa/fr/screen-7.webp",
+        "/assets/apps/memoa/fr/screen-8.webp"
+      ],
+      "en": [
+        "/assets/apps/memoa/en/screen-1.webp",
+        "/assets/apps/memoa/en/screen-2.webp",
+        "/assets/apps/memoa/en/screen-3.webp",
+        "/assets/apps/memoa/en/screen-4.webp",
+        "/assets/apps/memoa/en/screen-5.webp",
+        "/assets/apps/memoa/en/screen-6.webp",
+        "/assets/apps/memoa/en/screen-7.webp",
+        "/assets/apps/memoa/en/screen-8.webp"
+      ]
+    },
     "storeUrl": "https://play.google.com/store/apps/details?id=com.nanouk.widgetanniversairesdates",
     "privacyUrl": "https://studio501.fr/privacy/memoa/"
   },
