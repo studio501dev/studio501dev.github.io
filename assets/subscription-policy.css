@@ -1,0 +1,21 @@
+/* Loaded only by the six Mes Abonnements privacy policies. */
+.policy-language-switcher { padding-top: 24px; padding-bottom: 24px; }
+.policy-language-switcher > span { display: block; margin-bottom: 12px; font-size: 1rem; font-weight: 700; }
+.policy-language-switcher ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.policy-language-switcher a { display: inline-flex; align-items: center; min-height: 44px; padding: 9px 14px; border: 1px solid var(--line); border-radius: 10px; font-size: 1rem; line-height: 1.5; text-decoration: none; }
+.policy-language-switcher a[aria-current="page"] { color: var(--text); background: rgba(125,112,247,.2); border-color: var(--violet-2); font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+.policy-language-switcher a:hover { background: rgba(125,112,247,.15); }
+.policy-language-switcher a:focus-visible, .subscription-policy-header a:focus-visible, .subscription-policy-footer a:focus-visible { outline: 3px solid var(--violet-2); outline-offset: 4px; }
+.subscription-policy-header, .subscription-policy-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; padding-top: 24px; padding-bottom: 24px; }
+.subscription-policy-header nav, .subscription-policy-footer nav { display: flex; flex-wrap: wrap; gap: 12px 24px; }
+.subscription-policy-header nav a, .subscription-policy-footer nav a { font-size: 1rem; padding-block: 10px; }
+.subscription-policy-content { max-width: 850px; padding-top: 56px; padding-bottom: 72px; }
+.subscription-policy-content p, .subscription-policy-content a { overflow-wrap: anywhere; }
+.policy-hero h1 { overflow-wrap: anywhere; hyphens: auto; }
+@media (max-width: 600px) {
+  .subscription-policy-header nav, .subscription-policy-footer nav { flex-direction: column; gap: 4px; }
+  .subscription-policy-content { padding-top: 32px; padding-bottom: 48px; }
+}
+@media print {
+  .policy-language-switcher, .subscription-policy-header, .subscription-policy-footer { display: none; }
+}

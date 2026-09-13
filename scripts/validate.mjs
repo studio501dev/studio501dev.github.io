@@ -40,7 +40,7 @@ for (const file of htmlFiles) {
   const html = await readFile(file, "utf8");
   const name = relative(root, file).replaceAll("\\", "/");
   if (!/^<!doctype html>/i.test(html)) errors.push(`${name}: doctype manquant`);
-  if (!/<html lang="(fr|en)">/.test(html)) errors.push(`${name}: langue HTML manquante`);
+  if (!/<html lang="(fr|en|fr-FR|en-US|de-DE|es-ES|it-IT|pt-BR)">/.test(html)) errors.push(`${name}: langue HTML manquante`);
   if (!/<title>[^<]+<\/title>/.test(html)) errors.push(`${name}: title manquant`);
   if (!/<meta name="description" content="[^"]+">/.test(html)) errors.push(`${name}: description manquante`);
   if (!/<link rel="canonical" href="https:\/\/studio501\.fr\//.test(html)) errors.push(`${name}: canonical manquante`);
@@ -48,8 +48,9 @@ for (const file of htmlFiles) {
   if (/googletagmanager|google-analytics|analytics\.js|facebook\.net|connect\.facebook\.net|clarity\.ms|hotjar|matomo|plausible/i.test(html)) errors.push(`${name}: tracker détecté`);
   if (/<form[ >]/i.test(html)) errors.push(`${name}: formulaire inattendu`);
   if (/(?:href|src)="http:\/\//i.test(html)) errors.push(`${name}: ressource HTTP non sécurisée`);
-  const legalPath = /<html lang="en">/.test(html) ? "/en/mentions-legales/" : "/mentions-legales/";
-  const websitePrivacyPath = /<html lang="en">/.test(html) ? "/en/confidentialite/" : "/confidentialite/";
+  const frenchPage = /<html lang="fr(?:-FR)?">/.test(html);
+  const legalPath = frenchPage ? "/mentions-legales/" : "/en/mentions-legales/";
+  const websitePrivacyPath = frenchPage ? "/confidentialite/" : "/en/confidentialite/";
   if (!html.includes(`href="${legalPath}"`)) errors.push(`${name}: lien vers les mentions légales manquant`);
   if (!html.includes(`href="${websitePrivacyPath}"`)) errors.push(`${name}: lien vers la confidentialité du site manquant`);
   const references = [...html.matchAll(/(?:href|src)="([^"]+)"/g)].map((match) => match[1]);

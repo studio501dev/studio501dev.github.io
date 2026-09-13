@@ -1,8 +1,10 @@
-import { mkdir, rm, writeFile, lstat } from "node:fs/promises";
+import { mkdir, rm, writeFile, lstat, readFile } from "node:fs/promises";
 import { resolve, dirname, join, sep } from "node:path";
 import { apps, site } from "../source/apps.mjs";
 import { policies } from "../source/privacy.mjs";
 import { appSupport } from "../source/launch-pages.mjs";
+import { subscriptionPolicyLanguages } from "../source/mes-abonnements-policy-locales.mjs";
+import { additionalSubscriptionPolicyPaths, decorateSubscriptionPolicy, renderSubscriptionPolicy } from "./subscription-policy-pages.mjs";
 
 const root = resolve(import.meta.dirname, "..");
 const languages = ["fr", "en"];
@@ -268,7 +270,7 @@ function policyPage(lang, app, { legacyPath = null } = {}) {
   const sections = policy.sections[lang].map((section, index) => `<section class="policy-section"><h2><span>${String(index + 1).padStart(2, "0")}</span>${esc(section.title)}</h2>${(section.paragraphs || []).map((paragraph) => `<p>${esc(paragraph)}</p>`).join("")}${section.bullets ? `<ul>${section.bullets.map((item) => `<li>${esc(item)}</li>`).join("")}</ul>` : ""}${(section.links || []).map((link) => `<p><a href="${esc(link.href)}" target="_blank" rel="noopener">${esc(link.label)}</a></p>`).join("")}${(section.paragraphsAfter || []).map((paragraph) => `<p>${esc(paragraph)}</p>`).join("")}</section>`).join("");
   const content = `<section class="policy-hero"><div class="shell policy-hero-grid"><div>${iconMarkup(app, "product-icon")}<p class="eyebrow">${app.platform} · Studio501</p><h1>${fr ? "Politique de confidentialité" : "Privacy policy"}<span>${esc(app.name)}</span></h1><p class="lead">${esc(policy.summary[lang])}</p><p class="updated"><strong>${labels[lang].updated}${fr ? " :" : ":"}</strong> ${esc(policy.lastUpdated[lang])}</p></div><aside class="policy-summary"><span class="status status--${app.status}">${esc(app.statusLabel[lang])}</span><p>${esc(app.privacyLead[lang])}</p>${app.storeUrl ? `<a class="text-link" href="${app.storeUrl}" target="_blank" rel="noopener">${esc(app.storeLabel[lang])} ↗</a>` : ""}</aside></div></section><div class="shell policy-layout"><nav class="policy-nav" aria-label="${fr ? "Sommaire" : "Contents"}"><a href="${langPath(lang, "/privacy/")}">← ${fr ? "Toutes les politiques" : "All policies"}</a><a href="${langPath(lang, `/apps/${app.slug}/`)}">${fr ? "Fiche de l’application" : "Application page"}</a><a href="mailto:${site.primaryEmail}">Contact Studio501</a></nav><article class="policy-content">${sections}<section class="policy-contact"><h2>${fr ? "Contact" : "Contact"}</h2><p>${fr ? "Pour toute question concernant cette politique, contactez Studio501 :" : "For any question about this policy, contact Studio501:"} <a href="mailto:${site.primaryEmail}">${site.primaryEmail}</a>.</p><p>${fr ? "L’adresse studio501.dev@gmail.com reste également disponible pour les fiches Store existantes." : "studio501.dev@gmail.com also remains available for existing Store listings."}</p></section></article></div>`;
   const html = layout({ lang, path: canonicalPath, current: "privacy", title: `${fr ? "Confidentialité" : "Privacy"} — ${app.name} — Studio501`, description: policy.summary[lang], content });
-  if (!legacyPath) return html;
+  if (!legacyPath) return app.slug === "mes-abonnements" ? decorateSubscriptionPolicy(lang, html) : html;
   return html.replace(`<link rel="canonical" href="${absolute(langPath(lang, canonicalPath))}">`, `<link rel="canonical" href="${absolute(langPath(lang, canonicalPath))}">`).replace(new RegExp(`href="${alternatePath(lang, canonicalPath).replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"`), `href="${alternatePath(lang, canonicalPath)}"`);
 }
 
@@ -335,17 +337,34 @@ async function build() {
     }
   }
   await output("privacy.html", policyPage("fr", apps[0], { legacyPath: "/privacy.html" }));
+  for (const locale of subscriptionPolicyLanguages.filter((item) => additionalSubscriptionPolicyPaths.includes(item.path))) {
+    await output(`${locale.path}index.html`, renderSubscriptionPolicy(locale.key));
+  }
   await output("universal-converter-privacy.html", policyPage("fr", apps[1], { legacyPath: "/universal-converter-privacy.html" }));
   await output("404.html", notFoundPage("fr"));
   await output("en/404.html", notFoundPage("en"));
   const publicApps = apps.map((app) => ({ slug: app.slug, name: app.name, platform: app.platform, status: app.status, icon: app.icon, summary: app.summary, features: app.features, screenshots: app.screenshots, storeUrl: app.storeUrl, privacyUrl: `${site.baseUrl}/privacy/${policySlug(app)}/` }));
   await output("apps.json", JSON.stringify(publicApps, null, 2));
   const canonicalPaths = ["/", "/windows/", "/android/", "/apps/", "/privacy/", "/confidentialite/", "/mentions-legales/", "/support/", "/about/", ...apps.flatMap((app) => [`/apps/${app.slug}/`, `/privacy/${policySlug(app)}/`, ...(appSupport[app.slug] ? [`/support/${app.slug}/`] : [])])];
-  const sitemapUrls = canonicalPaths.flatMap((path) => [langPath("fr", path), langPath("en", path)]).map((path) => `  <url><loc>${absolute(path)}</loc></url>`).join("\n");
+  const sitemapUrls = canonicalPaths.flatMap((path) => [langPath("fr", path), langPath("en", path)]).concat(additionalSubscriptionPolicyPaths).map((path) => `  <url><loc>${absolute(path)}</loc></url>`).join("\n");
   await output("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls}\n</urlset>\n`);
   await output("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${site.baseUrl}/sitemap.xml\n`);
   await output("site.webmanifest", JSON.stringify({ name: "Studio501", short_name: "Studio501", description: "Applications Windows et Android", start_url: "/", display: "standalone", background_color: "#0b1020", theme_color: "#0b1020", icons: [{ src: "/assets/favicon.png", sizes: "512x512", type: "image/png", purpose: "any maskable" }] }, null, 2));
   await output("README.md", `# Studio501\n\nSite officiel statique de Studio501 pour Windows et Android, publié avec GitHub Pages sur https://studio501.fr/.\n\n- Source structurée : \`source/apps.mjs\` et \`source/privacy.mjs\`\n- Génération : \`node scripts/build.mjs\`\n- Validation : \`node scripts/validate.mjs\`\n`);
 }
 
-await build();
+if (process.argv.includes("--subscription-policies-only")) {
+  const app = appBySlug("mes-abonnements");
+  for (const locale of subscriptionPolicyLanguages) {
+    const html = languages.includes(locale.key) ? policyPage(locale.key, app) : renderSubscriptionPolicy(locale.key);
+    await output(`${locale.path}index.html`, html);
+  }
+  let sitemap = await readFile(join(root, "sitemap.xml"), "utf8");
+  for (const path of additionalSubscriptionPolicyPaths) {
+    const entry = `<url><loc>${absolute(path)}</loc></url>`;
+    if (!sitemap.includes(entry)) sitemap = sitemap.replace("</urlset>", `  ${entry}\n</urlset>`);
+  }
+  await output("sitemap.xml", sitemap);
+} else {
+  await build();
+}
