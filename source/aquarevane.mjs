@@ -1,14 +1,16 @@
-// Aquarevane 1.1 — statut en préparation tant que la fiche Google Play publique est inconnue.
+// Disponibilité vérifiée dans Google Play le 22 septembre 2026.
 export const aquarevaneApp = {
   "slug": "aquarevane",
   "name": "Aquarevane",
   "platform": "Android",
   "platformKey": "android",
-  "status": "preparing",
+  "status": "published",
   "statusLabel": {
-    "fr": "Publication en préparation",
-    "en": "Preparing for release"
+    "fr": "Disponible sur Google Play",
+    "en": "Available on Google Play"
   },
+  "storeLabel": { "fr": "Disponible sur Google Play", "en": "Get it on Google Play" },
+  "storeUrl": "https://play.google.com/store/apps/details?id=com.studio501.aquarevane",
   "packageName": "com.studio501.aquarevane",
   "icon": "/assets/apps/aquarevane/icon-512.png",
   "monogram": "AQ",

@@ -1,6 +1,7 @@
 import { access, readFile, readdir } from "node:fs/promises";
 import { constants } from "node:fs";
 import { extname, join, relative, resolve } from "node:path";
+import { apps } from "../source/apps.mjs";
 
 const root = resolve(import.meta.dirname, "..");
 const ignoredDirectories = new Set([".git", "node_modules", "source", "scripts", "reports", "tmp"]);
@@ -35,6 +36,44 @@ async function exists(path) {
 
 const files = await walk(root);
 const htmlFiles = files.filter((file) => file.endsWith(".html"));
+
+// Publication status is the single source of truth for counts and store buttons.
+const publishedAndroidCount = apps.filter((app) => app.platformKey === "android" && app.status === "published").length;
+const publicApps = JSON.parse(await readFile(join(root, "apps.json"), "utf8"));
+if (publicApps.length !== apps.length) errors.push("apps.json: nombre d’applications incohérent");
+for (const app of apps) {
+  const entry = publicApps.find((item) => item.slug === app.slug);
+  if (!entry || entry.status !== app.status || entry.storeUrl !== app.storeUrl || entry.icon !== app.icon) errors.push(`${app.slug}: catalogue JSON désynchronisé`);
+  if (app.status === "published" && !app.storeUrl) errors.push(`${app.slug}: application publiée sans lien boutique`);
+  if (app.status !== "published" && app.storeUrl) errors.push(`${app.slug}: lien boutique actif pour une application non publiée`);
+  if (app.storeUrl && app.platformKey === "android") {
+    const store = new URL(app.storeUrl);
+    if (store.origin !== "https://play.google.com" || store.pathname !== "/store/apps/details" || store.searchParams.get("id") !== app.packageName) errors.push(`${app.slug}: lien Google Play incorrect`);
+  }
+  for (const lang of ["fr", "en"]) {
+    const prefix = lang === "fr" ? "" : "en/";
+    for (const page of [`apps/${app.slug}/index.html`, `privacy/${app.privacySlug || app.slug}/index.html`]) {
+      const html = await readFile(join(root, prefix, page), "utf8");
+      if (!html.includes(`status--${app.status}`) || !html.includes(app.statusLabel[lang])) errors.push(`${prefix}${page}: statut incohérent`);
+      if (app.storeUrl && !html.includes(`href="${app.storeUrl}"`)) errors.push(`${prefix}${page}: bouton boutique manquant`);
+      if (app.status === "published" && /Publication en préparation|Preparing for release|Visuels à venir avec la publication officielle|Visuals will be added with the official release/.test(html)) errors.push(`${prefix}${page}: texte de prépublication obsolète`);
+    }
+  }
+}
+for (const lang of ["fr", "en"]) {
+  const prefix = lang === "fr" ? "" : "en/";
+  const home = await readFile(join(root, prefix, "index.html"), "utf8");
+  const android = await readFile(join(root, prefix, "android/index.html"), "utf8");
+  const catalogue = await readFile(join(root, prefix, "apps/index.html"), "utf8");
+  const headline = lang === "fr" ? `${publishedAndroidCount} applications déjà publiées.` : `${publishedAndroidCount} applications already published.`;
+  const lead = lang === "fr" ? `${publishedAndroidCount} applications premium sont publiées sur Google Play` : `${publishedAndroidCount} premium applications are published on Google Play`;
+  if (!home.includes(`<h2>${headline}</h2>`) || !android.includes(lead)) errors.push(`${prefix}: compteur Android incorrect`);
+  if (!home.includes(`${lang === "fr" ? "Voir les" : "View all"} ${apps.length} applications`)) errors.push(`${prefix}: compteur du catalogue incorrect`);
+  if ([...catalogue.matchAll(/<article class="app-card /g)].length !== apps.length) errors.push(`${prefix}: nombre de cartes incorrect`);
+  for (const app of apps) {
+    if (!catalogue.includes(`href="/${prefix}apps/${app.slug}/"`) || (app.storeUrl && !catalogue.includes(`href="${app.storeUrl}"`))) errors.push(`${prefix}: application ou lien boutique absent du catalogue : ${app.slug}`);
+  }
+}
 
 for (const file of htmlFiles) {
   const html = await readFile(file, "utf8");

@@ -345,7 +345,7 @@
     "slug": "arcade-501",
     "name": "Arcade 501",
     "platform": "Android",
-    "status": "preparing",
+    "status": "published",
     "icon": "/assets/apps/arcade-501/icon.png",
     "summary": {
       "fr": "Dix-huit jeux d’arcade et de réflexion entièrement hors ligne, sans publicité ni compte.",
@@ -359,7 +359,7 @@
         "Modes solo et deux joueurs selon les jeux",
         "Mission 501",
         "Six profils locaux aux records séparés",
-        "Français et anglais",
+        "Disponible en 11 langues",
         "Aucune publicité, aucun compte et aucune connexion requise"
       ],
       "en": [
@@ -369,18 +369,19 @@
         "Solo and two-player modes depending on the game",
         "Mission 501",
         "Six local profiles with separate records",
-        "English and French",
+        "Available in 11 languages",
         "No ads, account, or connection required"
       ]
     },
     "screenshots": [],
+    "storeUrl": "https://play.google.com/store/apps/details?id=com.studio501.offlinearcade",
     "privacyUrl": "https://studio501.fr/privacy/arcade-501/"
   },
   {
     "slug": "trip-pocket",
     "name": "Trip Pocket",
     "platform": "Android",
-    "status": "preparing",
+    "status": "published",
     "icon": "/assets/apps/trip-pocket/icon.png",
     "summary": {
       "fr": "Planning, réservations, documents, valise et budget réunis dans un carnet de voyage privé, même hors connexion.",
@@ -418,13 +419,14 @@
       "/assets/apps/trip-pocket/screen-5.webp",
       "/assets/apps/trip-pocket/screen-6.webp"
     ],
+    "storeUrl": "https://play.google.com/store/apps/details?id=com.studio501.trippocket",
     "privacyUrl": "https://studio501.fr/privacy/trip-pocket/"
   },
   {
     "slug": "ma-voiture",
     "name": "Ma Voiture",
     "platform": "Android",
-    "status": "preparing",
+    "status": "published",
     "icon": "/assets/apps/ma-voiture/icon.png",
     "summary": {
       "fr": "Entretien, kilométrage, pleins, recharges, dépenses et documents dans un carnet privé pour vos véhicules.",
@@ -466,13 +468,14 @@
       "/assets/apps/ma-voiture/fuel-charging.png",
       "/assets/apps/ma-voiture/documents.png"
     ],
+    "storeUrl": "https://play.google.com/store/apps/details?id=com.studio501.mavoiture",
     "privacyUrl": "https://studio501.fr/privacy/ma-voiture/"
   },
   {
     "slug": "mes-abonnements",
     "name": "Mes Abonnements",
     "platform": "Android",
-    "status": "preparing",
+    "status": "published",
     "icon": "/assets/apps/mes-abonnements/icon.png",
     "summary": {
       "fr": "Suivez manuellement vos abonnements, budgets, échéances et essais dans un carnet local avec rappels.",
@@ -514,13 +517,14 @@
       "/assets/apps/mes-abonnements/timeline.png",
       "/assets/apps/mes-abonnements/analytics.png"
     ],
+    "storeUrl": "https://play.google.com/store/apps/details?id=com.studio501.mesabonnements",
     "privacyUrl": "https://studio501.fr/privacy/mes-abonnements/"
   },
   {
     "slug": "aquarevane",
     "name": "Aquarevane",
     "platform": "Android",
-    "status": "preparing",
+    "status": "published",
     "icon": "/assets/apps/aquarevane/icon-512.png",
     "summary": {
       "fr": "Dix-huit casse-tête illustrés, 60 voyages guidés et un carnet de souvenirs à emporter hors connexion.",
@@ -570,6 +574,7 @@
         "/assets/apps/aquarevane/08-silhouettes.png"
       ]
     },
+    "storeUrl": "https://play.google.com/store/apps/details?id=com.studio501.aquarevane",
     "privacyUrl": "https://studio501.fr/privacy/aquarevane/"
   }
 ]
