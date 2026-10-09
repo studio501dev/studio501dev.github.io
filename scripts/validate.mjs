@@ -79,7 +79,7 @@ for (const file of htmlFiles) {
   const html = await readFile(file, "utf8");
   const name = relative(root, file).replaceAll("\\", "/");
   if (!/^<!doctype html>/i.test(html)) errors.push(`${name}: doctype manquant`);
-  if (!/<html lang="(fr|en|fr-FR|en-US|de-DE|es-ES|it-IT|pt-BR)">/.test(html)) errors.push(`${name}: langue HTML manquante`);
+  if (!/<html lang="(fr|en|de|es|it|fr-FR|en-US|de-DE|es-ES|it-IT|pt-BR)">/.test(html)) errors.push(`${name}: langue HTML manquante`);
   if (!/<title>[^<]+<\/title>/.test(html)) errors.push(`${name}: title manquant`);
   if (!/<meta name="description" content="[^"]+">/.test(html)) errors.push(`${name}: description manquante`);
   if (!/<link rel="canonical" href="https:\/\/studio501\.fr\//.test(html)) errors.push(`${name}: canonical manquante`);

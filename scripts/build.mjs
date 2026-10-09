@@ -9,7 +9,7 @@ import { additionalSubscriptionPolicyPaths, decorateSubscriptionPolicy, renderSu
 const root = resolve(import.meta.dirname, "..");
 const languages = ["fr", "en"];
 // Publish the approved Nualumi help/privacy pages without adding an unreleased app to the catalogue.
-const nualumiStandalonePaths = ["/privacy/nualumi/", "/support/nualumi/"];
+const nualumiStandalonePaths = ["privacy", "support"].flatMap((kind) => ["", "en/", "es/", "de/", "it/", "pt-BR/"].map((locale) => `/${kind}/nualumi/${locale}`));
 
 const labels = {
   fr: {
@@ -346,7 +346,8 @@ async function build() {
   await output("404.html", notFoundPage("fr"));
   await output("en/404.html", notFoundPage("en"));
   for (const path of nualumiStandalonePaths) {
-    const document = await readFile(join(root, "source/nualumi", path.startsWith("/privacy/") ? "privacy.html" : "support.html"), "utf8");
+    const locale = path.split("/")[3] || "fr";
+    const document = await readFile(join(root, "source/nualumi", locale === "fr" ? "" : locale, path.startsWith("/privacy/") ? "privacy.html" : "support.html"), "utf8");
     await output(`${path}index.html`, document);
   }
   const publicApps = apps.map((app) => ({ slug: app.slug, name: app.name, platform: app.platform, status: app.status, icon: app.icon, summary: app.summary, features: app.features, screenshots: app.screenshots, storeUrl: app.storeUrl, privacyUrl: `${site.baseUrl}/privacy/${policySlug(app)}/` }));
@@ -359,7 +360,19 @@ async function build() {
   await output("README.md", `# Studio501\n\nSite officiel statique de Studio501 pour Windows et Android, publié avec GitHub Pages sur https://studio501.fr/.\n\n- Source structurée : \`source/apps.mjs\` et \`source/privacy.mjs\`\n- Génération : \`node scripts/build.mjs\`\n- Validation : \`node scripts/validate.mjs\`\n`);
 }
 
-if (process.argv.includes("--subscription-policies-only")) {
+if (process.argv.includes("--nualumi-only")) {
+  for (const path of nualumiStandalonePaths) {
+    const locale = path.split("/")[3] || "fr";
+    const document = await readFile(join(root, "source/nualumi", locale === "fr" ? "" : locale, path.startsWith("/privacy/") ? "privacy.html" : "support.html"), "utf8");
+    await output(`${path}index.html`, document);
+  }
+  let sitemap = await readFile(join(root, "sitemap.xml"), "utf8");
+  for (const path of nualumiStandalonePaths) {
+    const entry = `<url><loc>${absolute(path)}</loc></url>`;
+    if (!sitemap.includes(entry)) sitemap = sitemap.replace("</urlset>", `  ${entry}\n</urlset>`);
+  }
+  await output("sitemap.xml", sitemap);
+} else if (process.argv.includes("--subscription-policies-only")) {
   const app = appBySlug("mes-abonnements");
   for (const locale of subscriptionPolicyLanguages) {
     const html = languages.includes(locale.key) ? policyPage(locale.key, app) : renderSubscriptionPolicy(locale.key);
