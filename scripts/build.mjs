@@ -8,6 +8,8 @@ import { additionalSubscriptionPolicyPaths, decorateSubscriptionPolicy, renderSu
 
 const root = resolve(import.meta.dirname, "..");
 const languages = ["fr", "en"];
+// Publish the approved Nualumi help/privacy pages without adding an unreleased app to the catalogue.
+const nualumiStandalonePaths = ["/privacy/nualumi/", "/support/nualumi/"];
 
 const labels = {
   fr: {
@@ -343,10 +345,14 @@ async function build() {
   await output("universal-converter-privacy.html", policyPage("fr", apps[1], { legacyPath: "/universal-converter-privacy.html" }));
   await output("404.html", notFoundPage("fr"));
   await output("en/404.html", notFoundPage("en"));
+  for (const path of nualumiStandalonePaths) {
+    const document = await readFile(join(root, "source/nualumi", path.startsWith("/privacy/") ? "privacy.html" : "support.html"), "utf8");
+    await output(`${path}index.html`, document);
+  }
   const publicApps = apps.map((app) => ({ slug: app.slug, name: app.name, platform: app.platform, status: app.status, icon: app.icon, summary: app.summary, features: app.features, screenshots: app.screenshots, storeUrl: app.storeUrl, privacyUrl: `${site.baseUrl}/privacy/${policySlug(app)}/` }));
   await output("apps.json", JSON.stringify(publicApps, null, 2));
   const canonicalPaths = ["/", "/windows/", "/android/", "/apps/", "/privacy/", "/confidentialite/", "/mentions-legales/", "/support/", "/about/", ...apps.flatMap((app) => [`/apps/${app.slug}/`, `/privacy/${policySlug(app)}/`, ...(appSupport[app.slug] ? [`/support/${app.slug}/`] : [])])];
-  const sitemapUrls = canonicalPaths.flatMap((path) => [langPath("fr", path), langPath("en", path)]).concat(additionalSubscriptionPolicyPaths).map((path) => `  <url><loc>${absolute(path)}</loc></url>`).join("\n");
+  const sitemapUrls = canonicalPaths.flatMap((path) => [langPath("fr", path), langPath("en", path)]).concat(additionalSubscriptionPolicyPaths, nualumiStandalonePaths).map((path) => `  <url><loc>${absolute(path)}</loc></url>`).join("\n");
   await output("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls}\n</urlset>\n`);
   await output("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${site.baseUrl}/sitemap.xml\n`);
   await output("site.webmanifest", JSON.stringify({ name: "Studio501", short_name: "Studio501", description: "Applications Windows et Android", start_url: "/", display: "standalone", background_color: "#0b1020", theme_color: "#0b1020", icons: [{ src: "/assets/favicon.png", sizes: "512x512", type: "image/png", purpose: "any maskable" }] }, null, 2));
