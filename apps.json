@@ -1,5 +1,67 @@
 [
   {
+    "slug": "cisel",
+    "name": "Cisel Video Cutter",
+    "platform": "Windows",
+    "status": "preparing",
+    "icon": "/assets/apps/cisel/icon.png",
+    "summary": {
+      "fr": "Gardez les passages utiles et exportez un nouveau MP4. Votre original reste intact.",
+      "en": "Keep the useful passages and export a new MP4. Your original remains intact."
+    },
+    "features": {
+      "fr": [
+        "Plusieurs passages dans l’ordre d’origine",
+        "Réglage des débuts et fins, séparation et annulation",
+        "Aperçu du montage avant l’export",
+        "Export d’un nouveau MP4",
+        "Traitement local sans compte ni publicité"
+      ],
+      "en": [
+        "Multiple passages in their original order",
+        "Adjust start and end points, split and undo",
+        "Preview the edit before export",
+        "Export a new MP4",
+        "Local processing without an account or ads"
+      ]
+    },
+    "screenshots": [],
+    "storeUrl": null,
+    "privacyUrl": "https://studio501.fr/privacy/cisel/"
+  },
+  {
+    "slug": "pairline",
+    "name": "Pairline",
+    "platform": "Windows",
+    "status": "preparing",
+    "icon": "/assets/apps/pairline/icon.png",
+    "summary": {
+      "fr": "Trouvez les copies strictement identiques et vérifiez lesquelles garder.",
+      "en": "Find strictly identical copies and review which ones to keep."
+    },
+    "features": {
+      "fr": [
+        "Doublons exacts, même si les noms diffèrent",
+        "Dossiers à analyser, ignorer ou protéger",
+        "Une référence conservée par groupe",
+        "Aucune suppression sélectionnée automatiquement",
+        "Vérification et confirmation avant la Corbeille",
+        "Interface française et anglaise"
+      ],
+      "en": [
+        "Exact duplicates even when names differ",
+        "Folders to scan, exclude or protect",
+        "One retained reference per group",
+        "No automatic deletion selection",
+        "Revalidation and confirmation before recycling",
+        "French and English interface"
+      ]
+    },
+    "screenshots": [],
+    "storeUrl": null,
+    "privacyUrl": "https://studio501.fr/privacy/pairline/"
+  },
+  {
     "slug": "decision-tree-studio",
     "name": "Decision Tree Studio",
     "platform": "Windows",

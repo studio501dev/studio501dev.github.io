@@ -338,11 +338,11 @@ async function build() {
       if (appSupport[app.slug]) await output(`${prefix}support/${app.slug}/index.html`, appSupportPage(lang, app));
     }
   }
-  await output("privacy.html", policyPage("fr", apps[0], { legacyPath: "/privacy.html" }));
+  await output("privacy.html", policyPage("fr", appBySlug("decision-tree-studio"), { legacyPath: "/privacy.html" }));
   for (const locale of subscriptionPolicyLanguages.filter((item) => additionalSubscriptionPolicyPaths.includes(item.path))) {
     await output(`${locale.path}index.html`, renderSubscriptionPolicy(locale.key));
   }
-  await output("universal-converter-privacy.html", policyPage("fr", apps[1], { legacyPath: "/universal-converter-privacy.html" }));
+  await output("universal-converter-privacy.html", policyPage("fr", appBySlug("universal-converter"), { legacyPath: "/universal-converter-privacy.html" }));
   await output("404.html", notFoundPage("fr"));
   await output("en/404.html", notFoundPage("en"));
   for (const path of nualumiStandalonePaths) {

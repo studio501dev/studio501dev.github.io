@@ -1,4 +1,5 @@
 import { aquarevaneApp } from "./aquarevane.mjs";
+import { ciselPairlineApps } from "./cisel-pairline.mjs";
 export const site = {
   baseUrl: "https://studio501.fr",
   name: "Studio501",
@@ -32,6 +33,7 @@ export const site = {
 };
 
 export const apps = [
+  ...ciselPairlineApps,
   {
     slug: "decision-tree-studio",
     name: "Decision Tree Studio",
