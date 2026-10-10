@@ -3,7 +3,7 @@
     "slug": "cisel",
     "name": "Cisel Video Cutter",
     "platform": "Windows",
-    "status": "preparing",
+    "status": "published",
     "icon": "/assets/apps/cisel/icon.png",
     "summary": {
       "fr": "Gardez les passages utiles et exportez un nouveau MP4. Votre original reste intact.",
@@ -15,25 +15,25 @@
         "Réglage des débuts et fins, séparation et annulation",
         "Aperçu du montage avant l’export",
         "Export d’un nouveau MP4",
-        "Traitement local sans compte ni publicité"
+        "Traitement local sans compte propre à Cisel ni publicité"
       ],
       "en": [
         "Multiple passages in their original order",
         "Adjust start and end points, split and undo",
         "Preview the edit before export",
         "Export a new MP4",
-        "Local processing without an account or ads"
+        "Local processing without a separate Cisel account or ads"
       ]
     },
     "screenshots": [],
-    "storeUrl": null,
+    "storeUrl": "https://apps.microsoft.com/detail/9N24J0SKMNW6",
     "privacyUrl": "https://studio501.fr/privacy/cisel/"
   },
   {
     "slug": "pairline",
     "name": "Pairline",
     "platform": "Windows",
-    "status": "preparing",
+    "status": "published",
     "icon": "/assets/apps/pairline/icon.png",
     "summary": {
       "fr": "Trouvez les copies strictement identiques et vérifiez lesquelles garder.",
@@ -58,7 +58,7 @@
       ]
     },
     "screenshots": [],
-    "storeUrl": null,
+    "storeUrl": "https://apps.microsoft.com/detail/9NC7L5WR66C9",
     "privacyUrl": "https://studio501.fr/privacy/pairline/"
   },
   {

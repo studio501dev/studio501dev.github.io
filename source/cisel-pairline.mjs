@@ -1,38 +1,40 @@
-const pending = {
-  platform: "Windows", platformKey: "windows", status: "preparing",
-  statusLabel: { fr: "Publication en préparation", en: "Preparing for release" },
-  storeLabel: { fr: "Voir sur Microsoft Store", en: "View on Microsoft Store" },
-  storeUrl: null, screenshots: [],
+const published = {
+  platform: "Windows", platformKey: "windows", status: "published",
+  statusLabel: { fr: "Disponible sur Microsoft Store", en: "Available on Microsoft Store" },
+  storeLabel: { fr: "Essayer sur Microsoft Store", en: "Try on Microsoft Store" },
+  screenshots: [],
 };
 
 export const ciselPairlineApps = [
   {
-    ...pending, slug: "cisel", name: "Cisel Video Cutter", accent: "gold",
+    ...published, slug: "cisel", name: "Cisel Video Cutter", accent: "gold",
+    storeUrl: "https://apps.microsoft.com/detail/9N24J0SKMNW6",
     icon: "/assets/apps/cisel/icon.png", monogram: "C",
     summary: { fr: "Gardez les passages utiles et exportez un nouveau MP4. Votre original reste intact.", en: "Keep the useful passages and export a new MP4. Your original remains intact." },
     description: {
-      fr: ["Ouvrez une vidéo locale, choisissez les passages à conserver, relisez le montage et exportez un nouveau fichier.", "Cisel utilise les fonctions multimédias de Windows pour les vidéos MP4, M4V et MOV compatibles H.264/AAC. Les modes Précis et Rapide peuvent réencoder la vidéo."],
-      en: ["Open a local video, choose the passages to retain, preview the edit and export a new file.", "Cisel uses Windows media features for compatible H.264/AAC MP4, M4V and MOV videos. Precise and Fast modes may re-encode the video."],
+      fr: ["Ouvrez une vidéo locale, choisissez les passages à conserver, relisez le montage et exportez un nouveau fichier.", "Cisel ouvre les conteneurs MP4, M4V, MOV, MKV, WebM, AVI, WMV, MPG, MPEG, TS et 3GP lorsque Windows peut décoder leurs pistes. La compatibilité dépend du codec et de son profil. Les modes Précis et Rapide exportent un MP4 et peuvent réencoder la vidéo.", "Essai complet gratuit d’un jour via Microsoft Store, puis achat définitif : 1 € en France, prix en devise locale affiché par Microsoft ailleurs. Sans abonnement ni prélèvement automatique. L’accès aux fonctions s’arrête à l’expiration de l’essai si vous ne choisissez pas d’acheter."],
+      en: ["Open a local video, choose the passages to retain, preview the edit and export a new file.", "Cisel opens MP4, M4V, MOV, MKV, WebM, AVI, WMV, MPG, MPEG, TS and 3GP containers when Windows can decode their tracks. Compatibility depends on the codec and profile. Precise and Fast modes export an MP4 and may re-encode the video.", "Free full one-day trial through Microsoft Store, then a one-time purchase: €1 in France, with Microsoft showing the local currency price elsewhere. No subscription or automatic charge. Access to app features stops when the trial expires unless you choose to buy."],
     },
     features: {
-      fr: ["Plusieurs passages dans l’ordre d’origine", "Réglage des débuts et fins, séparation et annulation", "Aperçu du montage avant l’export", "Export d’un nouveau MP4", "Traitement local sans compte ni publicité"],
-      en: ["Multiple passages in their original order", "Adjust start and end points, split and undo", "Preview the edit before export", "Export a new MP4", "Local processing without an account or ads"],
+      fr: ["Plusieurs passages dans l’ordre d’origine", "Réglage des débuts et fins, séparation et annulation", "Aperçu du montage avant l’export", "Export d’un nouveau MP4", "Traitement local sans compte propre à Cisel ni publicité"],
+      en: ["Multiple passages in their original order", "Adjust start and end points, split and undo", "Preview the edit before export", "Export a new MP4", "Local processing without a separate Cisel account or ads"],
     },
     privacyLead: { fr: "Les vidéos et montages restent sur le PC. Des sessions et un journal de récupération sont conservés localement.", en: "Videos and edits stay on the PC. Sessions and an export recovery journal are retained locally." },
   },
   {
-    ...pending, slug: "pairline", name: "Pairline", accent: "violet",
+    ...published, slug: "pairline", name: "Pairline", accent: "violet",
+    storeUrl: "https://apps.microsoft.com/detail/9NC7L5WR66C9",
     icon: "/assets/apps/pairline/icon.png", monogram: "P",
     summary: { fr: "Trouvez les copies strictement identiques et vérifiez lesquelles garder.", en: "Find strictly identical copies and review which ones to keep." },
     description: {
-      fr: ["Ajoutez les dossiers à analyser, ignorer ou protéger. Pairline confirme les doublons par comparaison du contenu octet par octet.", "L’analyse ne déplace aucun fichier. Les copies choisies sont vérifiées à nouveau avant une demande confirmée de déplacement vers la Corbeille Windows. La V1 analyse les emplacements NTFS locaux validés et exclut les emplacements réseau, cloud et amovibles."],
-      en: ["Add folders to scan, exclude or protect. Pairline confirms duplicates by comparing their content byte by byte.", "Scanning moves no files. Selected copies are revalidated before a confirmed request to move them to the Windows Recycle Bin. V1 scans validated local NTFS locations and excludes network, cloud and removable locations."],
+      fr: ["Ajoutez les dossiers à analyser, ignorer ou protéger. Pairline confirme les doublons par comparaison du contenu octet par octet.", "L’analyse ne déplace aucun fichier. Les copies choisies sont vérifiées à nouveau avant une demande confirmée de déplacement vers la Corbeille Windows. La V1 analyse les emplacements NTFS locaux validés et exclut les emplacements réseau, cloud et amovibles.", "Essai complet gratuit d’un jour via Microsoft Store, puis achat définitif : 1 € en France, prix en devise locale affiché par Microsoft ailleurs. Sans abonnement ni prélèvement automatique. L’accès aux fonctions s’arrête à l’expiration de l’essai si vous ne choisissez pas d’acheter."],
+      en: ["Add folders to scan, exclude or protect. Pairline confirms duplicates by comparing their content byte by byte.", "Scanning moves no files. Selected copies are revalidated before a confirmed request to move them to the Windows Recycle Bin. V1 scans validated local NTFS locations and excludes network, cloud and removable locations.", "Free full one-day trial through Microsoft Store, then a one-time purchase: €1 in France, with Microsoft showing the local currency price elsewhere. No subscription or automatic charge. Access to app features stops when the trial expires unless you choose to buy."],
     },
     features: {
       fr: ["Doublons exacts, même si les noms diffèrent", "Dossiers à analyser, ignorer ou protéger", "Une référence conservée par groupe", "Aucune suppression sélectionnée automatiquement", "Vérification et confirmation avant la Corbeille", "Interface française et anglaise"],
       en: ["Exact duplicates even when names differ", "Folders to scan, exclude or protect", "One retained reference per group", "No automatic deletion selection", "Revalidation and confirmation before recycling", "French and English interface"],
     },
-    privacyLead: { fr: "Le contenu, les chemins et les empreintes des fichiers restent sur le PC. Aucun compte, publicité ni télémétrie.", en: "File content, paths and fingerprints stay on the PC. No account, ads or telemetry." },
+    privacyLead: { fr: "Le contenu, les chemins et les empreintes des fichiers restent sur le PC. Aucun compte propre à Pairline, publicité ni télémétrie. Microsoft Store gère la licence.", en: "File content, paths and fingerprints stay on the PC. No separate Pairline account, ads or telemetry. Microsoft Store manages the license." },
   },
 ];
 
