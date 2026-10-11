@@ -54,15 +54,17 @@ export const apps = [
       fr: [
         "Decision Tree Studio transforme les procédures complexes en parcours visuels faciles à créer et simples à suivre.",
         "Pensé pour le support, la formation, le dépannage et les procédures internes, il réunit l’édition et la présentation dans une interface claire.",
+        "Essai gratuit de sept jours via Microsoft Store, puis achat définitif : 19,99 € en France. Microsoft affiche le prix local dans les autres pays. Sans abonnement.",
       ],
       en: [
         "Decision Tree Studio turns complex procedures into visual journeys that are easy to create and follow.",
         "Designed for support, training, troubleshooting and internal procedures, it brings editing and presentation together in a clear interface.",
+        "Free seven-day trial through Microsoft Store, then a one-time purchase: €19.99 in France. Microsoft displays the local price in other countries. No subscription.",
       ],
     },
     features: {
-      fr: ["Éditeur visuel avec cartes et connexions", "Questions, choix, résultats et cartes libres", "Projets réunissant plusieurs arbres", "Images, liens et fichiers intégrés", "Mode Présentation guidé", "Import et sauvegarde JSON", "Export HTML responsive", "Interface française et anglaise, réglable jusqu’aux écrans 4K"],
-      en: ["Visual editor with cards and connections", "Questions, choices, results and free-form cards", "Projects containing multiple trees", "Embedded images, links and files", "Guided Presentation mode", "JSON import and backup", "Responsive HTML export", "French and English interface scalable for 4K displays"],
+      fr: ["Éditeur visuel avec cartes et connexions", "Questions, choix, résultats et cartes libres", "Projets réunissant plusieurs arbres", "Images, liens et fichiers intégrés", "Mode Présentation guidé", "Import et sauvegarde JSON", "Export HTML responsive", "Interface en français, anglais, allemand, espagnol, italien et portugais du Brésil, réglable jusqu’aux écrans 4K"],
+      en: ["Visual editor with cards and connections", "Questions, choices, results and free-form cards", "Projects containing multiple trees", "Embedded images, links and files", "Guided Presentation mode", "JSON import and backup", "Responsive HTML export", "Interface in French, English, German, Spanish, Italian and Brazilian Portuguese, scalable for 4K displays"],
     },
     privacyLead: {
       fr: "Les projets restent sur l’appareil, sauf export ou partage déclenché par l’utilisateur. Aucun compte ni publicité.",
@@ -91,15 +93,17 @@ export const apps = [
       fr: [
         "Universal Converter Studio regroupe les conversions vidéo, image et audio dans une interface cohérente pour Windows 10 et 11.",
         "Un fichier, un dossier ou un lot peut être traité localement. L’import de CD audio prend en charge MP3, FLAC et WAV.",
+        "Essai gratuit d’un jour via Microsoft Store, puis achat définitif : 1,99 € en France. Microsoft affiche le prix local dans les autres pays. Sans abonnement.",
       ],
       en: [
         "Universal Converter Studio brings video, image and audio conversion together in one consistent interface for Windows 10 and 11.",
         "A file, a folder or a batch can be processed locally. Audio CD import supports MP3, FLAC and WAV.",
+        "Free one-day trial through Microsoft Store, then a one-time purchase: €1.99 in France. Microsoft displays the local price in other countries. No subscription.",
       ],
     },
     features: {
-      fr: ["Conversion vidéo, image et audio", "Traitement d’un fichier, d’un dossier ou par lots", "Import de CD audio", "File d’attente et historique locaux", "Moteur FFmpeg exécuté sur le PC", "Aucun compte", "Aucun abonnement", "Aucun envoi des médias vers un serveur de conversion"],
-      en: ["Video, image and audio conversion", "Single-file, folder and batch processing", "Audio CD import", "Local queue and history", "FFmpeg engine running on the PC", "No account", "No subscription", "No media upload to a conversion server"],
+      fr: ["Conversion vidéo, image et audio", "Traitement d’un fichier, d’un dossier ou par lots", "Import de CD audio", "File d’attente et historique locaux", "Moteur FFmpeg exécuté sur le PC", "Aucun compte", "Aucun abonnement", "Aucun envoi des médias vers un serveur de conversion", "Interface en français, anglais, allemand, espagnol, italien et portugais du Brésil"],
+      en: ["Video, image and audio conversion", "Single-file, folder and batch processing", "Audio CD import", "Local queue and history", "FFmpeg engine running on the PC", "No account", "No subscription", "No media upload to a conversion server", "Interface in French, English, German, Spanish, Italian and Brazilian Portuguese"],
     },
     privacyLead: {
       fr: "Les médias et l’historique de conversion restent sur le PC. Aucun compte, publicité ou analyse d’usage.",

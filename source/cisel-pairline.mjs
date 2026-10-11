@@ -16,8 +16,8 @@ export const ciselPairlineApps = [
       en: ["Open a local video, choose the passages to retain, preview the edit and export a new file.", "Cisel opens MP4, M4V, MOV, MKV, WebM, AVI, WMV, MPG, MPEG, TS and 3GP containers when Windows can decode their tracks. Compatibility depends on the codec and profile. Precise and Fast modes export an MP4 and may re-encode the video.", "Free full one-day trial through Microsoft Store, then a one-time purchase: €1 in France, with Microsoft showing the local currency price elsewhere. No subscription or automatic charge. Access to app features stops when the trial expires unless you choose to buy."],
     },
     features: {
-      fr: ["Plusieurs passages dans l’ordre d’origine", "Réglage des débuts et fins, séparation et annulation", "Aperçu du montage avant l’export", "Export d’un nouveau MP4", "Traitement local sans compte propre à Cisel ni publicité"],
-      en: ["Multiple passages in their original order", "Adjust start and end points, split and undo", "Preview the edit before export", "Export a new MP4", "Local processing without a separate Cisel account or ads"],
+      fr: ["Plusieurs passages dans l’ordre d’origine", "Réglage des débuts et fins, séparation et annulation", "Aperçu du montage avant l’export", "Export d’un nouveau MP4", "Traitement local sans compte propre à Cisel ni publicité", "Interface en français, anglais, allemand, espagnol, italien et portugais du Brésil"],
+      en: ["Multiple passages in their original order", "Adjust start and end points, split and undo", "Preview the edit before export", "Export a new MP4", "Local processing without a separate Cisel account or ads", "Interface in French, English, German, Spanish, Italian and Brazilian Portuguese"],
     },
     privacyLead: { fr: "Les vidéos et montages restent sur le PC. Des sessions et un journal de récupération sont conservés localement.", en: "Videos and edits stay on the PC. Sessions and an export recovery journal are retained locally." },
   },
@@ -31,8 +31,8 @@ export const ciselPairlineApps = [
       en: ["Add folders to scan, exclude or protect. Pairline confirms duplicates by comparing their content byte by byte.", "Scanning moves no files. Selected copies are revalidated before a confirmed request to move them to the Windows Recycle Bin. V1 scans validated local NTFS locations and excludes network, cloud and removable locations.", "Free full one-day trial through Microsoft Store, then a one-time purchase: €1 in France, with Microsoft showing the local currency price elsewhere. No subscription or automatic charge. Access to app features stops when the trial expires unless you choose to buy."],
     },
     features: {
-      fr: ["Doublons exacts, même si les noms diffèrent", "Dossiers à analyser, ignorer ou protéger", "Une référence conservée par groupe", "Aucune suppression sélectionnée automatiquement", "Vérification et confirmation avant la Corbeille", "Interface française et anglaise"],
-      en: ["Exact duplicates even when names differ", "Folders to scan, exclude or protect", "One retained reference per group", "No automatic deletion selection", "Revalidation and confirmation before recycling", "French and English interface"],
+      fr: ["Doublons exacts, même si les noms diffèrent", "Dossiers à analyser, ignorer ou protéger", "Une référence conservée par groupe", "Aucune suppression sélectionnée automatiquement", "Vérification et confirmation avant la Corbeille", "Interface en français, anglais, allemand, espagnol, italien et portugais du Brésil"],
+      en: ["Exact duplicates even when names differ", "Folders to scan, exclude or protect", "One retained reference per group", "No automatic deletion selection", "Revalidation and confirmation before recycling", "Interface in French, English, German, Spanish, Italian and Brazilian Portuguese"],
     },
     privacyLead: { fr: "Le contenu, les chemins et les empreintes des fichiers restent sur le PC. Aucun compte propre à Pairline, publicité ni télémétrie. Microsoft Store gère la licence.", en: "File content, paths and fingerprints stay on the PC. No separate Pairline account, ads or telemetry. Microsoft Store manages the license." },
   },

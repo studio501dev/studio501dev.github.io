@@ -15,14 +15,16 @@
         "Réglage des débuts et fins, séparation et annulation",
         "Aperçu du montage avant l’export",
         "Export d’un nouveau MP4",
-        "Traitement local sans compte propre à Cisel ni publicité"
+        "Traitement local sans compte propre à Cisel ni publicité",
+        "Interface en français, anglais, allemand, espagnol, italien et portugais du Brésil"
       ],
       "en": [
         "Multiple passages in their original order",
         "Adjust start and end points, split and undo",
         "Preview the edit before export",
         "Export a new MP4",
-        "Local processing without a separate Cisel account or ads"
+        "Local processing without a separate Cisel account or ads",
+        "Interface in French, English, German, Spanish, Italian and Brazilian Portuguese"
       ]
     },
     "screenshots": [],
@@ -46,7 +48,7 @@
         "Une référence conservée par groupe",
         "Aucune suppression sélectionnée automatiquement",
         "Vérification et confirmation avant la Corbeille",
-        "Interface française et anglaise"
+        "Interface en français, anglais, allemand, espagnol, italien et portugais du Brésil"
       ],
       "en": [
         "Exact duplicates even when names differ",
@@ -54,7 +56,7 @@
         "One retained reference per group",
         "No automatic deletion selection",
         "Revalidation and confirmation before recycling",
-        "French and English interface"
+        "Interface in French, English, German, Spanish, Italian and Brazilian Portuguese"
       ]
     },
     "screenshots": [],
@@ -80,7 +82,7 @@
         "Mode Présentation guidé",
         "Import et sauvegarde JSON",
         "Export HTML responsive",
-        "Interface française et anglaise, réglable jusqu’aux écrans 4K"
+        "Interface en français, anglais, allemand, espagnol, italien et portugais du Brésil, réglable jusqu’aux écrans 4K"
       ],
       "en": [
         "Visual editor with cards and connections",
@@ -90,7 +92,7 @@
         "Guided Presentation mode",
         "JSON import and backup",
         "Responsive HTML export",
-        "French and English interface scalable for 4K displays"
+        "Interface in French, English, German, Spanish, Italian and Brazilian Portuguese, scalable for 4K displays"
       ]
     },
     "screenshots": [
@@ -123,7 +125,8 @@
         "Moteur FFmpeg exécuté sur le PC",
         "Aucun compte",
         "Aucun abonnement",
-        "Aucun envoi des médias vers un serveur de conversion"
+        "Aucun envoi des médias vers un serveur de conversion",
+        "Interface en français, anglais, allemand, espagnol, italien et portugais du Brésil"
       ],
       "en": [
         "Video, image and audio conversion",
@@ -133,7 +136,8 @@
         "FFmpeg engine running on the PC",
         "No account",
         "No subscription",
-        "No media upload to a conversion server"
+        "No media upload to a conversion server",
+        "Interface in French, English, German, Spanish, Italian and Brazilian Portuguese"
       ]
     },
     "screenshots": [],
