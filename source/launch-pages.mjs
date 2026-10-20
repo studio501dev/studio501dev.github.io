@@ -1,4 +1,5 @@
 import { aquarevaneSupport } from "./aquarevane.mjs";
+import { nocturneSupport } from "./nocturne-accordo.mjs";
 // Public content adapted from the applications’ store policies and support FAQs.
 // Reviewed against current source manifests and Google Play In-App Updates documentation.
 export const launchPolicies = {
@@ -318,6 +319,7 @@ export const launchPolicies = {
 
 export const appSupport = {
   aquarevane: aquarevaneSupport,
+  ...nocturneSupport,
   memoa: {
     en: [
       {

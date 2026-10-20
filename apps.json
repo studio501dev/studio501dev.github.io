@@ -64,6 +64,158 @@
     "privacyUrl": "https://studio501.fr/privacy/pairline/"
   },
   {
+    "slug": "sudoku-nocturne",
+    "name": "Sudoku Nocturne",
+    "platform": "Android",
+    "status": "preparing",
+    "icon": "/assets/apps/sudoku-nocturne/icon.png",
+    "summary": {
+      "fr": "Le Sudoku élégant qui vous explique ses indices. Sans pub, sans compte, hors ligne.",
+      "en": "The elegant Sudoku whose hints explain themselves. No ads, no account, fully offline."
+    },
+    "features": {
+      "fr": [
+        "Quatre niveaux, de Facile à Expert",
+        "Grille du jour identique pour tous, avec série à garder",
+        "Indices qui expliquent le raisonnement",
+        "Notes en un geste et bouton « tous les candidats »",
+        "Annuler, pause, chronomètre et compteur d’erreurs",
+        "Statistiques et meilleurs temps par niveau",
+        "Thème Nuit, Jour ou Automatique",
+        "Chiffres plus grands et option « choisir le chiffre d’abord »",
+        "Sans publicité, sans compte, hors ligne",
+        "10 langues : français, anglais, espagnol, allemand, italien, portugais, néerlandais, indonésien, japonais et coréen"
+      ],
+      "en": [
+        "Four levels, from Easy to Expert",
+        "Daily puzzle, the same for everyone, with a streak to keep",
+        "Hints that explain the reasoning",
+        "One-gesture notes and a “fill all candidates” button",
+        "Undo, pause, timer and mistake counter",
+        "Statistics and best times per level",
+        "Night, Day or Automatic theme",
+        "Larger numbers and a “pick the number first” option",
+        "No ads, no account, fully offline",
+        "10 languages: French, English, Spanish, German, Italian, Portuguese, Dutch, Indonesian, Japanese and Korean"
+      ]
+    },
+    "screenshots": [],
+    "privacyUrl": "https://studio501.fr/privacy/sudoku-nocturne/"
+  },
+  {
+    "slug": "solitaire-nocturne",
+    "name": "Solitaire Nocturne",
+    "platform": "Android",
+    "status": "preparing",
+    "icon": "/assets/apps/solitaire-nocturne/icon.png",
+    "summary": {
+      "fr": "Le Klondike classique, avec option donnes gagnables. Sans pub, sans compte, hors ligne.",
+      "en": "Classic Klondike with an option for winnable deals. No ads, no account, fully offline."
+    },
+    "features": {
+      "fr": [
+        "Option « donnes gagnables » : une solution existe avant le début de la partie",
+        "Tirage de 1 ou de 3 cartes",
+        "Glisser-déposer fluide",
+        "Indice et annulation d’un coup",
+        "Fin de partie automatique quand la victoire est assurée",
+        "Statistiques et meilleurs temps par mode de tirage",
+        "Thème Nuit, Jour ou Automatique, son et vibrations réglables",
+        "Sans publicité, sans compte, hors ligne",
+        "10 langues : français, anglais, espagnol, allemand, italien, portugais, néerlandais, indonésien, japonais et coréen"
+      ],
+      "en": [
+        "“Winnable deals” option: a solution exists before the game starts",
+        "Draw 1 or draw 3",
+        "Smooth drag and drop",
+        "Hint and single-move undo",
+        "Automatic finish once the win is secured",
+        "Statistics and best times per draw mode",
+        "Night, Day or Automatic theme, adjustable sound and vibration",
+        "No ads, no account, fully offline",
+        "10 languages: French, English, Spanish, German, Italian, Portuguese, Dutch, Indonesian, Japanese and Korean"
+      ]
+    },
+    "screenshots": [],
+    "privacyUrl": "https://studio501.fr/privacy/solitaire-nocturne/"
+  },
+  {
+    "slug": "nocturne-bebe",
+    "name": "Nocturne Bébé",
+    "platform": "Android",
+    "status": "preparing",
+    "icon": "/assets/apps/nocturne-bebe/icon.png",
+    "summary": {
+      "fr": "Bruit blanc, cœur, pluie, berceuses : 12 sons pour apaiser bébé. Sans pub, hors ligne.",
+      "en": "White noise, heartbeat, rain, lullabies: 12 sounds to soothe your baby. No ads, fully offline."
+    },
+    "features": {
+      "fr": [
+        "12 sons à mélanger, chacun avec son volume : bruit blanc, rose et brun, battements de cœur, ventre maternel, pluie, vagues, ventilateur, sèche-cheveux, trajet en voiture, boîte à musique, chuchotement",
+        "Ambiances toutes prêtes",
+        "Votre mélange préféré enregistré et raccourci vers le dernier son",
+        "Minuteur, ou lecture toute la nuit",
+        "Lecture écran verrouillé avec commandes dans la notification",
+        "Veilleuse douce à luminosité réglable",
+        "Rappels de sécurité : distance au lit et volume modéré",
+        "Sans publicité, sans compte, aucune donnée collectée, hors ligne",
+        "10 langues : français, anglais, espagnol, allemand, italien, portugais, néerlandais, indonésien, japonais et coréen"
+      ],
+      "en": [
+        "12 sounds to mix, each with its own volume: white, pink and brown noise, heartbeat, womb, rain, waves, fan, hair dryer, car ride, music box, whisper",
+        "Ready-made ambiences",
+        "Your favourite mix saved, with a shortcut to the last sound",
+        "Timer, or all-night playback",
+        "Playback with the screen locked, with controls in the notification",
+        "Soft night light with adjustable brightness",
+        "Safety reminders: distance from the cot and moderate volume",
+        "No ads, no account, no data collected, fully offline",
+        "10 languages: French, English, Spanish, German, Italian, Portuguese, Dutch, Indonesian, Japanese and Korean"
+      ]
+    },
+    "screenshots": [],
+    "privacyUrl": "https://studio501.fr/privacy/nocturne-bebe/"
+  },
+  {
+    "slug": "accordo",
+    "name": "Accordo",
+    "platform": "Android",
+    "status": "preparing",
+    "icon": "/assets/apps/accordo/icon.png",
+    "summary": {
+      "fr": "Accordez-vous en un coup d’œil. Guitare, basse, ukulélé, violon. Sans pub, hors ligne.",
+      "en": "Tune at a glance. Guitar, bass, ukulele, violin. No ads, works offline."
+    },
+    "features": {
+      "fr": [
+        "Chromatique, guitare 6 et 7 cordes, basse 4 et 5 cordes, ukulélé, violon, alto et violoncelle",
+        "Accordages alternatifs et accordages personnalisés enregistrables",
+        "Détection automatique de la corde ou verrouillage de celle de votre choix",
+        "Notes de référence pour accorder à l’oreille, diapason réglable",
+        "Métronome de 20 à 300 BPM, tempo tapé",
+        "Mesures avec accent réglable sur chaque temps et subdivisions",
+        "Plusieurs sons de clic ou vibration seule",
+        "Le métronome continue écran verrouillé",
+        "Sans publicité, sans compte, hors ligne",
+        "10 langues : français, anglais, espagnol, allemand, italien, portugais, néerlandais, indonésien, japonais et coréen"
+      ],
+      "en": [
+        "Chromatic, 6- and 7-string guitar, 4- and 5-string bass, ukulele, violin, viola and cello",
+        "Alternate tunings and savable custom tunings",
+        "Automatic string detection or lock the string you want",
+        "Reference notes to tune by ear, adjustable reference pitch",
+        "Metronome from 20 to 300 BPM, tap tempo",
+        "Time signatures with adjustable accent on each beat, and subdivisions",
+        "Several click sounds or vibration only",
+        "The metronome keeps playing with the screen locked",
+        "No ads, no account, works offline",
+        "10 languages: French, English, Spanish, German, Italian, Portuguese, Dutch, Indonesian, Japanese and Korean"
+      ]
+    },
+    "screenshots": [],
+    "privacyUrl": "https://studio501.fr/privacy/accordo/"
+  },
+  {
     "slug": "decision-tree-studio",
     "name": "Decision Tree Studio",
     "platform": "Windows",
