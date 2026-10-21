@@ -64,11 +64,11 @@
     "privacyUrl": "https://studio501.fr/privacy/pairline/"
   },
   {
-    "slug": "monbudget",
-    "name": "MonBudget",
+    "slug": "budget-pilot",
+    "name": "Budget Pilot",
     "platform": "Windows",
     "status": "preparing",
-    "icon": "/assets/apps/monbudget/icon.png",
+    "icon": "/assets/apps/budget-pilot/icon.png",
     "summary": {
       "fr": "Budgets, objectifs d’épargne et suivi des dépenses. Privé, hors ligne, sans compte.",
       "en": "Budgets, savings goals and spending tracking. Private, offline, no account."
@@ -101,21 +101,21 @@
     },
     "screenshots": {
       "fr": [
-        "/assets/apps/monbudget/fr-1.jpg",
-        "/assets/apps/monbudget/fr-2.jpg",
-        "/assets/apps/monbudget/fr-3.jpg",
-        "/assets/apps/monbudget/fr-4.jpg",
-        "/assets/apps/monbudget/fr-5.jpg"
+        "/assets/apps/budget-pilot/fr-1.jpg",
+        "/assets/apps/budget-pilot/fr-2.jpg",
+        "/assets/apps/budget-pilot/fr-3.jpg",
+        "/assets/apps/budget-pilot/fr-4.jpg",
+        "/assets/apps/budget-pilot/fr-5.jpg"
       ],
       "en": [
-        "/assets/apps/monbudget/en-1.jpg",
-        "/assets/apps/monbudget/en-2.jpg",
-        "/assets/apps/monbudget/en-3.jpg",
-        "/assets/apps/monbudget/en-4.jpg",
-        "/assets/apps/monbudget/en-5.jpg"
+        "/assets/apps/budget-pilot/en-1.jpg",
+        "/assets/apps/budget-pilot/en-2.jpg",
+        "/assets/apps/budget-pilot/en-3.jpg",
+        "/assets/apps/budget-pilot/en-4.jpg",
+        "/assets/apps/budget-pilot/en-5.jpg"
       ]
     },
-    "privacyUrl": "https://studio501.fr/privacy/monbudget/"
+    "privacyUrl": "https://studio501.fr/privacy/budget-pilot/"
   },
   {
     "slug": "sudoku-nocturne",
