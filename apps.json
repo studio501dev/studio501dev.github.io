@@ -64,6 +64,60 @@
     "privacyUrl": "https://studio501.fr/privacy/pairline/"
   },
   {
+    "slug": "budget-pilot",
+    "name": "Budget Pilot",
+    "platform": "Windows",
+    "status": "preparing",
+    "icon": "/assets/apps/budget-pilot/icon.png",
+    "summary": {
+      "fr": "Budgets, objectifs d’épargne et suivi des dépenses. Privé, hors ligne, sans compte.",
+      "en": "Budgets, savings goals and spending tracking. Private, offline, no account."
+    },
+    "features": {
+      "fr": [
+        "Tableau de bord : solde, courbe sur 30 jours, revenus, dépenses et solde prévu en fin de mois",
+        "Score de santé financière et conseils en langage clair",
+        "Budgets par catégorie avec alertes verte, orange et rouge",
+        "Objectifs d’épargne avec le montant mensuel à viser",
+        "Opérations récurrentes ajoutées automatiquement à chaque échéance",
+        "Import de l’export CSV de la banque : doublons ignorés, catégories devinées",
+        "Virements entre comptes sans effet sur les dépenses",
+        "Annulation après chaque suppression et sauvegarde automatique quotidienne",
+        "Thèmes sombre et clair, 7 devises, code PIN facultatif",
+        "Interface en français, anglais, espagnol, allemand, italien, portugais du Brésil et néerlandais"
+      ],
+      "en": [
+        "Dashboard: balance, 30-day curve, income, spending and projected month-end balance",
+        "Financial health score and plain-language tips",
+        "Budgets by category with green, orange and red alerts",
+        "Savings goals with the monthly amount to aim for",
+        "Recurring items added automatically on each due date",
+        "Import your bank’s CSV export: duplicates skipped, categories guessed",
+        "Transfers between accounts that do not count as spending",
+        "Undo after every deletion and a daily automatic backup",
+        "Dark and light themes, 7 currencies, optional PIN lock",
+        "Interface in French, English, Spanish, German, Italian, Brazilian Portuguese and Dutch"
+      ]
+    },
+    "screenshots": {
+      "fr": [
+        "/assets/apps/budget-pilot/fr-1.jpg",
+        "/assets/apps/budget-pilot/fr-2.jpg",
+        "/assets/apps/budget-pilot/fr-3.jpg",
+        "/assets/apps/budget-pilot/fr-4.jpg",
+        "/assets/apps/budget-pilot/fr-5.jpg"
+      ],
+      "en": [
+        "/assets/apps/budget-pilot/en-1.jpg",
+        "/assets/apps/budget-pilot/en-2.jpg",
+        "/assets/apps/budget-pilot/en-3.jpg",
+        "/assets/apps/budget-pilot/en-4.jpg",
+        "/assets/apps/budget-pilot/en-5.jpg"
+      ]
+    },
+    "privacyUrl": "https://studio501.fr/privacy/budget-pilot/"
+  },
+  {
     "slug": "sudoku-nocturne",
     "name": "Sudoku Nocturne",
     "platform": "Android",

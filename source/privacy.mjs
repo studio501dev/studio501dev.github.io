@@ -2,10 +2,12 @@ import { aquarevanePolicy } from "./aquarevane.mjs";
 import { launchPolicies } from "./launch-pages.mjs";
 import { ciselPairlinePolicies } from "./cisel-pairline.mjs";
 import { nocturnePolicies } from "./nocturne-accordo.mjs";
+import { budgetPilotPolicies } from "./budget-pilot.mjs";
 
 export const policies = {
   ...ciselPairlinePolicies,
   ...nocturnePolicies,
+  ...budgetPilotPolicies,
   ...launchPolicies,
   aquarevane: aquarevanePolicy,
   "decision-tree-studio": {
