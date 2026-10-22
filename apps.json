@@ -118,6 +118,59 @@
     "privacyUrl": "https://studio501.fr/privacy/budget-pilot/"
   },
   {
+    "slug": "escale",
+    "name": "Escale – Carnet de voyage et PDF",
+    "platform": "Windows",
+    "status": "published",
+    "icon": "/assets/apps/escale/icon.png",
+    "summary": {
+      "fr": "Planifiez vos voyages jour par jour, suivez budget et réservations, et emportez un magnifique carnet PDF.",
+      "en": "Plan your trips day by day, track budget and bookings, and take a beautiful PDF travel book with you."
+    },
+    "features": {
+      "fr": [
+        "Programme jour par jour : ajoutez une étape en une phrase, glissez-la d’un jour à l’autre",
+        "Voyages à plusieurs destinations avec monnaie, prises, décalage horaire et urgences par pays",
+        "Vérifications automatiques : nuits sans hébergement, passeport trop court, démarches en retard",
+        "Réservations en cartes d’embarquement, avec numéros de confirmation et captures de billets",
+        "Budget en devises locales avec conversion, et « qui doit quoi »",
+        "Valise intelligente selon la durée, le climat et les activités",
+        "Carnet PDF soigné avec QR codes d’itinéraire, adresses cliquables et fiche d’urgence",
+        "Privé et hors ligne, interface en français, anglais, espagnol, allemand, italien et portugais"
+      ],
+      "en": [
+        "Day-by-day itinerary: add a stop in one sentence, drag stops between days",
+        "Multi-destination trips with currency, plugs, time difference and emergency numbers per country",
+        "Automatic checks: nights without accommodation, passports expiring too soon, overdue tasks",
+        "Bookings shown as boarding passes, with confirmation numbers and ticket screenshots",
+        "Budget with local currencies and conversion, plus “who owes what”",
+        "Smart suitcase based on trip length, climate and activities",
+        "Polished PDF travel book with QR route codes, clickable addresses and an emergency sheet",
+        "Private and offline, in French, English, Spanish, German, Italian and Portuguese"
+      ]
+    },
+    "screenshots": {
+      "fr": [
+        "/assets/apps/escale/screen-fr-1.jpg",
+        "/assets/apps/escale/screen-fr-2.jpg",
+        "/assets/apps/escale/screen-fr-3.jpg",
+        "/assets/apps/escale/screen-fr-4.jpg",
+        "/assets/apps/escale/screen-fr-5.jpg",
+        "/assets/apps/escale/screen-fr-6.jpg"
+      ],
+      "en": [
+        "/assets/apps/escale/screen-en-1.jpg",
+        "/assets/apps/escale/screen-en-2.jpg",
+        "/assets/apps/escale/screen-en-3.jpg",
+        "/assets/apps/escale/screen-en-4.jpg",
+        "/assets/apps/escale/screen-en-5.jpg",
+        "/assets/apps/escale/screen-en-6.jpg"
+      ]
+    },
+    "storeUrl": "https://apps.microsoft.com/detail/9NWVQSVP03RH",
+    "privacyUrl": "https://studio501.fr/privacy/escale/"
+  },
+  {
     "slug": "sudoku-nocturne",
     "name": "Sudoku Nocturne",
     "platform": "Android",
