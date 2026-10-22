@@ -67,7 +67,7 @@
     "slug": "budget-pilot",
     "name": "Budget Pilot",
     "platform": "Windows",
-    "status": "preparing",
+    "status": "published",
     "icon": "/assets/apps/budget-pilot/icon.png",
     "summary": {
       "fr": "Budgets, objectifs d’épargne et suivi des dépenses. Privé, hors ligne, sans compte.",
@@ -115,6 +115,7 @@
         "/assets/apps/budget-pilot/en-5.jpg"
       ]
     },
+    "storeUrl": "https://apps.microsoft.com/detail/9NG12MV5DN1W",
     "privacyUrl": "https://studio501.fr/privacy/budget-pilot/"
   },
   {
