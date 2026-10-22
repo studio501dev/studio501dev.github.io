@@ -1,10 +1,10 @@
 // Budget Pilot — application Windows de gestion de budget, 100 % locale (MSIX, Microsoft Store).
 // Faits vérifiés dans le code de l’application (version 2.0, octobre 2026) : aucune permission réseau, aucun compte, aucune télémétrie.
-// Prix et lien Microsoft Store : à renseigner à la publication (status: "published" + storeUrl).
 
-const preparing = {
-  statusLabel: { fr: "Publication en préparation", en: "Preparing for release" },
-  storeLabel: { fr: "Bientôt sur Microsoft Store", en: "Coming soon on Microsoft Store" },
+const published = {
+  statusLabel: { fr: "Disponible sur Microsoft Store", en: "Available on Microsoft Store" },
+  storeLabel: { fr: "Voir sur Microsoft Store", en: "View on Microsoft Store" },
+  storeUrl: "https://apps.microsoft.com/detail/9NG12MV5DN1W",
 };
 
 export const budgetPilotApps = [
@@ -13,8 +13,8 @@ export const budgetPilotApps = [
     name: "Budget Pilot",
     platform: "Windows",
     platformKey: "windows",
-    status: "preparing",
-    ...preparing,
+    status: "published",
+    ...published,
     icon: "/assets/apps/budget-pilot/icon.png",
     screenshots: {
       fr: Array.from({ length: 5 }, (_, index) => `/assets/apps/budget-pilot/fr-${index + 1}.jpg`),
