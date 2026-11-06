@@ -1,5 +1,44 @@
 [
   {
+    "slug": "aurelia",
+    "name": "Aurélia — Les Jardins oubliés",
+    "platform": "Android",
+    "status": "preparing",
+    "icon": "/assets/apps/aurelia/icon.png",
+    "summary": {
+      "fr": "Fusionnez des objets enchantés et redonnez vie à des jardins oubliés. Sans pub, sans énergie, hors ligne.",
+      "en": "Merge enchanted objects and bring forgotten gardens back to life. Offline, with no ads or energy timer."
+    },
+    "features": {
+      "fr": [
+        "Fusion par glisser-déposer ou sélection au toucher",
+        "Huit jardins à restaurer progressivement",
+        "Six familles d’objets et des créations alchimiques rares",
+        "Distributeurs spéciaux à reconstruire sans perdre leurs produits",
+        "Commandes, améliorations permanentes et défis",
+        "Sauvegarde locale et export/import de progression",
+        "Sons, animations et réglages intégrés",
+        "Sans publicité, compte, abonnement ni achat intégré"
+      ],
+      "en": [
+        "Drag-and-drop or tap-to-select merging",
+        "Eight gardens to restore over time",
+        "Six item families and rare alchemical creations",
+        "Rebuild special dispensers while keeping their products",
+        "Orders, permanent upgrades and challenges",
+        "Local saves with progress export and import",
+        "Built-in sound, animations and settings",
+        "No ads, account, subscription or in-app purchases"
+      ]
+    },
+    "screenshots": [
+      "/assets/apps/aurelia/01-fusionner.png",
+      "/assets/apps/aurelia/02-restaurer.png",
+      "/assets/apps/aurelia/03-jardin.png"
+    ],
+    "privacyUrl": "https://studio501.fr/privacy/aurelia/"
+  },
+  {
     "slug": "cisel",
     "name": "Cisel Video Cutter",
     "platform": "Windows",

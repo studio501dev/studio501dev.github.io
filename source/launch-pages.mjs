@@ -1,5 +1,6 @@
 import { aquarevaneSupport } from "./aquarevane.mjs";
 import { nocturneSupport } from "./nocturne-accordo.mjs";
+import { aureliaSupport } from "./aurelia.mjs";
 // Public content adapted from the applications’ store policies and support FAQs.
 // Reviewed against current source manifests and Google Play In-App Updates documentation.
 export const launchPolicies = {
@@ -318,6 +319,7 @@ export const launchPolicies = {
 };
 
 export const appSupport = {
+  aurelia: aureliaSupport,
   aquarevane: aquarevaneSupport,
   ...nocturneSupport,
   memoa: {

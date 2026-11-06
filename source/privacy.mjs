@@ -4,8 +4,10 @@ import { ciselPairlinePolicies } from "./cisel-pairline.mjs";
 import { nocturnePolicies } from "./nocturne-accordo.mjs";
 import { budgetPilotPolicies } from "./budget-pilot.mjs";
 import { escalePolicies } from "./escale.mjs";
+import { aureliaPolicy } from "./aurelia.mjs";
 
 export const policies = {
+  aurelia: aureliaPolicy,
   ...ciselPairlinePolicies,
   ...nocturnePolicies,
   ...budgetPilotPolicies,
