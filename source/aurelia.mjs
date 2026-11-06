@@ -7,7 +7,7 @@ export const aureliaApp = {
   storeLabel: { fr: "Bientôt sur Google Play", en: "Coming soon on Google Play" },
   packageName: "com.studio501.aurelia",
   icon: "/assets/apps/aurelia/icon.png",
-  screenshots: ["/assets/apps/aurelia/01-fusionner.png", "/assets/apps/aurelia/02-restaurer.png", "/assets/apps/aurelia/03-jardin.png"], accent: "mint",
+  screenshots: ["/assets/apps/aurelia/01-fusionner.png", "/assets/apps/aurelia/02-restaurer.png", "/assets/apps/aurelia/03-jardin.png", "/assets/apps/aurelia/04-recettes.png"], accent: "mint",
   summary: {
     fr: "Fusionnez des objets enchantés et redonnez vie à des jardins oubliés. Sans pub, sans énergie, hors ligne.",
     en: "Merge enchanted objects and bring forgotten gardens back to life. Offline, with no ads or energy timer.",
