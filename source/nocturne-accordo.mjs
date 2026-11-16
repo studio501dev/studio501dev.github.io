@@ -1,9 +1,9 @@
 // Nocturne games (Sudoku, Solitaire), Nocturne Bébé and Accordo — Android apps, paid, offline, no Internet permission.
 // Facts reviewed against the apps' merged release manifests and source code (October 2026).
 
-const preparing = {
-  statusLabel: { fr: "Publication en préparation", en: "Preparing for release" },
-  storeLabel: { fr: "Bientôt sur Google Play", en: "Coming soon on Google Play" },
+const published = {
+  statusLabel: { fr: "Disponible sur Google Play", en: "Available on Google Play" },
+  storeLabel: { fr: "Disponible sur Google Play", en: "Get it on Google Play" },
 };
 
 export const nocturneApps = [
@@ -12,8 +12,9 @@ export const nocturneApps = [
     name: "Sudoku Nocturne",
     platform: "Android",
     platformKey: "android",
-    status: "preparing",
-    ...preparing,
+    status: "published",
+    ...published,
+    storeUrl: "https://play.google.com/store/apps/details?id=com.nocturne.sudoku",
     packageName: "com.nocturne.sudoku",
     icon: "/assets/apps/sudoku-nocturne/icon.png",
     screenshots: [],
@@ -50,8 +51,9 @@ export const nocturneApps = [
     name: "Solitaire Nocturne",
     platform: "Android",
     platformKey: "android",
-    status: "preparing",
-    ...preparing,
+    status: "published",
+    ...published,
+    storeUrl: "https://play.google.com/store/apps/details?id=com.nocturne.solitaire",
     packageName: "com.nocturne.solitaire",
     icon: "/assets/apps/solitaire-nocturne/icon.png",
     screenshots: [],
@@ -88,8 +90,9 @@ export const nocturneApps = [
     name: "Nocturne Bébé",
     platform: "Android",
     platformKey: "android",
-    status: "preparing",
-    ...preparing,
+    status: "published",
+    ...published,
+    storeUrl: "https://play.google.com/store/apps/details?id=com.nocturne.baby",
     packageName: "com.nocturne.baby",
     icon: "/assets/apps/nocturne-bebe/icon.png",
     screenshots: [],
@@ -126,8 +129,9 @@ export const nocturneApps = [
     name: "Accordo",
     platform: "Android",
     platformKey: "android",
-    status: "preparing",
-    ...preparing,
+    status: "published",
+    ...published,
+    storeUrl: "https://play.google.com/store/apps/details?id=com.accordo.tuner",
     packageName: "com.accordo.tuner",
     icon: "/assets/apps/accordo/icon.png",
     screenshots: [],

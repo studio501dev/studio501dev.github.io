@@ -1,3 +1,4 @@
+import { nualumiApp } from "./nualumi.mjs";
 import { aquarevaneApp } from "./aquarevane.mjs";
 import { ciselPairlineApps } from "./cisel-pairline.mjs";
 import { nocturneApps } from "./nocturne-accordo.mjs";
@@ -37,6 +38,7 @@ export const site = {
 };
 
 export const apps = [
+  nualumiApp,
   aureliaApp,
   ...ciselPairlineApps,
   ...budgetPilotApps,
