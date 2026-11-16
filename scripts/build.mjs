@@ -8,7 +8,7 @@ import { additionalSubscriptionPolicyPaths, decorateSubscriptionPolicy, renderSu
 
 const root = resolve(import.meta.dirname, "..");
 const languages = ["fr", "en"];
-// Publish the approved Nualumi help/privacy pages without adding an unreleased app to the catalogue.
+// Preserve the existing six-language Nualumi help/privacy URLs alongside its published catalogue entry.
 const nualumiStandalonePaths = ["privacy", "support"].flatMap((kind) => ["", "en/", "es/", "de/", "it/", "pt-BR/"].map((locale) => `/${kind}/nualumi/${locale}`));
 
 const labels = {
@@ -25,7 +25,7 @@ const langPath = (lang, path) => lang === "fr" ? path : path === "/" ? "/en/" : 
 const alternatePath = (lang, path) => langPath(lang === "fr" ? "en" : "fr", path);
 const absolute = (path) => `${site.baseUrl}${path}`;
 const policySlug = (app) => app.privacySlug || app.slug;
-const supportPath = (app) => appSupport[app.slug] ? `/support/${app.slug}/` : `/support/?app=${encodeURIComponent(app.slug)}`;
+const supportPath = (app) => app.slug === "nualumi" ? "/support/nualumi/" : appSupport[app.slug] ? `/support/${app.slug}/` : `/support/?app=${encodeURIComponent(app.slug)}`;
 const appBySlug = (slug) => apps.find((app) => app.slug === slug);
 const screenshotsFor = (app, lang) => Array.isArray(app.screenshots) ? app.screenshots : app.screenshots?.[lang] || [];
 
@@ -305,6 +305,12 @@ function notFoundPage(lang) {
   return `${head({ lang, path, title: fr ? "Page introuvable — Studio501" : "Page not found — Studio501", description: fr ? "Cette page n’existe pas ou a été déplacée." : "This page does not exist or has moved." })}${header(lang, "", path)}<main id="main"><section class="not-found"><div class="shell"><span class="brand-mark brand-mark--large">5</span><p class="eyebrow">${fr ? "Erreur 404" : "Error 404"}</p><h1>${fr ? "Cette page reste à inventer." : "This page is yet to be invented."}</h1><p>${fr ? "La page demandée n’existe pas ou a été déplacée." : "The requested page does not exist or has moved."}</p><a class="button button--primary" href="${langPath(lang, "/")}">${fr ? "Retour à l’accueil" : "Back to home"}</a></div></section></main>${footer(lang)}`;
 }
 
+
+function decorateNualumi(document,lang) {
+  const status=lang === "fr" ? "Disponible sur Google Play" : "Available on Google Play";
+  return document.replace(/(<h1\b[^>]*>)/, `<p><span class="status status--published">${status}</span> · <a href="https://play.google.com/store/apps/details?id=app.studio501.nualumi">Google Play</a></p>$1`);
+}
+
 async function output(path, content) {
   const target = join(root, path.replace(/^\//, ""));
   await mkdir(dirname(target), { recursive: true });
@@ -334,7 +340,7 @@ async function build() {
     await output(`${prefix}about/index.html`, aboutPage(lang));
     for (const app of apps) {
       await output(`${prefix}apps/${app.slug}/index.html`, applicationPage(lang, app));
-      await output(`${prefix}privacy/${policySlug(app)}/index.html`, policyPage(lang, app));
+      if (app.slug !== "nualumi") await output(`${prefix}privacy/${policySlug(app)}/index.html`, policyPage(lang, app));
       if (appSupport[app.slug]) await output(`${prefix}support/${app.slug}/index.html`, appSupportPage(lang, app));
     }
   }
@@ -347,9 +353,11 @@ async function build() {
   await output("en/404.html", notFoundPage("en"));
   for (const path of nualumiStandalonePaths) {
     const locale = path.split("/")[3] || "fr";
-    const document = await readFile(join(root, "source/nualumi", locale === "fr" ? "" : locale, path.startsWith("/privacy/") ? "privacy.html" : "support.html"), "utf8");
+    const document = decorateNualumi(await readFile(join(root, "source/nualumi", locale === "fr" ? "" : locale, path.startsWith("/privacy/") ? "privacy.html" : "support.html"), "utf8"), locale);
     await output(`${path}index.html`, document);
   }
+  await output("en/privacy/nualumi/index.html", decorateNualumi(await readFile(join(root,"source/nualumi/en/privacy.html"),"utf8"),"en"));
+  await output("en/support/nualumi/index.html", decorateNualumi(await readFile(join(root,"source/nualumi/en/support.html"),"utf8"),"en"));
   const publicApps = apps.map((app) => ({ slug: app.slug, name: app.name, platform: app.platform, status: app.status, icon: app.icon, summary: app.summary, features: app.features, screenshots: app.screenshots, storeUrl: app.storeUrl, privacyUrl: `${site.baseUrl}/privacy/${policySlug(app)}/` }));
   await output("apps.json", JSON.stringify(publicApps, null, 2));
   const canonicalPaths = ["/", "/windows/", "/android/", "/apps/", "/privacy/", "/confidentialite/", "/mentions-legales/", "/support/", "/about/", ...apps.flatMap((app) => [`/apps/${app.slug}/`, `/privacy/${policySlug(app)}/`, ...(appSupport[app.slug] ? [`/support/${app.slug}/`] : [])])];
@@ -363,7 +371,7 @@ async function build() {
 if (process.argv.includes("--nualumi-only")) {
   for (const path of nualumiStandalonePaths) {
     const locale = path.split("/")[3] || "fr";
-    const document = await readFile(join(root, "source/nualumi", locale === "fr" ? "" : locale, path.startsWith("/privacy/") ? "privacy.html" : "support.html"), "utf8");
+    const document = decorateNualumi(await readFile(join(root, "source/nualumi", locale === "fr" ? "" : locale, path.startsWith("/privacy/") ? "privacy.html" : "support.html"), "utf8"), locale);
     await output(`${path}index.html`, document);
   }
   let sitemap = await readFile(join(root, "sitemap.xml"), "utf8");
